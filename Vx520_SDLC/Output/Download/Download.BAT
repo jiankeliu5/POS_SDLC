@@ -1,0 +1,1 @@
+ddl -p1 -b115200 *GO=f:sdlc.out *smdl=1 -FSDLC.dld -x1
