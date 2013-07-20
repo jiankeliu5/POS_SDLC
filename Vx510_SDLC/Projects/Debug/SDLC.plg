@@ -1,0 +1,21 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: sdlc - Win32 Debug--------------------
+</h3>
+
+
+Microsoft (R) Program Maintenance Utility   Version 6.00.8168.0
+Copyright (C) Microsoft Corp 1988-1998. All rights reserved.
+
+ C:\VerixVAps\VFSDK\bin\vrxcc -c -I C:\VerixVAps\VFSDK\include,C:\VerixVAps\TCPIP\include,C:\VerixVAps\UCL\include,C:\VerixVAps\TCPIP\VerixInclude  -IC:\VerixVAps\ACT2000\include  -IC:\VerixVAps\PROJETOS\sdlc.TB\sdlc.TB.Vx510\source\Basico  -IC:\VerixVAps\PROJETOS\sdlc.TB\sdlc.TB.Vx510\source\lib\inc -IC:\VerixVAps\PROJETOS\sdlc.TB\sdlc.TB.Vx510\source\porting  -DVx510 -DCOM_GPRS C:\VerixVAps\PROJETOS\sdlc.TB\sdlc.TB.Vx510\source\Basico\aplic.c
+ move aplic.o  C:\VerixVAps\PROJETOS\sdlc.TB\sdlc.TB.Vx510\Obj\aplic.o
+ C:\VerixVAps\VFSDK\bin\vrxcc -c -I C:\VerixVAps\VFSDK\include,C:\VerixVAps\TCPIP\include,C:\VerixVAps\UCL\include,C:\VerixVAps\TCPIP\VerixInclude  -IC:\VerixVAps\ACT2000\include  -IC:\VerixVAps\PROJETOS\sdlc.TB\sdlc.TB.Vx510\source\Basico  -IC:\VerixVAps\PROJETOS\sdlc.TB\sdlc.TB.Vx510\source\lib\inc -IC:\VerixVAps\PROJETOS\sdlc.TB\sdlc.TB.Vx510\source\porting  -DVx510 -DCOM_GPRS C:\VerixVAps\PROJETOS\sdlc.TB\sdlc.TB.Vx510\source\Basico\Basico.c
+^C
+NMAKE terminated at user request.
+
+</pre>
+</body>
+</html>

@@ -1,0 +1,1944 @@
+ARM Linker, RVCT2.0.1 [Build 277]
+
+================================================================================
+
+Image Symbol Table
+
+    Mapping Symbols
+
+    Sym    Value        Execution Region
+
+    $m     0x00000441   ABSOLUTE
+    $a     0x70000060   ABSOLUTE
+    $a     0x7000006c   ABSOLUTE
+    $a     0x70000078   ABSOLUTE
+    $a     0x70000084   ABSOLUTE
+    $a     0x70000090   ABSOLUTE
+    $a     0x7000009c   ABSOLUTE
+    $a     0x700000a8   ABSOLUTE
+    $a     0x700000b4   ABSOLUTE
+    $a     0x700000c0   ABSOLUTE
+    $a     0x700000cc   ABSOLUTE
+    $a     0x700000d8   ABSOLUTE
+    $a     0x700000e4   ABSOLUTE
+    $a     0x700000f0   ABSOLUTE
+    $a     0x700000fc   ABSOLUTE
+    $a     0x70000108   ABSOLUTE
+    $a     0x70000114   ABSOLUTE
+    $a     0x70000120   ABSOLUTE
+    $a     0x7000012c   ABSOLUTE
+    $a     0x70000138   ABSOLUTE
+    $a     0x70000144   ABSOLUTE
+    $a     0x70000150   ABSOLUTE
+    $a     0x7000015c   ABSOLUTE
+    $a     0x70000168   ABSOLUTE
+    $a     0x70000174   ABSOLUTE
+    $a     0x70000180   ABSOLUTE
+    $a     0x7000018c   ABSOLUTE
+    $a     0x70000198   ABSOLUTE
+    $a     0x700001a4   ABSOLUTE
+    $a     0x700001b0   ABSOLUTE
+    $a     0x700001bc   ABSOLUTE
+    $a     0x700001c8   ABSOLUTE
+    $a     0x700001d4   ABSOLUTE
+    $a     0x700001e0   ABSOLUTE
+    $a     0x700001ec   ABSOLUTE
+    $a     0x700001f8   ABSOLUTE
+    $a     0x70000204   ABSOLUTE
+    $a     0x70000210   ABSOLUTE
+    $a     0x7000021c   ABSOLUTE
+    $a     0x70000228   ABSOLUTE
+    $a     0x70000234   ABSOLUTE
+    $a     0x70000240   ABSOLUTE
+    $a     0x7000024c   ABSOLUTE
+    $a     0x70000258   ABSOLUTE
+    $a     0x70000264   ABSOLUTE
+    $a     0x70000270   ABSOLUTE
+    $a     0x7000027c   ABSOLUTE
+    $a     0x70000288   ABSOLUTE
+    $a     0x70000294   ABSOLUTE
+    $a     0x700002a0   ABSOLUTE
+    $a     0x700002ac   ABSOLUTE
+    $a     0x700002b8   ABSOLUTE
+    $a     0x700002d0   ABSOLUTE
+    $a     0x700002dc   ABSOLUTE
+    $a     0x700002e8   ABSOLUTE
+    $a     0x700002f4   ABSOLUTE
+    $a     0x70000300   ABSOLUTE
+    $a     0x70000324   ABSOLUTE
+    $a     0x70000330   ABSOLUTE
+    $a     0x7000033c   ABSOLUTE
+    $a     0x70000348   ABSOLUTE
+    $a     0x70000354   ABSOLUTE
+    $a     0x70000360   ABSOLUTE
+    $a     0x7000036c   ABSOLUTE
+    $a     0x70000378   ABSOLUTE
+    $a     0x70000384   ABSOLUTE
+    $a     0x70000390   ABSOLUTE
+    $a     0x7000039c   ABSOLUTE
+    $a     0x700003a8   ABSOLUTE
+    $a     0x700003b4   ABSOLUTE
+    $a     0x700003c0   ABSOLUTE
+    $a     0x700003cc   ABSOLUTE
+    $a     0x700003d8   ABSOLUTE
+    $a     0x700003e4   ABSOLUTE
+    $a     0x700003f0   ABSOLUTE
+    $a     0x700003fc   ABSOLUTE
+    $a     0x70000408   ABSOLUTE
+    $a     0x70000414   ABSOLUTE
+    $a     0x70000420   ABSOLUTE
+    $a     0x7000042c   ABSOLUTE
+    $a     0x70000438   ABSOLUTE
+    $a     0x70000444   ABSOLUTE
+    $a     0x70000450   ABSOLUTE
+    $a     0x7000045c   ABSOLUTE
+    $a     0x70000468   ABSOLUTE
+    $a     0x70000474   ABSOLUTE
+    $a     0x70000480   ABSOLUTE
+    $a     0x7000048c   ABSOLUTE
+    $a     0x70000498   ABSOLUTE
+    $a     0x700004a4   ABSOLUTE
+    $a     0x700004b0   ABSOLUTE
+    $a     0x700004bc   ABSOLUTE
+    $a     0x700004c8   ABSOLUTE
+    $a     0x700004d4   ABSOLUTE
+    $a     0x700004e0   ABSOLUTE
+    $a     0x700004ec   ABSOLUTE
+    $a     0x700004f8   ABSOLUTE
+    $a     0x70000504   ABSOLUTE
+    $a     0x7000057c   ABSOLUTE
+    $a     0x70000588   ABSOLUTE
+    $a     0x70000594   ABSOLUTE
+    $a     0x700005a0   ABSOLUTE
+    $a     0x700005ac   ABSOLUTE
+    $a     0x700005b8   ABSOLUTE
+    $a     0x700005c4   ABSOLUTE
+    $a     0x700005d0   ABSOLUTE
+    $a     0x700005dc   ABSOLUTE
+    $a     0x700005e8   ABSOLUTE
+    $a     0x700005f4   ABSOLUTE
+    $a     0x70000600   ABSOLUTE
+    $a     0x7000060c   ABSOLUTE
+    $a     0x70000618   ABSOLUTE
+    $a     0x7000066c   ABSOLUTE
+    $a     0x700009b4   ABSOLUTE
+    $d     0x70420040   CODE
+    $d     0x70420060   CODE
+    $d     0x70420070   CODE
+    $t     0x70420074   CODE
+    $a     0x70420078   CODE
+    $t     0x7042007c   CODE
+    $b     0x7042009a   CODE
+    $b     0x704200d6   CODE
+    $b     0x704200f0   CODE
+    $b     0x704200f8   CODE
+    $b     0x70420104   CODE
+    $b     0x7042010e   CODE
+    $d     0x7042012a   CODE
+    $t     0x70420154   CODE
+    $b     0x70420156   CODE
+    $b     0x70420160   CODE
+    $b     0x7042016a   CODE
+    $b     0x70420172   CODE
+    $b     0x70420176   CODE
+    $b     0x7042017a   CODE
+    $b     0x70420184   CODE
+    $b     0x70420188   CODE
+    $b     0x70420198   CODE
+    $b     0x704201ae   CODE
+    $b     0x704201b2   CODE
+    $b     0x704201ba   CODE
+    $b     0x704201c0   CODE
+    $b     0x704201c6   CODE
+    $b     0x704201d0   CODE
+    $b     0x704201d8   CODE
+    $b     0x704201e0   CODE
+    $b     0x704201ea   CODE
+    $b     0x704201f4   CODE
+    $b     0x704201f8   CODE
+    $b     0x70420200   CODE
+    $b     0x70420208   CODE
+    $b     0x70420210   CODE
+    $b     0x70420218   CODE
+    $b     0x70420220   CODE
+    $b     0x70420226   CODE
+    $b     0x70420234   CODE
+    $b     0x7042023e   CODE
+    $b     0x70420248   CODE
+    $b     0x70420252   CODE
+    $b     0x70420258   CODE
+    $b     0x7042025e   CODE
+    $d     0x70420266   CODE
+    $b     0x70420380   CODE
+    $t     0x70420380   CODE
+    $b     0x70420388   CODE
+    $b     0x70420392   CODE
+    $b     0x70420398   CODE
+    $b     0x7042039e   CODE
+    $d     0x704203a4   CODE
+    $t     0x704203bc   CODE
+    $b     0x704203be   CODE
+    $b     0x704203c6   CODE
+    $b     0x704203da   CODE
+    $b     0x704203e0   CODE
+    $b     0x704203f8   CODE
+    $b     0x70420406   CODE
+    $b     0x70420416   CODE
+    $b     0x70420424   CODE
+    $b     0x70420440   CODE
+    $b     0x70420450   CODE
+    $b     0x7042045c   CODE
+    $b     0x7042046c   CODE
+    $b     0x70420478   CODE
+    $b     0x7042048e   CODE
+    $b     0x7042049a   CODE
+    $b     0x704204b0   CODE
+    $b     0x704204b8   CODE
+    $b     0x704204ca   CODE
+    $b     0x70420510   CODE
+    $b     0x70420524   CODE
+    $b     0x7042052c   CODE
+    $b     0x70420536   CODE
+    $b     0x7042053a   CODE
+    $b     0x70420548   CODE
+    $b     0x7042054e   CODE
+    $d     0x70420556   CODE
+    $b     0x70420670   CODE
+    $t     0x70420670   CODE
+    $b     0x70420678   CODE
+    $b     0x70420680   CODE
+    $b     0x70420688   CODE
+    $b     0x70420694   CODE
+    $b     0x704206a0   CODE
+    $b     0x704206a4   CODE
+    $b     0x704206b2   CODE
+    $b     0x704206b6   CODE
+    $b     0x704206c4   CODE
+    $b     0x704206c8   CODE
+    $d     0x704206d8   CODE
+    $t     0x70420754   CODE
+    $b     0x70420798   CODE
+    $b     0x704207aa   CODE
+    $b     0x704207ee   CODE
+    $b     0x70420816   CODE
+    $b     0x7042082a   CODE
+    $b     0x704208a2   CODE
+    $b     0x704208aa   CODE
+    $b     0x704208b8   CODE
+    $b     0x704208cc   CODE
+    $b     0x70420902   CODE
+    $b     0x7042090c   CODE
+    $b     0x70420916   CODE
+    $b     0x70420926   CODE
+    $b     0x7042099c   CODE
+    $b     0x704209ac   CODE
+    $b     0x704209d2   CODE
+    $b     0x704209d8   CODE
+    $b     0x704209e2   CODE
+    $b     0x704209ec   CODE
+    $b     0x704209f2   CODE
+    $b     0x704209fe   CODE
+    $b     0x70420a06   CODE
+    $b     0x70420a10   CODE
+    $b     0x70420a1a   CODE
+    $b     0x70420a24   CODE
+    $b     0x70420a32   CODE
+    $b     0x70420a3c   CODE
+    $b     0x70420a46   CODE
+    $b     0x70420a58   CODE
+    $b     0x70420a62   CODE
+    $b     0x70420ab8   CODE
+    $b     0x70420ac6   CODE
+    $b     0x70420ad2   CODE
+    $b     0x70420b24   CODE
+    $b     0x70420b2e   CODE
+    $d     0x70420b48   CODE
+    $t     0x70420c28   CODE
+    $b     0x70420c2c   CODE
+    $b     0x70420c56   CODE
+    $b     0x70420c62   CODE
+    $b     0x70420c7c   CODE
+    $b     0x70420c84   CODE
+    $b     0x70420caa   CODE
+    $b     0x70420cb2   CODE
+    $b     0x70420cbc   CODE
+    $b     0x70420cc4   CODE
+    $b     0x70420cce   CODE
+    $b     0x70420cd6   CODE
+    $b     0x70420cfa   CODE
+    $b     0x70420d1c   CODE
+    $b     0x70420d26   CODE
+    $b     0x70420d60   CODE
+    $b     0x70420d6a   CODE
+    $b     0x70420d7a   CODE
+    $b     0x70420d96   CODE
+    $b     0x70420de8   CODE
+    $b     0x70420e0a   CODE
+    $b     0x70420e1a   CODE
+    $b     0x70420e20   CODE
+    $b     0x70420e28   CODE
+    $b     0x70420e42   CODE
+    $b     0x70420e9a   CODE
+    $b     0x70420ec6   CODE
+    $d     0x70420ed0   CODE
+    $t     0x70420fd4   CODE
+    $b     0x70420ff4   CODE
+    $b     0x70421008   CODE
+    $d     0x70421028   CODE
+    $t     0x70421060   CODE
+    $b     0x70421078   CODE
+    $d     0x70421084   CODE
+    $t     0x7042108c   CODE
+    $b     0x704210ac   CODE
+    $d     0x704210b8   CODE
+    $a     0x704210bc   CODE
+    $d     0x704210d4   CODE
+    $t     0x704210dc   CODE
+    $b     0x704210de   CODE
+    $b     0x704210e8   CODE
+    $b     0x704210f2   CODE
+    $b     0x704210fa   CODE
+    $b     0x70421102   CODE
+    $b     0x70421114   CODE
+    $b     0x7042111c   CODE
+    $b     0x70421126   CODE
+    $b     0x70421130   CODE
+    $b     0x70421138   CODE
+    $b     0x70421140   CODE
+    $b     0x70421148   CODE
+    $b     0x70421150   CODE
+    $b     0x7042115a   CODE
+    $b     0x70421164   CODE
+    $b     0x7042116c   CODE
+    $b     0x70421174   CODE
+    $b     0x7042117c   CODE
+    $b     0x70421184   CODE
+    $b     0x7042118e   CODE
+    $b     0x70421198   CODE
+    $b     0x704211a0   CODE
+    $b     0x704211a8   CODE
+    $b     0x704211b0   CODE
+    $b     0x704211b8   CODE
+    $b     0x704211c2   CODE
+    $b     0x704211cc   CODE
+    $b     0x704211d4   CODE
+    $b     0x704211dc   CODE
+    $b     0x704211e4   CODE
+    $b     0x704211ec   CODE
+    $b     0x704211f4   CODE
+    $b     0x70421204   CODE
+    $b     0x7042120c   CODE
+    $b     0x70421214   CODE
+    $b     0x7042121e   CODE
+    $b     0x70421228   CODE
+    $b     0x70421230   CODE
+    $b     0x70421238   CODE
+    $b     0x70421240   CODE
+    $b     0x70421248   CODE
+    $b     0x70421250   CODE
+    $b     0x70421260   CODE
+    $b     0x70421268   CODE
+    $b     0x70421270   CODE
+    $b     0x70421278   CODE
+    $b     0x70421280   CODE
+    $b     0x7042128a   CODE
+    $b     0x70421294   CODE
+    $b     0x7042129c   CODE
+    $b     0x704212a4   CODE
+    $b     0x704212ac   CODE
+    $b     0x704212b4   CODE
+    $b     0x704212bc   CODE
+    $b     0x704212cc   CODE
+    $b     0x704212d4   CODE
+    $b     0x704212dc   CODE
+    $b     0x704212e4   CODE
+    $b     0x704212ee   CODE
+    $b     0x704212fe   CODE
+    $b     0x70421308   CODE
+    $b     0x70421312   CODE
+    $b     0x7042131a   CODE
+    $b     0x70421322   CODE
+    $b     0x7042132a   CODE
+    $b     0x70421332   CODE
+    $b     0x7042133a   CODE
+    $b     0x7042134a   CODE
+    $b     0x70421352   CODE
+    $b     0x7042135a   CODE
+    $b     0x70421362   CODE
+    $d     0x70421368   CODE
+    $t     0x7042136c   CODE
+    $b     0x70421378   CODE
+    $b     0x70421390   CODE
+    $b     0x70421396   CODE
+    $b     0x704213c4   CODE
+    $b     0x704213ec   CODE
+    $b     0x704213f2   CODE
+    $b     0x70421406   CODE
+    $b     0x70421410   CODE
+    $b     0x70421442   CODE
+    $b     0x7042146e   CODE
+    $b     0x704214a0   CODE
+    $b     0x704214d4   CODE
+    $b     0x70421530   CODE
+    $b     0x7042153c   CODE
+    $b     0x70421546   CODE
+    $b     0x70421570   CODE
+    $b     0x7042157e   CODE
+    $b     0x704215d8   CODE
+    $b     0x70421636   CODE
+    $b     0x7042163e   CODE
+    $b     0x70421646   CODE
+    $b     0x7042164e   CODE
+    $b     0x70421680   CODE
+    $b     0x70421690   CODE
+    $b     0x704216c0   CODE
+    $b     0x704216d6   CODE
+    $b     0x704216f2   CODE
+    $b     0x70421710   CODE
+    $d     0x70421782   CODE
+    $t     0x704217b8   CODE
+    $b     0x70421816   CODE
+    $b     0x7042181a   CODE
+    $b     0x70421822   CODE
+    $b     0x7042185c   CODE
+    $b     0x70421866   CODE
+    $b     0x70421878   CODE
+    $b     0x704218b4   CODE
+    $b     0x70421938   CODE
+    $b     0x70421950   CODE
+    $b     0x7042197a   CODE
+    $b     0x704219a0   CODE
+    $b     0x704219d0   CODE
+    $b     0x704219e6   CODE
+    $b     0x704219f4   CODE
+    $b     0x70421a00   CODE
+    $b     0x70421a0c   CODE
+    $b     0x70421a18   CODE
+    $b     0x70421a20   CODE
+    $b     0x70421a2a   CODE
+    $b     0x70421a34   CODE
+    $b     0x70421a40   CODE
+    $b     0x70421a46   CODE
+    $b     0x70421a5a   CODE
+    $b     0x70421a88   CODE
+    $b     0x70421ade   CODE
+    $b     0x70421af2   CODE
+    $b     0x70421b1e   CODE
+    $b     0x70421b32   CODE
+    $d     0x70421b68   CODE
+    $t     0x70421b98   CODE
+    $b     0x70421bb8   CODE
+    $b     0x70421bda   CODE
+    $b     0x70421c02   CODE
+    $b     0x70421c38   CODE
+    $b     0x70421c44   CODE
+    $b     0x70421c60   CODE
+    $b     0x70421c7e   CODE
+    $b     0x70421c8e   CODE
+    $b     0x70421c98   CODE
+    $b     0x70421cac   CODE
+    $b     0x70421cd6   CODE
+    $b     0x70421cde   CODE
+    $b     0x70421cf6   CODE
+    $b     0x70421d04   CODE
+    $b     0x70421d3e   CODE
+    $b     0x70421d58   CODE
+    $b     0x70421d60   CODE
+    $b     0x70421d7e   CODE
+    $b     0x70421da6   CODE
+    $d     0x70421daa   CODE
+    $t     0x70421db2   CODE
+    $b     0x70421de2   CODE
+    $b     0x70421df8   CODE
+    $b     0x70421e0c   CODE
+    $b     0x70421e16   CODE
+    $b     0x70421e2c   CODE
+    $b     0x70421e42   CODE
+    $b     0x70421e58   CODE
+    $b     0x70421e6e   CODE
+    $b     0x70421e84   CODE
+    $b     0x70421e9a   CODE
+    $b     0x70421eb0   CODE
+    $b     0x70421ec6   CODE
+    $b     0x70421eda   CODE
+    $b     0x70421ee4   CODE
+    $b     0x70421efa   CODE
+    $b     0x70421f0e   CODE
+    $b     0x70421f18   CODE
+    $b     0x70421f2e   CODE
+    $b     0x70421f44   CODE
+    $b     0x70421f5a   CODE
+    $d     0x70421f68   CODE
+    $t     0x70421f88   CODE
+    $t     0x70421fdc   CODE
+    $b     0x70421fe4   CODE
+    $t     0x7042200c   CODE
+    $b     0x70422022   CODE
+    $b     0x7042203c   CODE
+    $b     0x7042204c   CODE
+    $b     0x7042208a   CODE
+    $b     0x704220ba   CODE
+    $b     0x704220c4   CODE
+    $b     0x704220d6   CODE
+    $b     0x704220de   CODE
+    $b     0x70422128   CODE
+    $b     0x70422138   CODE
+    $b     0x70422142   CODE
+    $b     0x70422158   CODE
+    $b     0x70422162   CODE
+    $b     0x70422190   CODE
+    $b     0x7042219e   CODE
+    $b     0x704221a8   CODE
+    $b     0x704221b6   CODE
+    $b     0x704221c4   CODE
+    $b     0x704221d2   CODE
+    $b     0x704221e0   CODE
+    $b     0x704221ee   CODE
+    $b     0x70422206   CODE
+    $b     0x7042221c   CODE
+    $b     0x70422236   CODE
+    $b     0x70422266   CODE
+    $b     0x7042226a   CODE
+    $b     0x70422274   CODE
+    $b     0x7042227a   CODE
+    $b     0x7042229c   CODE
+    $b     0x704222a4   CODE
+    $b     0x704222e8   CODE
+    $b     0x704222f2   CODE
+    $b     0x704222f8   CODE
+    $b     0x7042230c   CODE
+    $b     0x7042231c   CODE
+    $b     0x70422326   CODE
+    $b     0x70422336   CODE
+    $b     0x70422350   CODE
+    $b     0x70422362   CODE
+    $b     0x7042236c   CODE
+    $b     0x7042237c   CODE
+    $d     0x70422384   CODE
+    $t     0x7042248c   CODE
+    $b     0x70422494   CODE
+    $b     0x704224c0   CODE
+    $b     0x704224e4   CODE
+    $b     0x704224fa   CODE
+    $b     0x70422508   CODE
+    $b     0x7042252e   CODE
+    $b     0x7042253e   CODE
+    $b     0x70422572   CODE
+    $b     0x704225a0   CODE
+    $b     0x704225cc   CODE
+    $b     0x704225f0   CODE
+    $b     0x70422606   CODE
+    $b     0x70422612   CODE
+    $b     0x70422636   CODE
+    $b     0x70422646   CODE
+    $b     0x70422656   CODE
+    $b     0x70422666   CODE
+    $b     0x70422676   CODE
+    $b     0x70422686   CODE
+    $b     0x70422696   CODE
+    $b     0x704226a6   CODE
+    $b     0x704226b6   CODE
+    $b     0x704226c6   CODE
+    $b     0x704226f0   CODE
+    $b     0x704226f8   CODE
+    $b     0x70422700   CODE
+    $b     0x7042270c   CODE
+    $b     0x70422742   CODE
+    $b     0x7042274c   CODE
+    $b     0x7042275e   CODE
+    $b     0x7042276e   CODE
+    $b     0x7042277a   CODE
+    $b     0x7042278e   CODE
+    $b     0x70422796   CODE
+    $b     0x7042279e   CODE
+    $b     0x704227a2   CODE
+    $b     0x704227ac   CODE
+    $b     0x704227b6   CODE
+    $b     0x704227ce   CODE
+    $b     0x704227f6   CODE
+    $b     0x70422804   CODE
+    $b     0x70422814   CODE
+    $b     0x70422822   CODE
+    $b     0x7042282a   CODE
+    $b     0x70422848   CODE
+    $b     0x70422866   CODE
+    $b     0x70422870   CODE
+    $b     0x70422892   CODE
+    $d     0x7042289c   CODE
+    $t     0x70422960   CODE
+    $b     0x70422968   CODE
+    $b     0x70422972   CODE
+    $b     0x70422982   CODE
+    $b     0x7042298c   CODE
+    $b     0x704229b2   CODE
+    $b     0x704229c0   CODE
+    $b     0x704229ca   CODE
+    $b     0x704229d8   CODE
+    $b     0x704229e8   CODE
+    $b     0x70422a02   CODE
+    $b     0x70422a0e   CODE
+    $b     0x70422a32   CODE
+    $b     0x70422a58   CODE
+    $b     0x70422a62   CODE
+    $b     0x70422a76   CODE
+    $b     0x70422aca   CODE
+    $b     0x70422ad8   CODE
+    $b     0x70422afe   CODE
+    $b     0x70422b14   CODE
+    $b     0x70422b4a   CODE
+    $b     0x70422b60   CODE
+    $d     0x70422b64   CODE
+    $t     0x70422bce   CODE
+    $d     0x70422c72   CODE
+    $t     0x70422d80   CODE
+    $d     0x70422dcc   CODE
+    $t     0x70422ed8   CODE
+    $d     0x70422f1c   CODE
+    $t     0x70423028   CODE
+    $b     0x7042305a   CODE
+    $b     0x70423062   CODE
+    $b     0x70423078   CODE
+    $b     0x70423082   CODE
+    $b     0x7042308e   CODE
+    $b     0x7042309c   CODE
+    $d     0x704230a0   CODE
+    $t     0x704230ba   CODE
+    $d     0x704230ea   CODE
+    $t     0x704231ec   CODE
+    $d     0x704232ce   CODE
+    $t     0x704233d4   CODE
+    $b     0x70423404   CODE
+    $b     0x70423410   CODE
+    $b     0x7042342a   CODE
+    $b     0x70423434   CODE
+    $b     0x7042343c   CODE
+    $b     0x70423444   CODE
+    $b     0x70423454   CODE
+    $b     0x70423476   CODE
+    $b     0x7042348a   CODE
+    $b     0x704234a0   CODE
+    $b     0x704234b6   CODE
+    $b     0x704234c0   CODE
+    $b     0x704234fe   CODE
+    $b     0x70423506   CODE
+    $b     0x70423516   CODE
+    $b     0x7042351e   CODE
+    $b     0x70423528   CODE
+    $b     0x7042358c   CODE
+    $b     0x704235b8   CODE
+    $b     0x704235e2   CODE
+    $b     0x704235f4   CODE
+    $b     0x70423602   CODE
+    $b     0x70423642   CODE
+    $b     0x70423666   CODE
+    $b     0x7042366e   CODE
+    $b     0x704236a6   CODE
+    $b     0x704236ae   CODE
+    $b     0x704236c0   CODE
+    $b     0x704236ca   CODE
+    $b     0x704236fc   CODE
+    $d     0x7042370a   CODE
+    $t     0x704237f8   CODE
+    $b     0x704237fe   CODE
+    $b     0x70423814   CODE
+    $b     0x70423820   CODE
+    $b     0x70423830   CODE
+    $b     0x70423846   CODE
+    $b     0x70423856   CODE
+    $b     0x70423866   CODE
+    $b     0x70423882   CODE
+    $b     0x70423890   CODE
+    $b     0x7042389a   CODE
+    $b     0x704238a8   CODE
+    $b     0x704238b4   CODE
+    $b     0x704238c4   CODE
+    $b     0x704238fe   CODE
+    $b     0x70423906   CODE
+    $b     0x70423924   CODE
+    $b     0x7042394c   CODE
+    $b     0x7042396a   CODE
+    $b     0x70423974   CODE
+    $b     0x70423984   CODE
+    $b     0x704239a4   CODE
+    $b     0x704239c4   CODE
+    $b     0x704239e0   CODE
+    $b     0x704239e8   CODE
+    $b     0x704239f2   CODE
+    $b     0x704239fe   CODE
+    $b     0x70423a06   CODE
+    $b     0x70423a16   CODE
+    $b     0x70423a22   CODE
+    $b     0x70423a32   CODE
+    $b     0x70423a44   CODE
+    $b     0x70423a52   CODE
+    $b     0x70423a66   CODE
+    $b     0x70423a76   CODE
+    $b     0x70423a88   CODE
+    $b     0x70423a98   CODE
+    $b     0x70423aae   CODE
+    $b     0x70423ab8   CODE
+    $b     0x70423ac2   CODE
+    $b     0x70423ada   CODE
+    $b     0x70423aea   CODE
+    $b     0x70423af8   CODE
+    $b     0x70423b1c   CODE
+    $d     0x70423b36   CODE
+    $t     0x70423bfc   CODE
+    $t     0x70423c28   CODE
+    $b     0x70423cba   CODE
+    $b     0x70423ddc   CODE
+    $b     0x70423e7c   CODE
+    $b     0x70423e9a   CODE
+    $b     0x70423eac   CODE
+    $b     0x70423ece   CODE
+    $b     0x70423eea   CODE
+    $b     0x70423f04   CODE
+    $b     0x70423f14   CODE
+    $b     0x70423f32   CODE
+    $b     0x70423f4a   CODE
+    $b     0x70423f6a   CODE
+    $b     0x70423f82   CODE
+    $t     0x70423fae   CODE
+    $t     0x70423fc4   CODE
+    $d     0x70423fd8   CODE
+    $t     0x70423fdc   CODE
+    $b     0x70423ff6   CODE
+    $b     0x70424012   CODE
+    $b     0x70424018   CODE
+    $b     0x7042403a   CODE
+    $d     0x7042403e   CODE
+    $t     0x7042404e   CODE
+    $b     0x70424090   CODE
+    $b     0x704240a8   CODE
+    $b     0x704240bc   CODE
+    $b     0x704240c8   CODE
+    $b     0x704240e0   CODE
+    $b     0x7042415a   CODE
+    $b     0x70424160   CODE
+    $b     0x7042417a   CODE
+    $b     0x70424180   CODE
+    $b     0x704241a6   CODE
+    $b     0x704241c6   CODE
+    $b     0x704241e6   CODE
+    $b     0x704241ea   CODE
+    $b     0x70424200   CODE
+    $b     0x70424216   CODE
+    $b     0x70424240   CODE
+    $b     0x70424254   CODE
+    $b     0x704242c8   CODE
+    $d     0x704242cc   CODE
+    $t     0x704242d6   CODE
+    $b     0x704242da   CODE
+    $d     0x704242de   CODE
+    $t     0x704242f2   CODE
+    $b     0x70424316   CODE
+    $b     0x70424350   CODE
+    $b     0x70424360   CODE
+    $b     0x70424388   CODE
+    $b     0x7042439a   CODE
+    $d     0x704243c0   CODE
+    $t     0x70424408   CODE
+    $b     0x70424416   CODE
+    $b     0x70424420   CODE
+    $b     0x7042444e   CODE
+    $b     0x70424522   CODE
+    $b     0x70424536   CODE
+    $b     0x7042453c   CODE
+    $b     0x7042454a   CODE
+    $b     0x70424574   CODE
+    $b     0x704245ae   CODE
+    $b     0x704245b8   CODE
+    $b     0x704245d0   CODE
+    $b     0x704245e0   CODE
+    $b     0x7042464a   CODE
+    $b     0x7042466c   CODE
+    $b     0x70424690   CODE
+    $b     0x7042470a   CODE
+    $b     0x7042473a   CODE
+    $b     0x70424744   CODE
+    $b     0x7042477a   CODE
+    $b     0x70424780   CODE
+    $b     0x7042478c   CODE
+    $b     0x70424792   CODE
+    $b     0x704247a0   CODE
+    $b     0x704247ac   CODE
+    $b     0x704247b2   CODE
+    $b     0x704247c0   CODE
+    $d     0x704247d4   CODE
+    $t     0x704247f8   CODE
+    $b     0x7042480a   CODE
+    $b     0x7042482a   CODE
+    $t     0x70424830   CODE
+    $b     0x70424836   CODE
+    $b     0x70424846   CODE
+    $b     0x7042485c   CODE
+    $t     0x7042487a   CODE
+    $b     0x70424880   CODE
+    $b     0x70424890   CODE
+    $b     0x704248a6   CODE
+    $t     0x704248c4   CODE
+    $d     0x704248ea   CODE
+    $t     0x704248f0   CODE
+    $b     0x7042494a   CODE
+    $b     0x7042495a   CODE
+    $b     0x70424962   CODE
+    $b     0x70424970   CODE
+    $b     0x7042497e   CODE
+    $b     0x7042498a   CODE
+    $b     0x7042499a   CODE
+    $b     0x704249a2   CODE
+    $b     0x704249ac   CODE
+    $b     0x704249ee   CODE
+    $b     0x704249f6   CODE
+    $b     0x70424a00   CODE
+    $b     0x70424a12   CODE
+    $b     0x70424a2e   CODE
+    $b     0x70424a4c   CODE
+    $b     0x70424a60   CODE
+    $b     0x70424a72   CODE
+    $b     0x70424a84   CODE
+    $b     0x70424ac4   CODE
+    $b     0x70424aea   CODE
+    $b     0x70424afe   CODE
+    $b     0x70424b0e   CODE
+    $b     0x70424b1a   CODE
+    $b     0x70424b60   CODE
+    $b     0x70424b7e   CODE
+    $b     0x70424b92   CODE
+    $b     0x70424ba2   CODE
+    $b     0x70424bae   CODE
+    $d     0x70424cc0   CODE
+    $t     0x70424d44   CODE
+    $b     0x70424d4a   CODE
+    $b     0x70424d5a   CODE
+    $b     0x70424d6a   CODE
+    $b     0x70424d94   CODE
+    $b     0x70424dd4   CODE
+    $b     0x70424dde   CODE
+    $b     0x70424df2   CODE
+    $b     0x70424dfa   CODE
+    $b     0x70424e04   CODE
+    $b     0x70424e34   CODE
+    $b     0x70424e80   CODE
+    $b     0x70424e88   CODE
+    $b     0x70424e8e   CODE
+    $b     0x70424eb4   CODE
+    $b     0x70424ec4   CODE
+    $b     0x70424f36   CODE
+    $b     0x70424f46   CODE
+    $d     0x70424f4a   CODE
+    $t     0x70424f52   CODE
+    $b     0x70424f88   CODE
+    $b     0x70424fae   CODE
+    $b     0x70424fb6   CODE
+    $b     0x70424fbe   CODE
+    $b     0x70424fcc   CODE
+    $b     0x70425002   CODE
+    $b     0x7042500a   CODE
+    $b     0x70425012   CODE
+    $b     0x70425024   CODE
+    $b     0x7042502c   CODE
+    $b     0x7042504a   CODE
+    $b     0x70425054   CODE
+    $b     0x7042505e   CODE
+    $b     0x70425072   CODE
+    $b     0x7042507c   CODE
+    $b     0x70425084   CODE
+    $b     0x7042508c   CODE
+    $b     0x70425096   CODE
+    $b     0x7042509e   CODE
+    $b     0x704250f6   CODE
+    $b     0x70425102   CODE
+    $b     0x70425118   CODE
+    $b     0x70425122   CODE
+    $d     0x70425128   CODE
+    $t     0x704251dc   CODE
+    $d     0x704251fa   CODE
+    $t     0x70425200   CODE
+    $t     0x70425210   CODE
+    $t     0x70425244   CODE
+    $b     0x70425264   CODE
+    $b     0x70425272   CODE
+    $b     0x70425292   CODE
+    $b     0x7042529a   CODE
+    $b     0x704252a8   CODE
+    $b     0x704252c8   CODE
+    $b     0x704252e4   CODE
+    $b     0x704252f8   CODE
+    $b     0x70425300   CODE
+    $b     0x70425358   CODE
+    $b     0x7042536c   CODE
+    $b     0x7042537a   CODE
+    $b     0x70425396   CODE
+    $b     0x704253aa   CODE
+    $b     0x704253b2   CODE
+    $d     0x70425416   CODE
+    $t     0x70425428   CODE
+    $b     0x7042545c   CODE
+    $b     0x70425466   CODE
+    $b     0x7042546c   CODE
+    $b     0x70425474   CODE
+    $d     0x70425494   CODE
+    $a     0x704254a0   CODE
+    $t     0x704254a8   CODE
+    $b     0x704254c8   CODE
+    $d     0x704254d4   CODE
+    $t     0x704254dc   CODE
+    $b     0x704254f0   CODE
+    $b     0x70425508   CODE
+    $b     0x7042550e   CODE
+    $t     0x70425520   CODE
+    $b     0x70425552   CODE
+    $b     0x70425562   CODE
+    $b     0x7042557e   CODE
+    $b     0x70425590   CODE
+    $b     0x704255d8   CODE
+    $b     0x70425640   CODE
+    $b     0x70425654   CODE
+    $b     0x70425674   CODE
+    $b     0x70425680   CODE
+    $b     0x70425700   CODE
+    $b     0x70425726   CODE
+    $b     0x7042573a   CODE
+    $b     0x7042579c   CODE
+    $b     0x704257c6   CODE
+    $b     0x704257d6   CODE
+    $b     0x704257ea   CODE
+    $b     0x704257fc   CODE
+    $b     0x70425834   CODE
+    $b     0x7042585a   CODE
+    $b     0x7042586a   CODE
+    $b     0x70425880   CODE
+    $b     0x7042588e   CODE
+    $b     0x7042589c   CODE
+    $b     0x704258b2   CODE
+    $b     0x704258c4   CODE
+    $b     0x704258d2   CODE
+    $b     0x704258fe   CODE
+    $d     0x70425916   CODE
+    $t     0x70425968   CODE
+    $b     0x70425984   CODE
+    $b     0x704259a4   CODE
+    $b     0x704259ce   CODE
+    $b     0x70425a36   CODE
+    $b     0x70425a82   CODE
+    $d     0x70425aee   CODE
+    $t     0x70425af4   CODE
+    $t     0x70425b1c   CODE
+    $b     0x70425b52   CODE
+    $t     0x70425b84   CODE
+    $b     0x70425b9a   CODE
+    $b     0x70425bb2   CODE
+    $t     0x70425bbc   CODE
+    $b     0x70425bc6   CODE
+    $b     0x70425bda   CODE
+    $b     0x70425be8   CODE
+    $b     0x70425bf8   CODE
+    $b     0x70425c0e   CODE
+    $b     0x70425c1e   CODE
+    $b     0x70425c44   CODE
+    $d     0x70425c60   CODE
+    $t     0x70425c84   CODE
+    $b     0x70425c9c   CODE
+    $b     0x70425cc0   CODE
+    $b     0x70425cda   CODE
+    $b     0x70425d0a   CODE
+    $b     0x70425d30   CODE
+    $b     0x70425d5c   CODE
+    $b     0x70425d64   CODE
+    $b     0x70425d84   CODE
+    $b     0x70425d9a   CODE
+    $d     0x70425dc0   CODE
+    $t     0x70425dc4   CODE
+    $b     0x70425dea   CODE
+    $b     0x70425e0c   CODE
+    $b     0x70425e84   CODE
+    $b     0x70425eb6   CODE
+    $b     0x70425ed2   CODE
+    $b     0x70425ede   CODE
+    $b     0x70425f38   CODE
+    $d     0x70425f5c   CODE
+    $t     0x70425f64   CODE
+    $b     0x70425f96   CODE
+    $b     0x70425f9c   CODE
+    $b     0x70425fc0   CODE
+    $b     0x70425fd2   CODE
+    $b     0x70425ff6   CODE
+    $b     0x70426008   CODE
+    $b     0x7042608a   CODE
+    $b     0x704260a4   CODE
+    $b     0x704260be   CODE
+    $b     0x704260ec   CODE
+    $b     0x7042614c   CODE
+    $b     0x70426168   CODE
+    $b     0x70426182   CODE
+    $b     0x704261b6   CODE
+    $b     0x70426272   CODE
+    $b     0x704262ca   CODE
+    $d     0x704262dc   CODE
+    $t     0x704262f4   CODE
+    $t     0x70426304   CODE
+    $a     0x70426308   CODE
+    $t     0x70426320   CODE
+    $a     0x70426324   CODE
+    $t     0x70426328   CODE
+    $a     0x7042632c   CODE
+    $t     0x70426330   CODE
+    $a     0x70426334   CODE
+    $t     0x70426338   CODE
+    $a     0x7042633c   CODE
+    $t     0x70426340   CODE
+    $a     0x70426344   CODE
+    $t     0x70426348   CODE
+    $a     0x7042634c   CODE
+    $t     0x70426350   CODE
+    $a     0x70426354   CODE
+    $t     0x70426358   CODE
+    $a     0x7042635c   CODE
+    $t     0x70426360   CODE
+    $a     0x70426364   CODE
+    $t     0x70426368   CODE
+    $a     0x7042636c   CODE
+    $t     0x70426370   CODE
+    $a     0x70426374   CODE
+    $t     0x70426378   CODE
+    $a     0x7042637c   CODE
+    $t     0x70426380   CODE
+    $a     0x70426384   CODE
+    $t     0x70426388   CODE
+    $a     0x7042638c   CODE
+    $t     0x70426390   CODE
+    $a     0x70426394   CODE
+    $t     0x70426398   CODE
+    $a     0x7042639c   CODE
+    $t     0x704263a0   CODE
+    $a     0x704263a4   CODE
+    $t     0x704263a8   CODE
+    $a     0x704263ac   CODE
+    $t     0x704263b0   CODE
+    $a     0x704263b4   CODE
+    $t     0x704263b8   CODE
+    $a     0x704263bc   CODE
+    $t     0x704263c0   CODE
+    $a     0x704263c4   CODE
+    $t     0x704263c8   CODE
+    $a     0x704263cc   CODE
+    $t     0x704263d0   CODE
+    $a     0x704263d4   CODE
+    $t     0x704263d8   CODE
+    $a     0x704263dc   CODE
+    $t     0x704263e0   CODE
+    $a     0x704263e4   CODE
+    $t     0x704263e8   CODE
+    $a     0x704263ec   CODE
+    $t     0x704263f0   CODE
+    $a     0x704263f4   CODE
+    $t     0x704263f8   CODE
+    $a     0x704263fc   CODE
+    $t     0x7042641c   CODE
+    $a     0x70426420   CODE
+    $d     0x704264d4   CODE
+    $t     0x704264d8   CODE
+    $a     0x704264dc   CODE
+    $d     0x704266d4   CODE
+    $a     0x704266e4   CODE
+    $d     0x704266f0   CODE
+    $a     0x704266f4   CODE
+    $d     0x70426700   CODE
+    $a     0x70426704   CODE
+    $t     0x70426778   CODE
+    $a     0x7042677c   CODE
+    $d     0x70426c10   CODE
+    $t     0x70426ca4   CODE
+    $a     0x70426ca8   CODE
+    $d     0x70426d2c   CODE
+    $t     0x70426d30   CODE
+    $a     0x70426d34   CODE
+    $d     0x70426dd8   CODE
+    $t     0x70426ddc   CODE
+    $a     0x70426de0   CODE
+    $d     0x70426e64   CODE
+    $t     0x70426e68   CODE
+    $a     0x70426e6c   CODE
+    $d     0x70426ef0   CODE
+    $t     0x70426ef4   CODE
+    $a     0x70426ef8   CODE
+    $d     0x704270f0   CODE
+    $t     0x70427104   CODE
+    $a     0x70427108   CODE
+    $d     0x70427378   CODE
+    $a     0x70427384   CODE
+    $t     0x70427498   CODE
+    $a     0x7042749c   CODE
+    $a     0x704274b4   CODE
+    $a     0x70427544   CODE
+    $d     0x70427584   CODE
+    $a     0x7042758c   CODE
+    $d     0x704275c8   CODE
+    $d     0x704276f4   CODE
+    $d     0x70427701   CODE
+    $d     0x7042770b   CODE
+    $d     0x70427715   CODE
+    $d     0x7042771f   CODE
+    $d     0x70427820   CODE
+    $d     0x70429590   CODE
+    $d     0x70429628   CODE
+    $d     0x70429634   CODE
+    $d     0x70429794   CODE
+    $d     0x70429c00   DATA
+    $d     0x70429c04   DATA
+    $d     0x70429dd0   DATA
+    $d     0x70429de0   DATA
+    $d     0x70429de4   DATA
+    $d     0x70429dec   BSS
+    $d     0x70429df0   BSS
+    $d     0x7042a634   BSS
+    $d     0x7042a65e   BSS
+    $d     0x7042a8f8   BSS
+    $d     0x7042a908   BSS
+    $d     0x7042a910   BSS
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    ../../basic.s                            0x00000000   Number         0  basic.o ABSOLUTE
+    ../../d2f.s                              0x00000000   Number         0  d2f.o ABSOLUTE
+    ../../daddsub.s                          0x00000000   Number         0  daddsub.o ABSOLUTE
+    ../../dcheck.s                           0x00000000   Number         0  dcheck.o ABSOLUTE
+    ../../dcheck1.s                          0x00000000   Number         0  dcheck1.o ABSOLUTE
+    ../../dcmpin.s                           0x00000000   Number         0  dcmpin.o ABSOLUTE
+    ../../ddiv.s                             0x00000000   Number         0  ddiv.o ABSOLUTE
+    ../../deqf.s                             0x00000000   Number         0  deqf.o ABSOLUTE
+    ../../dfix.s                             0x00000000   Number         0  dfix.o ABSOLUTE
+    ../../dgeqf.s                            0x00000000   Number         0  dgeqf.o ABSOLUTE
+    ../../dleqf.s                            0x00000000   Number         0  dleqf.o ABSOLUTE
+    ../../dmul.s                             0x00000000   Number         0  dmul_mull.o ABSOLUTE
+    ../../dunder.s                           0x00000000   Number         0  dunder.o ABSOLUTE
+    ../../fpconst.s                          0x00000000   Number         0  fpconst.o ABSOLUTE
+    ../../fpinit.s                           0x00000000   Number         0  fpinit.o ABSOLUTE
+    ../../funder.s                           0x00000000   Number         0  funder.o ABSOLUTE
+    ../../retnan.s                           0x00000000   Number         0  retnan.o ABSOLUTE
+    ../../trapv.s                            0x00000000   Number         0  trapv.o ABSOLUTE
+    ../../unhosted.s                         0x00000000   Number         0  switch8.o ABSOLUTE
+    ../../unhosted.s                         0x00000000   Number         0  callvia.o ABSOLUTE
+    C:\D\ProjectRelated\ACT2.2.0\DEVENV\source\acl\conio\actutil.c 0x00000000   Number         0  actutil.o ABSOLUTE
+    C:\D\ProjectRelated\ACT2.2.0\DEVENV\source\acl\conio\getchar.c 0x00000000   Number         0  getchar.o ABSOLUTE
+    C:\D\ProjectRelated\ACT2.2.0\DEVENV\source\acl\device\SvcTicks.c 0x00000000   Number         0  SvcTicks.o ABSOLUTE
+    C:\D\ProjectRelated\ACT2.2.0\DEVENV\source\acl\device\setitim.c 0x00000000   Number         0  setitim.o ABSOLUTE
+    C:\D\ProjectRelated\ACT2.2.0\DEVENV\source\acl\string\Insrtch.c 0x00000000   Number         0  Insrtch.o ABSOLUTE
+    C:\D\ProjectRelated\ACT2.2.0\DEVENV\source\acl\string\Int2str.c 0x00000000   Number         0  Int2str.o ABSOLUTE
+    C:\D\ProjectRelated\ACT2.2.0\DEVENV\source\acl\string\Long2str.c 0x00000000   Number         0  Long2str.o ABSOLUTE
+    C:\D\ProjectRelated\ACT2.2.0\DEVENV\source\acl\string\Str2int.c 0x00000000   Number         0  Str2int.o ABSOLUTE
+    C:\D\ProjectRelated\ACT2.2.0\DEVENV\source\acl\string\ntocs.c 0x00000000   Number         0  ntocs.o ABSOLUTE
+    C:\D\ProjectRelated\ACT2.2.0\DEVENV\source\beetle\beetle.c 0x00000000   Number         0  beetle.o ABSOLUTE
+    C:\D\ProjectRelated\ACT2.2.0\DEVENV\source\lightning\device\device.c 0x00000000   Number         0  device.o ABSOLUTE
+    C:\D\ProjectRelated\ACT2.2.0\DEVENV\source\lightning\power\power.c 0x00000000   Number         0  power.o ABSOLUTE
+    C:\D\ProjectRelated\ACT2.2.0\DEVENV\source\printer\printer.c 0x00000000   Number         0  printer.o ABSOLUTE
+    C:\D\ProjectRelated\ACT2.2.0\DEVENV\source\printer\printerIF.c 0x00000000   Number         0  printerIF.o ABSOLUTE
+    C:\D\ProjectRelated\ACT2.2.0\DEVENV\source\xModem\xmodem.c 0x00000000   Number         0  xmodem.o ABSOLUTE
+    C:\D\ProjectRelated\vmac\VMACSOURCE\source\lib\logsys\logsys.c 0x00000000   Number         0  logsys.o ABSOLUTE
+    C:\Projetos\SDLC_SAMPLE\Vx510_SDLC\SOURCE\app\aplic.c 0x00000000   Number         0  aplic.o ABSOLUTE
+    C:\Projetos\SDLC_SAMPLE\Vx510_SDLC\SOURCE\lib\app_sys.c 0x00000000   Number         0  app_sys.o ABSOLUTE
+    C:\Projetos\SDLC_SAMPLE\Vx510_SDLC\SOURCE\porting\porting.c 0x00000000   Number         0  porting.o ABSOLUTE
+    SYS.S                                    0x00000000   Number         0  SYS.o ABSOLUTE
+    __main.s                                 0x00000000   Number         0  __main.ol ABSOLUTE
+    _atodbl.c                                0x00000000   Number         0  _atodbl.opi ABSOLUTE
+    _dbltoa.c                                0x00000000   Number         0  _dbltoa.opi ABSOLUTE
+    _dbltopr.c                               0x00000000   Number         0  _dbltopr.opi ABSOLUTE
+    _fltscan.c                               0x00000000   Number         0  _fltscan.opi ABSOLUTE
+    _intscan.c                               0x00000000   Number         0  _intscan.opi ABSOLUTE
+    _scanff.c                                0x00000000   Number         0  _scanff.opi ABSOLUTE
+    _sgetc.c                                 0x00000000   Number         0  _sgetc.opi ABSOLUTE
+    _sputc.c                                 0x00000000   Number         0  _sputc.opi ABSOLUTE
+    _strtod.c                                0x00000000   Number         0  _strtod.opi ABSOLUTE
+    _uctype.c                                0x00000000   Number         0  _uctype.opi ABSOLUTE
+    armrt.s                                  0x00000000   Number         0  armrt.ol ABSOLUTE
+    armstubs.s                               0x00000000   Number         0  armstubs.opi ABSOLUTE
+    cs_int.c                                 0x00000000   Number         0  cs_int.oi ABSOLUTE
+    fgetc.c                                  0x00000000   Number         0  fgetc.opi ABSOLUTE
+    fillbuf.c                                0x00000000   Number         0  fillbuf.opi ABSOLUTE
+    fscanf.c                                 0x00000000   Number         0  fscanf.opi ABSOLUTE
+    getc.c                                   0x00000000   Number         0  getc.opi ABSOLUTE
+    iodata.c                                 0x00000000   Number         0  iodata.opi ABSOLUTE
+    rt_errno.c                               0x00000000   Number         0  rt_errno.ol ABSOLUTE
+    scanf.c                                  0x00000000   Number         0  scanf.opi ABSOLUTE
+    sprintfi.c                               0x00000000   Number         0  sprintfi.opi ABSOLUTE
+    sscanf.c                                 0x00000000   Number         0  sscanf.opi ABSOLUTE
+    svc_swi.c                                0x00000000   Number         0  svc_swi.ol ABSOLUTE
+    sysrodat.c                               0x00000000   Number         0  sysrodat.oi ABSOLUTE
+    ungetc.c                                 0x00000000   Number         0  ungetc.opi ABSOLUTE
+    vrxcrt.c                                 0x00000000   Number         0  vrxcrt_t.o ABSOLUTE
+    vrxhdr.s                                 0x00000000   Number         0  vrxcrt_t.o ABSOLUTE
+    vsprintf.c                               0x00000000   Number         0  vsprintf.opi ABSOLUTE
+    .0_vrx_pgmhdr                            0x70420040   Data          32  vrxcrt_t.o(.0_vrx_pgmhdr)
+    .1_vrx_libtbl                            0x70420060   Data          16  vrxcrt_t.o(.1_vrx_libtbl)
+    .2_vrx_libend                            0x70420070   Data           4  vrxcrt_t.o(.2_vrx_libend)
+    .stub__sscanf                            0x70420078   ARM Code       4  armstubs.opi(.stub__sscanf)
+    .text                                    0x7042007c   Thumb Code   216  vrxcrt_t.o(.text)
+    .text                                    0x70420154   Thumb Code   616  aplic.o(.text)
+    .text                                    0x704203bc   Thumb Code   920  app_sys.o(.text)
+    .text                                    0x70420754   Thumb Code  2316  porting.o(.text)
+    get_port_status                          0x70421014   Thumb Code    10  porting.o(.text)
+    set_serial_lines                         0x7042101e   Thumb Code    10  porting.o(.text)
+    .text                                    0x70421060   Thumb Code    44  vsprintf.opi(.text)
+    .text                                    0x7042108c   Thumb Code    48  sprintfi.opi(.text)
+    .text                                    0x704210bc   ARM Code      32  armrt.ol(.text)
+    .text                                    0x704210dc   Thumb Code   656  printerIF.o(.text)
+    .text                                    0x7042136c   Thumb Code  3184  beetle.o(.text)
+    |L1.1084|                                0x704217a8   Data           0  beetle.o(.text)
+    put_env                                  0x70421f88   Thumb Code     8  beetle.o(.text)
+    wherecur                                 0x70421f90   Thumb Code    32  beetle.o(.text)
+    wherewin                                 0x70421fb0   Thumb Code    44  beetle.o(.text)
+    .text                                    0x70421fdc   Thumb Code    46  getchar.o(.text)
+    .text                                    0x7042200c   Thumb Code  7152  xmodem.o(.text)
+    |L1.924|                                 0x704223a8   Data           0  xmodem.o(.text)
+    |L1.2204|                                0x704228a8   Data           0  xmodem.o(.text)
+    |L1.2376|                                0x70422954   Data           0  xmodem.o(.text)
+    |L1.3176|                                0x70422c74   Data           0  xmodem.o(.text)
+    |L1.3248|                                0x70422cbc   Data           0  xmodem.o(.text)
+    |L1.3260|                                0x70422cc8   Data           0  xmodem.o(.text)
+    |L1.3268|                                0x70422cd0   Data           0  xmodem.o(.text)
+    |L1.3280|                                0x70422cdc   Data           0  xmodem.o(.text)
+    |L1.3288|                                0x70422ce4   Data           0  xmodem.o(.text)
+    |L1.3304|                                0x70422cf4   Data           0  xmodem.o(.text)
+    |L1.3320|                                0x70422d04   Data           0  xmodem.o(.text)
+    |L1.3328|                                0x70422d0c   Data           0  xmodem.o(.text)
+    |L1.3348|                                0x70422d20   Data           0  xmodem.o(.text)
+    |L1.3364|                                0x70422d30   Data           0  xmodem.o(.text)
+    |L1.3380|                                0x70422d40   Data           0  xmodem.o(.text)
+    |L1.3396|                                0x70422d50   Data           0  xmodem.o(.text)
+    |L1.3412|                                0x70422d60   Data           0  xmodem.o(.text)
+    |L1.3428|                                0x70422d70   Data           0  xmodem.o(.text)
+    |L1.3520|                                0x70422dcc   Data           0  xmodem.o(.text)
+    |L1.3700|                                0x70422e80   Data           0  xmodem.o(.text)
+    |L1.3712|                                0x70422e8c   Data           0  xmodem.o(.text)
+    |L1.4000|                                0x70422fac   Data           0  xmodem.o(.text)
+    write                                    0x70423b22   Thumb Code     6  xmodem.o(.text)
+    read                                     0x70423b28   Thumb Code     6  xmodem.o(.text)
+    get_env                                  0x70423b2e   Thumb Code     8  xmodem.o(.text)
+    .text                                    0x70423bfc   Thumb Code    44  SvcTicks.o(.text)
+    .text                                    0x70423c28   Thumb Code   902  _dbltopr.opi(.text)
+    .text                                    0x70423fae   Thumb Code    20  _sputc.opi(.text)
+    .text                                    0x70423fc4   Thumb Code    24  rt_errno.ol(.text)
+    getEsqSeq                                0x70423fdc   Thumb Code    86  printer.o(.text)
+    .text                                    0x70423fdc   Thumb Code  2076  printer.o(.text)
+    initEsqSeq                               0x70424032   Thumb Code    86  printer.o(.text)
+    .text                                    0x704247f8   Thumb Code    56  Insrtch.o(.text)
+    .text                                    0x70424830   Thumb Code    74  Int2str.o(.text)
+    .text                                    0x7042487a   Thumb Code    74  Long2str.o(.text)
+    .text                                    0x704248c4   Thumb Code    44  setitim.o(.text)
+    .text                                    0x704248f0   Thumb Code  2320  logsys.o(.text)
+    write                                    0x704251ec   Thumb Code     6  logsys.o(.text)
+    get_env                                  0x704251f2   Thumb Code     8  logsys.o(.text)
+    .text                                    0x70425200   Thumb Code    16  power.o(.text)
+    .text                                    0x70425210   Thumb Code    52  device.o(.text)
+    .text                                    0x70425244   Thumb Code   484  _dbltoa.opi(.text)
+    .text                                    0x70425428   Thumb Code   120  actutil.o(.text)
+    .text                                    0x704254a8   Thumb Code    52  sscanf.opi(.text)
+    .text                                    0x704254dc   Thumb Code    66  Str2int.o(.text)
+    .text                                    0x70425520   Thumb Code  1492  _scanff.opi(.text)
+    .text                                    0x70425af4   Thumb Code    40  _sgetc.opi(.text)
+    .text                                    0x70425b1c   Thumb Code   104  cs_int.oi(.text)
+    .text                                    0x70425b84   Thumb Code    56  ntocs.o(.text)
+    .text                                    0x70425bbc   Thumb Code   200  _strtod.opi(.text)
+    .text                                    0x70425c84   Thumb Code   320  _intscan.opi(.text)
+    .text                                    0x70425dc4   Thumb Code   416  _fltscan.opi(.text)
+    by_tens                                  0x70425f64   Thumb Code   174  _atodbl.opi(.text)
+    .text                                    0x70425f64   Thumb Code   912  _atodbl.opi(.text)
+    .text                                    0x704262f4   Thumb Code    16  callvia.o(.text)
+    .text                                    0x70426308   ARM Code      24  switch8.o(.text)
+    x$fpl$basic                              0x704263fc   ARM Code      32  basic.o(x$fpl$basic)
+    x$fpl$d2f                                0x70426420   ARM Code     184  d2f.o(x$fpl$d2f)
+    d2f_roundeven                            0x7042645c   ARM Code       0  d2f.o(x$fpl$d2f)
+    d2f_roundup                              0x70426468   ARM Code       0  d2f.o(x$fpl$d2f)
+    d2f_rounded                              0x70426474   ARM Code       0  d2f.o(x$fpl$d2f)
+    d2f_underflow                            0x70426488   ARM Code       0  d2f.o(x$fpl$d2f)
+    d2f_overflow                             0x70426490   ARM Code       0  d2f.o(x$fpl$d2f)
+    d2f_uncommon                             0x7042649c   ARM Code       0  d2f.o(x$fpl$d2f)
+    d2f_naninf                               0x704264b8   ARM Code       0  d2f.o(x$fpl$d2f)
+    x$fpl$dadd                               0x704264dc   ARM Code     520  daddsub.o(x$fpl$dadd)
+    _dadd1                                   0x70426504   ARM Code       0  daddsub.o(x$fpl$dadd)
+    dadd_swapped                             0x70426520   ARM Code       0  daddsub.o(x$fpl$dadd)
+    dadd_nocarry                             0x70426558   ARM Code       0  daddsub.o(x$fpl$dadd)
+    dadd_roundeven                           0x70426570   ARM Code       0  daddsub.o(x$fpl$dadd)
+    dadd_check_overflow_inx                  0x7042657c   ARM Code       0  daddsub.o(x$fpl$dadd)
+    dadd_bigshift                            0x7042659c   ARM Code       0  daddsub.o(x$fpl$dadd)
+    dadd_carry                               0x704265c4   ARM Code       0  daddsub.o(x$fpl$dadd)
+    dadd_check_overflow_exact                0x704265fc   ARM Code       0  daddsub.o(x$fpl$dadd)
+    dadd_uncommon                            0x7042661c   ARM Code       0  daddsub.o(x$fpl$dadd)
+    dadd_naninf                              0x70426664   ARM Code       0  daddsub.o(x$fpl$dadd)
+    dadd_twoinf                              0x704266bc   ARM Code       0  daddsub.o(x$fpl$dadd)
+    x$fpl$dcheck                             0x704266e4   ARM Code      16  dcheck.o(x$fpl$dcheck)
+    x$fpl$dcheck1                            0x704266f4   ARM Code      16  dcheck1.o(x$fpl$dcheck1)
+    x$fpl$dcmpinfnan                         0x70426704   ARM Code     116  dcmpin.o(x$fpl$dcmpinfnan)
+    dcmp_neg                                 0x70426744   ARM Code       0  dcmpin.o(x$fpl$dcmpinfnan)
+    dcmp_clear_v                             0x70426754   ARM Code       0  dcmpin.o(x$fpl$dcmpinfnan)
+    dcmp_found_NaN                           0x70426768   ARM Code       0  dcmpin.o(x$fpl$dcmpinfnan)
+    x$fpl$ddiv                               0x7042677c   ARM Code    1320  ddiv.o(x$fpl$ddiv)
+    ddiv_entry                               0x70426780   ARM Code       0  ddiv.o(x$fpl$ddiv)
+    ddiv_exact                               0x70426820   ARM Code       0  ddiv.o(x$fpl$ddiv)
+    ddiv_rounded                             0x70426820   ARM Code       0  ddiv.o(x$fpl$ddiv)
+    ddiv_outflow                             0x70426860   ARM Code       0  ddiv.o(x$fpl$ddiv)
+    ddiv_zerodenorm                          0x70426898   ARM Code       0  ddiv.o(x$fpl$ddiv)
+    ddiv_azero                               0x704268a4   ARM Code       0  ddiv.o(x$fpl$ddiv)
+    ddiv_divbyzero                           0x704268e4   ARM Code       0  ddiv.o(x$fpl$ddiv)
+    ddiv_naninf                              0x70426924   ARM Code       0  ddiv.o(x$fpl$ddiv)
+    ddiv_xoverinf                            0x7042697c   ARM Code       0  ddiv.o(x$fpl$ddiv)
+    ddiv_ivo_pop                             0x704269a0   ARM Code       0  ddiv.o(x$fpl$ddiv)
+    ddiv_ivo                                 0x704269a4   ARM Code       0  ddiv.o(x$fpl$ddiv)
+    ddiv_reciptbl                            0x70426c10   Data           0  ddiv.o(x$fpl$ddiv)
+    x$fpl$deqf                               0x70426ca8   ARM Code     136  deqf.o(x$fpl$deqf)
+    _dcmpeq_check_NaNInf_pos                 0x70426ccc   ARM Code       0  deqf.o(x$fpl$deqf)
+    _dcmpeq_equality                         0x70426ce4   ARM Code       0  deqf.o(x$fpl$deqf)
+    _dcmpeq_negative                         0x70426cec   ARM Code       0  deqf.o(x$fpl$deqf)
+    _dcmpeq_check_NaNInf_neg                 0x70426d0c   ARM Code       0  deqf.o(x$fpl$deqf)
+    dcmpeq_InfNaN                            0x70426d24   ARM Code       0  deqf.o(x$fpl$deqf)
+    x$fpl$dfix                               0x70426d34   ARM Code     168  dfix.o(x$fpl$dfix)
+    dfix_negative                            0x70426d6c   ARM Code       0  dfix.o(x$fpl$dfix)
+    dfix_ivo                                 0x70426da0   ARM Code       0  dfix.o(x$fpl$dfix)
+    x$fpl$dgeqf                              0x70426de0   ARM Code     136  dgeqf.o(x$fpl$dgeqf)
+    _dcmpge_check_NaNInf_pos                 0x70426e04   ARM Code       0  dgeqf.o(x$fpl$dgeqf)
+    _dcmpge_equality                         0x70426e1c   ARM Code       0  dgeqf.o(x$fpl$dgeqf)
+    _dcmpge_negative                         0x70426e24   ARM Code       0  dgeqf.o(x$fpl$dgeqf)
+    _dcmpge_check_NaNInf_neg                 0x70426e44   ARM Code       0  dgeqf.o(x$fpl$dgeqf)
+    dcmpge_InfNaN                            0x70426e5c   ARM Code       0  dgeqf.o(x$fpl$dgeqf)
+    x$fpl$dleqf                              0x70426e6c   ARM Code     136  dleqf.o(x$fpl$dleqf)
+    _dcmple_check_NaNInf_pos                 0x70426e90   ARM Code       0  dleqf.o(x$fpl$dleqf)
+    _dcmple_equality                         0x70426ea8   ARM Code       0  dleqf.o(x$fpl$dleqf)
+    _dcmple_negative                         0x70426eb0   ARM Code       0  dleqf.o(x$fpl$dleqf)
+    _dcmple_check_NaNInf_neg                 0x70426ed0   ARM Code       0  dleqf.o(x$fpl$dleqf)
+    dcmple_InfNaN                            0x70426ee8   ARM Code       0  dleqf.o(x$fpl$dleqf)
+    x$fpl$dmul                               0x70426ef8   ARM Code     524  dmul_mull.o(x$fpl$dmul)
+    dmul_exact                               0x70426fcc   ARM Code       0  dmul_mull.o(x$fpl$dmul)
+    dmul_rounded                             0x70426fcc   ARM Code       0  dmul_mull.o(x$fpl$dmul)
+    dmul_outflow                             0x7042700c   ARM Code       0  dmul_mull.o(x$fpl$dmul)
+    dmul_ret_inf                             0x7042703c   ARM Code       0  dmul_mull.o(x$fpl$dmul)
+    dmul_zerodenorm                          0x70427050   ARM Code       0  dmul_mull.o(x$fpl$dmul)
+    dmul_naninf                              0x70427094   ARM Code       0  dmul_mull.o(x$fpl$dmul)
+    dmul_ivo                                 0x704270e4   ARM Code       0  dmul_mull.o(x$fpl$dmul)
+    x$fpl$dsub                               0x70427108   ARM Code     636  daddsub.o(x$fpl$dsub)
+    _dsub1                                   0x70427130   ARM Code       0  daddsub.o(x$fpl$dsub)
+    dsub_swapped                             0x70427150   ARM Code       0  daddsub.o(x$fpl$dsub)
+    dsub_noborrow                            0x70427184   ARM Code       0  daddsub.o(x$fpl$dsub)
+    dsub_bigshift                            0x704271b4   ARM Code       0  daddsub.o(x$fpl$dsub)
+    dsub_borrow                              0x704271dc   ARM Code       0  daddsub.o(x$fpl$dsub)
+    dsub_renormalize                         0x7042721c   ARM Code       0  daddsub.o(x$fpl$dsub)
+    dsub_renormloop                          0x7042723c   ARM Code       0  daddsub.o(x$fpl$dsub)
+    dsub_hugeshift                           0x70427270   ARM Code       0  daddsub.o(x$fpl$dsub)
+    dsub_ex_one                              0x7042727c   ARM Code       0  daddsub.o(x$fpl$dsub)
+    dsub_retzero                             0x70427290   ARM Code       0  daddsub.o(x$fpl$dsub)
+    dsub_denorm                              0x70427298   ARM Code       0  daddsub.o(x$fpl$dsub)
+    dsub_uncommon                            0x704272bc   ARM Code       0  daddsub.o(x$fpl$dsub)
+    dsub_naninf                              0x70427308   ARM Code       0  daddsub.o(x$fpl$dsub)
+    dsub_twoinf                              0x70427360   ARM Code       0  daddsub.o(x$fpl$dsub)
+    x$fpl$dunder                             0x70427384   ARM Code     276  dunder.o(x$fpl$dunder)
+    dunder_hiloword                          0x704273e0   ARM Code       0  dunder.o(x$fpl$dunder)
+    dunder_hiword                            0x70427400   ARM Code       0  dunder.o(x$fpl$dunder)
+    dunder_roundbit                          0x70427424   ARM Code       0  dunder.o(x$fpl$dunder)
+    dunder_stickyonly                        0x7042743c   ARM Code       0  dunder.o(x$fpl$dunder)
+    dunder_round                             0x70427448   ARM Code       0  dunder.o(x$fpl$dunder)
+    dunder_roundup                           0x70427468   ARM Code       0  dunder.o(x$fpl$dunder)
+    dunder_rerounded                         0x70427470   ARM Code       0  dunder.o(x$fpl$dunder)
+    dunder_roundeven                         0x70427474   ARM Code       0  dunder.o(x$fpl$dunder)
+    x$fpl$fpinit                             0x7042749c   ARM Code      24  fpinit.o(x$fpl$fpinit)
+    x$fpl$funder                             0x704274b4   ARM Code     144  funder.o(x$fpl$funder)
+    _funder_rerounded                        0x70427514   ARM Code       0  funder.o(x$fpl$funder)
+    _funder_exact                            0x70427518   ARM Code       0  funder.o(x$fpl$funder)
+    _funder_lostmant                         0x7042751c   ARM Code       0  funder.o(x$fpl$funder)
+    _funder_returninx                        0x7042753c   ARM Code       0  funder.o(x$fpl$funder)
+    x$fpl$retnan                             0x70427544   ARM Code      72  retnan.o(x$fpl$retnan)
+    return_fpnan                             0x70427570   ARM Code       0  retnan.o(x$fpl$retnan)
+    x$fpl$trapveneer                         0x7042758c   ARM Code      60  trapv.o(x$fpl$trapveneer)
+    cmp_generic                              0x704275a8   ARM Code       0  trapv.o(x$fpl$trapveneer)
+    cmp_boolean                              0x704275c0   ARM Code       0  trapv.o(x$fpl$trapveneer)
+    .constdata$1                             0x704275c8   Data           0  app_sys.o(.constdata)
+    .constdata                               0x704275c8   Data         300  app_sys.o(.constdata)
+    .constdata$6                             0x704276f4   Data           0  sysrodat.oi(.constdata)
+    .constdata                               0x704276f4   Data          13  sysrodat.oi(.constdata)
+    .constdata$31                            0x70427701   Data           0  sysrodat.oi(.constdata)
+    .constdata                               0x70427701   Data          10  sysrodat.oi(.constdata)
+    .constdata$36                            0x7042770b   Data           0  sysrodat.oi(.constdata)
+    .constdata                               0x7042770b   Data          10  sysrodat.oi(.constdata)
+    .constdata$46                            0x70427715   Data           0  sysrodat.oi(.constdata)
+    .constdata                               0x70427715   Data          10  sysrodat.oi(.constdata)
+    .constdata$6                             0x7042771f   Data           0  _uctype.opi(.constdata)
+    .constdata                               0x7042771f   Data         257  _uctype.opi(.constdata)
+    .constdata$1                             0x70427820   Data           0  printer.o(.constdata)
+    .constdata                               0x70427820   Data        7536  printer.o(.constdata)
+    .constdata$1                             0x70429590   Data           0  _dbltoa.opi(.constdata)
+    ones                                     0x70429590   Data          80  _dbltoa.opi(.constdata)
+    .constdata                               0x70429590   Data         152  _dbltoa.opi(.constdata)
+    tens                                     0x704295e0   Data          72  _dbltoa.opi(.constdata)
+    .constdata$1                             0x70429628   Data           0  _scanff.opi(.constdata)
+    digits                                   0x70429628   Data          11  _scanff.opi(.constdata)
+    .constdata                               0x70429628   Data          11  _scanff.opi(.constdata)
+    .constdata$1                             0x70429634   Data           0  _atodbl.opi(.constdata)
+    ones                                     0x70429634   Data          80  _atodbl.opi(.constdata)
+    .constdata                               0x70429634   Data         352  _atodbl.opi(.constdata)
+    tens_low                                 0x70429684   Data         120  _atodbl.opi(.constdata)
+    tens_high                                0x704296fc   Data         152  _atodbl.opi(.constdata)
+    c$$constdata                             0x70429794   Data          24  fpconst.o(c$$constdata)
+    .data$0                                  0x70429c00   Data           0  vrxcrt_t.o(.data)
+    .data                                    0x70429c00   Data           4  vrxcrt_t.o(.data)
+    .data$0                                  0x70429c04   Data           0  porting.o(.data)
+    hConsole                                 0x70429c04   Data           4  porting.o(.data)
+    .data                                    0x70429c04   Data         460  porting.o(.data)
+    hPrint                                   0x70429c08   Data           4  porting.o(.data)
+    hComModem                                0x70429c0c   Data           4  porting.o(.data)
+    .data$0                                  0x70429dd0   Data           0  beetle.o(.data)
+    .data                                    0x70429dd0   Data          16  beetle.o(.data)
+    .data$0                                  0x70429de0   Data           0  xmodem.o(.data)
+    O37XX_TERMINAL@is37xx_0                  0x70429de0   Data           4  xmodem.o(.data)
+    .data                                    0x70429de0   Data           4  xmodem.o(.data)
+    .data$0                                  0x70429de4   Data           0  logsys.o(.data)
+    my_pipe_log                              0x70429de4   Data           4  logsys.o(.data)
+    .data                                    0x70429de4   Data           8  logsys.o(.data)
+    server_pipe                              0x70429de8   Data           4  logsys.o(.data)
+    .bss$2                                   0x70429dec   Data           0  vrxcrt_t.o(.bss)
+    .bss                                     0x70429dec   Data           4  vrxcrt_t.o(.bss)
+    .bss$2                                   0x70429df0   Data           0  app_sys.o(.bss)
+    contIsoBufP1                             0x70429df0   Data           4  app_sys.o(.bss)
+    .bss                                     0x70429df0   Data        2116  app_sys.o(.bss)
+    contIsoBufP2                             0x70429df4   Data           4  app_sys.o(.bss)
+    isoBufP1                                 0x70429e34   Data        1024  app_sys.o(.bss)
+    isoBufP2                                 0x7042a234   Data        1024  app_sys.o(.bss)
+    .bss$2                                   0x7042a634   Data           0  porting.o(.bss)
+    stsSDLC                                  0x7042a634   Data           4  porting.o(.bss)
+    .bss                                     0x7042a634   Data          41  porting.o(.bss)
+    tmoDiscSDLC                              0x7042a638   Data           4  porting.o(.bss)
+    tmoRespSDLC                              0x7042a63c   Data           4  porting.o(.bss)
+    parmSDLC                                 0x7042a640   Data          29  porting.o(.bss)
+    .bss$2                                   0x7042a65e   Data           0  beetle.o(.bss)
+    .bss                                     0x7042a65e   Data         665  beetle.o(.bss)
+    cDone@BT_ReadFunc_0                      0x7042a660   Data           1  beetle.o(.bss)
+    szFlag                                   0x7042a661   Data           1  beetle.o(.bss)
+    ghCom1                                   0x7042a662   Data           2  beetle.o(.bss)
+    gMask                                    0x7042a664   Data           2  beetle.o(.bss)
+    hMag                                     0x7042a666   Data           2  beetle.o(.bss)
+    szTestPkt                                0x7042a668   Data         255  beetle.o(.bss)
+    szGetKeyPress                            0x7042a767   Data          26  beetle.o(.bss)
+    scr_buf                                  0x7042a781   Data         374  beetle.o(.bss)
+    .bss$2                                   0x7042a8f8   Data           0  xmodem.o(.bss)
+    echoMode                                 0x7042a8f8   Data           4  xmodem.o(.bss)
+    .bss                                     0x7042a8f8   Data          13  xmodem.o(.bss)
+    modeCheck                                0x7042a8fc   Data           4  xmodem.o(.bss)
+    .bss$2                                   0x7042a908   Data           0  printer.o(.bss)
+    thermalPrinter                           0x7042a908   Data           2  printer.o(.bss)
+    .bss                                     0x7042a908   Data           8  printer.o(.bss)
+    printerEsqSeq                            0x7042a90c   Data           4  printer.o(.bss)
+    .bss$2                                   0x7042a910   Data           0  logsys.o(.bss)
+    .bss                                     0x7042a910   Data        1134  logsys.o(.bss)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THUMB_ISAv1$M$PE$A:L22$X:L11$S22$IEEE1$IW$~IW$~STKCKD$~SHL$OSPACE$ROPI$EBA4$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    __main                                   0x00000000   Number         0  __main.ol ABSOLUTE
+    _main                                    0x00000000   Number         0  __main.ol ABSOLUTE
+    _main_arg                                0x00000000   Number         0  __main.ol ABSOLUTE
+    __cpp_finalise                            - Undefined Weak Reference
+    __cpp_initialise                          - Undefined Weak Reference
+    __cxa_finalize                            - Undefined Weak Reference
+    __fpl_infinity                            - Undefined Weak Reference
+    Image$$DATA$$Length                      0x000001ec   Number         0  anon$$obj.o ABSOLUTE
+    Image$$BSS$$ZI$$Length                   0x00000f94   Number         0  anon$$obj.o ABSOLUTE
+    Image$$CODE$$Length                      0x0000976c   Number         0  anon$$obj.o ABSOLUTE
+    _syslib_version                          0x70000060   ARM Code       0  SYS.o ABSOLUTE
+    strlen                                   0x7000006c   ARM Code       0  SYS.o ABSOLUTE
+    strchr                                   0x70000078   ARM Code       0  SYS.o ABSOLUTE
+    strcat                                   0x70000084   ARM Code       0  SYS.o ABSOLUTE
+    strcmp                                   0x70000090   ARM Code       0  SYS.o ABSOLUTE
+    strcpy                                   0x7000009c   ARM Code       0  SYS.o ABSOLUTE
+    strcspn                                  0x700000a8   ARM Code       0  SYS.o ABSOLUTE
+    strerror                                 0x700000b4   ARM Code       0  SYS.o ABSOLUTE
+    strncat                                  0x700000c0   ARM Code       0  SYS.o ABSOLUTE
+    strncmp                                  0x700000cc   ARM Code       0  SYS.o ABSOLUTE
+    strncpy                                  0x700000d8   ARM Code       0  SYS.o ABSOLUTE
+    strpbrk                                  0x700000e4   ARM Code       0  SYS.o ABSOLUTE
+    strrchr                                  0x700000f0   ARM Code       0  SYS.o ABSOLUTE
+    strspn                                   0x700000fc   ARM Code       0  SYS.o ABSOLUTE
+    strstr                                   0x70000108   ARM Code       0  SYS.o ABSOLUTE
+    strtok                                   0x70000114   ARM Code       0  SYS.o ABSOLUTE
+    memchr                                   0x70000120   ARM Code       0  SYS.o ABSOLUTE
+    memcmp                                   0x7000012c   ARM Code       0  SYS.o ABSOLUTE
+    memcpy                                   0x70000138   ARM Code       0  SYS.o ABSOLUTE
+    memmove                                  0x70000144   ARM Code       0  SYS.o ABSOLUTE
+    memset                                   0x70000150   ARM Code       0  SYS.o ABSOLUTE
+    memccpy                                  0x7000015c   ARM Code       0  SYS.o ABSOLUTE
+    tolower                                  0x70000168   ARM Code       0  SYS.o ABSOLUTE
+    toupper                                  0x70000174   ARM Code       0  SYS.o ABSOLUTE
+    strtol                                   0x70000180   ARM Code       0  SYS.o ABSOLUTE
+    strtoul                                  0x7000018c   ARM Code       0  SYS.o ABSOLUTE
+    atoi                                     0x70000198   ARM Code       0  SYS.o ABSOLUTE
+    atol                                     0x700001a4   ARM Code       0  SYS.o ABSOLUTE
+    abs                                      0x700001b0   ARM Code       0  SYS.o ABSOLUTE
+    labs                                     0x700001bc   ARM Code       0  SYS.o ABSOLUTE
+    div                                      0x700001c8   ARM Code       0  SYS.o ABSOLUTE
+    ldiv                                     0x700001d4   ARM Code       0  SYS.o ABSOLUTE
+    getenv                                   0x700001e0   ARM Code       0  SYS.o ABSOLUTE
+    bsearch                                  0x700001ec   ARM Code       0  SYS.o ABSOLUTE
+    qsort                                    0x700001f8   ARM Code       0  SYS.o ABSOLUTE
+    rand                                     0x70000204   ARM Code       0  SYS.o ABSOLUTE
+    srand                                    0x70000210   ARM Code       0  SYS.o ABSOLUTE
+    exitold                                  0x7000021c   ARM Code       0  SYS.o ABSOLUTE
+    malloc                                   0x70000228   ARM Code       0  SYS.o ABSOLUTE
+    _heap_max                                0x70000234   ARM Code       0  SYS.o ABSOLUTE
+    calloc                                   0x70000240   ARM Code       0  SYS.o ABSOLUTE
+    realloc                                  0x7000024c   ARM Code       0  SYS.o ABSOLUTE
+    free                                     0x70000258   ARM Code       0  SYS.o ABSOLUTE
+    malloc_all                               0x70000264   ARM Code       0  SYS.o ABSOLUTE
+    setjmp                                   0x70000270   ARM Code       0  SYS.o ABSOLUTE
+    longjmp                                  0x7000027c   ARM Code       0  SYS.o ABSOLUTE
+    remove                                   0x70000288   ARM Code       0  SYS.o ABSOLUTE
+    rename                                   0x70000294   ARM Code       0  SYS.o ABSOLUTE
+    _uprint                                  0x700002a0   ARM Code       0  SYS.o ABSOLUTE
+    _sltoa                                   0x700002ac   ARM Code       0  SYS.o ABSOLUTE
+    _ultoa                                   0x700002b8   ARM Code       0  SYS.o ABSOLUTE
+    _strtol                                  0x700002d0   ARM Code       0  SYS.o ABSOLUTE
+    _strtoul                                 0x700002dc   ARM Code       0  SYS.o ABSOLUTE
+    _hexes                                   0x700002e8   ARM Code       0  SYS.o ABSOLUTE
+    reallocBad                               0x700002f4   ARM Code       0  SYS.o ABSOLUTE
+    _heap_current                            0x70000300   ARM Code       0  SYS.o ABSOLUTE
+    SVC_LRC_CALC                             0x70000324   ARM Code       0  SYS.o ABSOLUTE
+    SVC_CRC_CCITT_L                          0x70000330   ARM Code       0  SYS.o ABSOLUTE
+    SVC_CRC_CCITT_M                          0x7000033c   ARM Code       0  SYS.o ABSOLUTE
+    SVC_CRC_CRC16_L                          0x70000348   ARM Code       0  SYS.o ABSOLUTE
+    SVC_CRC_CRC16_M                          0x70000354   ARM Code       0  SYS.o ABSOLUTE
+    SVC_CRC_CRC32_L                          0x70000360   ARM Code       0  SYS.o ABSOLUTE
+    SVC_CRC_CALC                             0x7000036c   ARM Code       0  SYS.o ABSOLUTE
+    SVC_CRC_CALC_L                           0x70000378   ARM Code       0  SYS.o ABSOLUTE
+    days2date                                0x70000384   ARM Code       0  SYS.o ABSOLUTE
+    date2days                                0x70000390   ARM Code       0  SYS.o ABSOLUTE
+    secs2time                                0x7000039c   ARM Code       0  SYS.o ABSOLUTE
+    time2secs                                0x700003a8   ARM Code       0  SYS.o ABSOLUTE
+    seconds2datetime                         0x700003b4   ARM Code       0  SYS.o ABSOLUTE
+    datetime2seconds                         0x700003c0   ARM Code       0  SYS.o ABSOLUTE
+    SVC_VALID_DATE                           0x700003cc   ARM Code       0  SYS.o ABSOLUTE
+    SVC_DSP_2_HEX                            0x700003d8   ARM Code       0  SYS.o ABSOLUTE
+    SVC_HEX_2_DSP                            0x700003e4   ARM Code       0  SYS.o ABSOLUTE
+    SVC_MEMSUM                               0x700003f0   ARM Code       0  SYS.o ABSOLUTE
+    SVC_MOD_CK                               0x700003fc   ARM Code       0  SYS.o ABSOLUTE
+    SVC_PACK4                                0x70000408   ARM Code       0  SYS.o ABSOLUTE
+    SVC_UNPK4                                0x70000414   ARM Code       0  SYS.o ABSOLUTE
+    SVC_AZ2CS                                0x70000420   ARM Code       0  SYS.o ABSOLUTE
+    SVC_CS2AZ                                0x7000042c   ARM Code       0  SYS.o ABSOLUTE
+    strnlwr                                  0x70000438   ARM Code       0  SYS.o ABSOLUTE
+    strnupr                                  0x70000444   ARM Code       0  SYS.o ABSOLUTE
+    ultoa                                    0x70000450   ARM Code       0  SYS.o ABSOLUTE
+    ltoa                                     0x7000045c   ARM Code       0  SYS.o ABSOLUTE
+    file_copy                                0x70000468   ARM Code       0  SYS.o ABSOLUTE
+    alpha_shift                              0x70000474   ARM Code       0  SYS.o ABSOLUTE
+    download                                 0x70000480   ARM Code       0  SYS.o ABSOLUTE
+    download_ext                             0x7000048c   ARM Code       0  SYS.o ABSOLUTE
+    dlTypeOK                                 0x70000498   ARM Code       0  SYS.o ABSOLUTE
+    PutChar                                  0x700004a4   ARM Code       0  SYS.o ABSOLUTE
+    SendPacket                               0x700004b0   ARM Code       0  SYS.o ABSOLUTE
+    CollectPacket                            0x700004bc   ARM Code       0  SYS.o ABSOLUTE
+    SVC_FILESYS_ZAP                          0x700004c8   ARM Code       0  SYS.o ABSOLUTE
+    SVC_ZONTALK                              0x700004d4   ARM Code       0  SYS.o ABSOLUTE
+    SVC_ZONTALK_EXT                          0x700004e0   ARM Code       0  SYS.o ABSOLUTE
+    get_GIDSmask                             0x700004ec   ARM Code       0  SYS.o ABSOLUTE
+    set_GIDSmask                             0x700004f8   ARM Code       0  SYS.o ABSOLUTE
+    alpha_multi_shift                        0x70000504   ARM Code       0  SYS.o ABSOLUTE
+    __rt_memcpy                              0x7000057c   ARM Code       0  SYS.o ABSOLUTE
+    __rt_memcpy_w                            0x70000588   ARM Code       0  SYS.o ABSOLUTE
+    __rt_memmove                             0x70000594   ARM Code       0  SYS.o ABSOLUTE
+    __rt_memmove_w                           0x700005a0   ARM Code       0  SYS.o ABSOLUTE
+    __rt_memset                              0x700005ac   ARM Code       0  SYS.o ABSOLUTE
+    __rt_memclr                              0x700005b8   ARM Code       0  SYS.o ABSOLUTE
+    __rt_memclr_w                            0x700005c4   ARM Code       0  SYS.o ABSOLUTE
+    __rt_div0                                0x700005d0   ARM Code       0  SYS.o ABSOLUTE
+    __rt_sdiv                                0x700005dc   ARM Code       0  SYS.o ABSOLUTE
+    __rt_udiv                                0x700005e8   ARM Code       0  SYS.o ABSOLUTE
+    __rt_sdiv10                              0x700005f4   ARM Code       0  SYS.o ABSOLUTE
+    __rt_udiv10                              0x70000600   ARM Code       0  SYS.o ABSOLUTE
+    __rt_uread4                              0x7000060c   ARM Code       0  SYS.o ABSOLUTE
+    __rt_uwrite4                             0x70000618   ARM Code       0  SYS.o ABSOLUTE
+    play_RTTTL                               0x7000066c   ARM Code       0  SYS.o ABSOLUTE
+    _nosys                                   0x700009b4   ARM Code       0  SYS.o ABSOLUTE
+    errno                                    0x7041fff0   Number         0  armrt.ol ABSOLUTE
+    fp_status                                0x7041fffc   Number         0  armrt.ol ABSOLUTE
+    Image$$CODE$$Base                        0x70420040   Number         0  anon$$obj.o ABSOLUTE
+    _verix_header                            0x70420040   Data           0  vrxcrt_t.o(.0_vrx_pgmhdr)
+    _version                                 0x70420042   Data           0  vrxcrt_t.o(.0_vrx_pgmhdr)
+    _stacksize                               0x70420050   Data           0  vrxcrt_t.o(.0_vrx_pgmhdr)
+    _heapsize                                0x70420058   Data           0  vrxcrt_t.o(.0_vrx_pgmhdr)
+    Inline Thumb to ARM Veneer to _sscanf    0x70420074   Thumb Code     0  armstubs.opi(.stub__sscanf)
+    _sscanf                                  0x70420078   ARM Code       0  armstubs.opi(.stub__sscanf)
+    _vrxgo                                   0x7042007c   Thumb Code   174  vrxcrt_t.o(.text)
+    mostraMenu                               0x70420154   Thumb Code    28  aplic.o(.text)
+    menu                                     0x70420170   Thumb Code    94  aplic.o(.text)
+    initEnvironment                          0x704201ce   Thumb Code   100  aplic.o(.text)
+    main                                     0x70420232   Thumb Code   370  aplic.o(.text)
+    ResetDispComm                            0x704203bc   Thumb Code     8  app_sys.o(.text)
+    discaPos                                 0x704203c4   Thumb Code    16  app_sys.o(.text)
+    makeISO                                  0x704203d4   Thumb Code    26  app_sys.o(.text)
+    sendISO                                  0x704203ee   Thumb Code    32  app_sys.o(.text)
+    recvISO                                  0x7042040e   Thumb Code    30  app_sys.o(.text)
+    procP2                                   0x7042042c   Thumb Code    28  app_sys.o(.text)
+    loadParm                                 0x70420448   Thumb Code    56  app_sys.o(.text)
+    printfPOS                                0x70420480   Thumb Code    42  app_sys.o(.text)
+    isConnected                              0x704204aa   Thumb Code    30  app_sys.o(.text)
+    getStatCom                               0x704204c8   Thumb Code    82  app_sys.o(.text)
+    transaciona                              0x7042051a   Thumb Code   446  app_sys.o(.text)
+    resetConsole                             0x70420754   Thumb Code    38  porting.o(.text)
+    debugH                                   0x7042077a   Thumb Code    72  porting.o(.text)
+    resetPrint                               0x704207c2   Thumb Code   112  porting.o(.text)
+    beepPOS                                  0x70420832   Thumb Code    26  porting.o(.text)
+    get_parm                                 0x7042084c   Thumb Code    38  porting.o(.text)
+    waitTime                                 0x70420872   Thumb Code    12  porting.o(.text)
+    clearDisplay                             0x7042087e   Thumb Code    10  porting.o(.text)
+    writeDisp                                0x70420888   Thumb Code    22  porting.o(.text)
+    readKeyPos                               0x7042089e   Thumb Code    34  porting.o(.text)
+    get_milli_sec                            0x704208c0   Thumb Code    20  porting.o(.text)
+    flushMDM                                 0x704208d4   Thumb Code    18  porting.o(.text)
+    ATCmdSDLC                                0x704208e6   Thumb Code   444  porting.o(.text)
+    getStatSDLC                              0x70420aa2   Thumb Code     6  porting.o(.text)
+    SaveConfSDLC                             0x70420aa8   Thumb Code    62  porting.o(.text)
+    resetSDLC                                0x70420ae6   Thumb Code   398  porting.o(.text)
+    discaSDLC                                0x70420c74   Thumb Code   142  porting.o(.text)
+    chk_sdlc                                 0x70420d02   Thumb Code   270  porting.o(.text)
+    sndSDLC                                  0x70420e10   Thumb Code   100  porting.o(.text)
+    recvSDLC                                 0x70420e74   Thumb Code   416  porting.o(.text)
+    vsprintf                                 0x70421060   Thumb Code    36  vsprintf.opi(.text)
+    _sprintf                                 0x7042108c   Thumb Code    44  sprintfi.opi(.text)
+    __rt_fp_status_addr                      0x704210bc   ARM Code       0  armrt.ol(.text)
+    __rt_raise                               0x704210c4   ARM Code       0  armrt.ol(.text)
+    __gccmain                                0x704210d0   ARM Code       0  armrt.ol(.text)
+    p250_close                               0x704210dc   Thumb Code     8  printerIF.o(.text)
+    p250_id                                  0x704210e4   Thumb Code    10  printerIF.o(.text)
+    p250_init                                0x704210ee   Thumb Code    10  printerIF.o(.text)
+    p250_status                              0x704210f8   Thumb Code     8  printerIF.o(.text)
+    p250_print                               0x70421100   Thumb Code    18  printerIF.o(.text)
+    p250_mode                                0x70421112   Thumb Code     8  printerIF.o(.text)
+    p300_close                               0x7042111a   Thumb Code     8  printerIF.o(.text)
+    p300_id                                  0x70421122   Thumb Code    10  printerIF.o(.text)
+    p300_init                                0x7042112c   Thumb Code    10  printerIF.o(.text)
+    p300_status                              0x70421136   Thumb Code     8  printerIF.o(.text)
+    p300_print                               0x7042113e   Thumb Code     8  printerIF.o(.text)
+    p300_mode                                0x70421146   Thumb Code     8  printerIF.o(.text)
+    p350_close                               0x7042114e   Thumb Code     8  printerIF.o(.text)
+    p350_id                                  0x70421156   Thumb Code    10  printerIF.o(.text)
+    p350_init                                0x70421160   Thumb Code    10  printerIF.o(.text)
+    p350_status                              0x7042116a   Thumb Code     8  printerIF.o(.text)
+    p350_print                               0x70421172   Thumb Code     8  printerIF.o(.text)
+    p350_mode                                0x7042117a   Thumb Code     8  printerIF.o(.text)
+    p355_close                               0x70421182   Thumb Code     8  printerIF.o(.text)
+    p355_id                                  0x7042118a   Thumb Code    10  printerIF.o(.text)
+    p355_init                                0x70421194   Thumb Code    10  printerIF.o(.text)
+    p355_status                              0x7042119e   Thumb Code     8  printerIF.o(.text)
+    p355_print                               0x704211a6   Thumb Code     8  printerIF.o(.text)
+    p355_mode                                0x704211ae   Thumb Code     8  printerIF.o(.text)
+    p950_close                               0x704211b6   Thumb Code     8  printerIF.o(.text)
+    p950_id                                  0x704211be   Thumb Code    10  printerIF.o(.text)
+    p950_init                                0x704211c8   Thumb Code    10  printerIF.o(.text)
+    p950_status                              0x704211d2   Thumb Code     8  printerIF.o(.text)
+    p950_print                               0x704211da   Thumb Code     8  printerIF.o(.text)
+    p950_mode                                0x704211e2   Thumb Code     8  printerIF.o(.text)
+    p950_select_font                         0x704211ea   Thumb Code     8  printerIF.o(.text)
+    p950_dnld_font_file                      0x704211f2   Thumb Code     8  printerIF.o(.text)
+    p950_sel_tbl_dnld_char                   0x704211fa   Thumb Code    16  printerIF.o(.text)
+    p950_dnld_char                           0x7042120a   Thumb Code     8  printerIF.o(.text)
+    p3300_close                              0x70421212   Thumb Code     8  printerIF.o(.text)
+    p3300_id                                 0x7042121a   Thumb Code    10  printerIF.o(.text)
+    p3300_init                               0x70421224   Thumb Code    10  printerIF.o(.text)
+    p3300_status                             0x7042122e   Thumb Code     8  printerIF.o(.text)
+    p3300_print                              0x70421236   Thumb Code     8  printerIF.o(.text)
+    p3300_mode                               0x7042123e   Thumb Code     8  printerIF.o(.text)
+    p3300_select_font                        0x70421246   Thumb Code     8  printerIF.o(.text)
+    p3300_dnld_font_file                     0x7042124e   Thumb Code     8  printerIF.o(.text)
+    p3300_sel_tbl_dnld_char                  0x70421256   Thumb Code    16  printerIF.o(.text)
+    p3300_dnld_char                          0x70421266   Thumb Code     8  printerIF.o(.text)
+    p3300_dnld_graphic_file                  0x7042126e   Thumb Code     8  printerIF.o(.text)
+    p3300_print_graphic                      0x70421276   Thumb Code     8  printerIF.o(.text)
+    p3600_close                              0x7042127e   Thumb Code     8  printerIF.o(.text)
+    p3600_id                                 0x70421286   Thumb Code    10  printerIF.o(.text)
+    p3600_init                               0x70421290   Thumb Code    10  printerIF.o(.text)
+    p3600_status                             0x7042129a   Thumb Code     8  printerIF.o(.text)
+    p3600_print                              0x704212a2   Thumb Code     8  printerIF.o(.text)
+    p3600_mode                               0x704212aa   Thumb Code     8  printerIF.o(.text)
+    p3600_select_font                        0x704212b2   Thumb Code     8  printerIF.o(.text)
+    p3600_dnld_font_file                     0x704212ba   Thumb Code     8  printerIF.o(.text)
+    p3600_sel_tbl_dnld_char                  0x704212c2   Thumb Code    16  printerIF.o(.text)
+    p3600_dnld_char                          0x704212d2   Thumb Code     8  printerIF.o(.text)
+    p3600_dnld_graphic_file                  0x704212da   Thumb Code     8  printerIF.o(.text)
+    p3600_print_graphic                      0x704212e2   Thumb Code     8  printerIF.o(.text)
+    p3700_close                              0x704212ea   Thumb Code    26  printerIF.o(.text)
+    p3700_id                                 0x70421304   Thumb Code    10  printerIF.o(.text)
+    p3700_init                               0x7042130e   Thumb Code    10  printerIF.o(.text)
+    p3700_status                             0x70421318   Thumb Code     8  printerIF.o(.text)
+    p3700_print                              0x70421320   Thumb Code     8  printerIF.o(.text)
+    p3700_mode                               0x70421328   Thumb Code     8  printerIF.o(.text)
+    p3700_select_font                        0x70421330   Thumb Code     8  printerIF.o(.text)
+    p3700_dnld_font_file                     0x70421338   Thumb Code     8  printerIF.o(.text)
+    p3700_sel_tbl_dnld_char                  0x70421340   Thumb Code    16  printerIF.o(.text)
+    p3700_dnld_char                          0x70421350   Thumb Code     8  printerIF.o(.text)
+    p3700_dnld_graphic_file                  0x70421358   Thumb Code     8  printerIF.o(.text)
+    p3700_print_graphic                      0x70421360   Thumb Code     8  printerIF.o(.text)
+    BT_GetEnvValue                           0x7042136c   Thumb Code    22  beetle.o(.text)
+    BT_FileSize                              0x70421382   Thumb Code    30  beetle.o(.text)
+    BT_Write                                 0x704213a0   Thumb Code   378  beetle.o(.text)
+    BT_ScreenHandle                          0x7042151a   Thumb Code    18  beetle.o(.text)
+    BT_SetEnvValue                           0x7042152c   Thumb Code    32  beetle.o(.text)
+    BT_SetClock                              0x7042154c   Thumb Code    32  beetle.o(.text)
+    BT_FileRename                            0x7042156c   Thumb Code    24  beetle.o(.text)
+    BT_ProcessEvents                         0x70421584   Thumb Code   440  beetle.o(.text)
+    BT_ReadCom                               0x7042173c   Thumb Code   202  beetle.o(.text)
+    BT_Read                                  0x70421806   Thumb Code    36  beetle.o(.text)
+    BT_Stop                                  0x7042182a   Thumb Code    20  beetle.o(.text)
+    BT_Start                                 0x7042183e   Thumb Code   256  beetle.o(.text)
+    BT_BWrite                                0x7042193e   Thumb Code   134  beetle.o(.text)
+    BT_GetKeyPress                           0x704219c4   Thumb Code   160  beetle.o(.text)
+    BT_CheckCOMEvent                         0x70421a64   Thumb Code    56  beetle.o(.text)
+    BT_WriteScreen                           0x70421a9c   Thumb Code   252  beetle.o(.text)
+    BT_Clrscr                                0x70421b98   Thumb Code    86  beetle.o(.text)
+    BT_WriteFunc                             0x70421bee   Thumb Code    34  beetle.o(.text)
+    BT_WriteAt                               0x70421c10   Thumb Code     6  beetle.o(.text)
+    BT_Clreol                                0x70421c16   Thumb Code    86  beetle.o(.text)
+    BT_ReadFunc                              0x70421c6c   Thumb Code    84  beetle.o(.text)
+    BT_Open                                  0x70421cc0   Thumb Code    96  beetle.o(.text)
+    BT_Close                                 0x70421d20   Thumb Code    52  beetle.o(.text)
+    BT_kbd_pending_count                     0x70421d54   Thumb Code    28  beetle.o(.text)
+    BT_Get_Dock_Status                       0x70421d70   Thumb Code    20  beetle.o(.text)
+    BT_Get_Battery_Value                     0x70421d84   Thumb Code    22  beetle.o(.text)
+    DisableBTEvent                           0x70421d9a   Thumb Code    64  beetle.o(.text)
+    BT_ProjectName                           0x70421dda   Thumb Code    22  beetle.o(.text)
+    BT_ComponentName                         0x70421df0   Thumb Code    22  beetle.o(.text)
+    BT_Round                                 0x70421e06   Thumb Code    30  beetle.o(.text)
+    BT_LogTestCases                          0x70421e24   Thumb Code    22  beetle.o(.text)
+    BT_LogTestResults                        0x70421e3a   Thumb Code    22  beetle.o(.text)
+    BT_StartTestCase                         0x70421e50   Thumb Code    22  beetle.o(.text)
+    BTC_Id                                   0x70421e66   Thumb Code    22  beetle.o(.text)
+    BTC_Type                                 0x70421e7c   Thumb Code    22  beetle.o(.text)
+    BTC_Description                          0x70421e92   Thumb Code    22  beetle.o(.text)
+    BTC_ExpectedBehavior                     0x70421ea8   Thumb Code    22  beetle.o(.text)
+    BTC_ObservedBehavior                     0x70421ebe   Thumb Code    22  beetle.o(.text)
+    BTC_Result                               0x70421ed4   Thumb Code    30  beetle.o(.text)
+    BTC_DCSId                                0x70421ef2   Thumb Code    22  beetle.o(.text)
+    BTC_DefectSeverity                       0x70421f08   Thumb Code    30  beetle.o(.text)
+    BTC_Log                                  0x70421f26   Thumb Code    22  beetle.o(.text)
+    BTC_Notes                                0x70421f3c   Thumb Code    22  beetle.o(.text)
+    BT_EndTestCase                           0x70421f52   Thumb Code    54  beetle.o(.text)
+    get_char                                 0x70421fdc   Thumb Code    46  getchar.o(.text)
+    xhayes_response                          0x7042200c   Thumb Code   246  xmodem.o(.text)
+    SysMdlNum                                0x70422102   Thumb Code    72  xmodem.o(.text)
+    is670Vx                                  0x7042214a   Thumb Code    40  xmodem.o(.text)
+    is37xx                                   0x70422172   Thumb Code   158  xmodem.o(.text)
+    MDM_STATUS                               0x70422210   Thumb Code    10  xmodem.o(.text)
+    xmdm_output_pending                      0x7042221a   Thumb Code    18  xmodem.o(.text)
+    xmdm_flush                               0x7042222c   Thumb Code    42  xmodem.o(.text)
+    xhayes_send_cmd                          0x70422256   Thumb Code   238  xmodem.o(.text)
+    xmdm_ATCmd                               0x70422344   Thumb Code   328  xmodem.o(.text)
+    InitAsync_Vx670                          0x7042248c   Thumb Code   208  xmodem.o(.text)
+    xmdm_set_protocol                        0x7042255c   Thumb Code    60  xmodem.o(.text)
+    InitSync_Vx670                           0x70422598   Thumb Code   330  xmodem.o(.text)
+    init_sdlc                                0x704226e2   Thumb Code   252  xmodem.o(.text)
+    xmdm_open                                0x704227de   Thumb Code   694  xmodem.o(.text)
+    xmdm_clear                               0x70422a94   Thumb Code    66  xmodem.o(.text)
+    xmdm_input_pending                       0x70422ad6   Thumb Code    30  xmodem.o(.text)
+    xmdm_close                               0x70422af4   Thumb Code   100  xmodem.o(.text)
+    siliconlabsmodem_display                 0x70422b58   Thumb Code  1298  xmodem.o(.text)
+    xhayes_display                           0x7042306a   Thumb Code   942  xmodem.o(.text)
+    xmdm_dial_status                         0x70423418   Thumb Code    78  xmodem.o(.text)
+    xmdm_get_line_dial                       0x70423466   Thumb Code    86  xmodem.o(.text)
+    xmdm_check_status                        0x704234bc   Thumb Code    32  xmodem.o(.text)
+    xmdm_receive_data                        0x704234dc   Thumb Code   166  xmodem.o(.text)
+    xmdm_hangup                              0x70423582   Thumb Code   198  xmodem.o(.text)
+    xmdm_init                                0x70423648   Thumb Code    36  xmodem.o(.text)
+    xmdm_failed_output_pending               0x7042366c   Thumb Code    30  xmodem.o(.text)
+    xmdm_send_data                           0x7042368a   Thumb Code   366  xmodem.o(.text)
+    xmdm_set_attrib                          0x704237f8   Thumb Code    34  xmodem.o(.text)
+    xmdm_checkline                           0x7042381a   Thumb Code   200  xmodem.o(.text)
+    inOpenModem                              0x704238e2   Thumb Code   170  xmodem.o(.text)
+    vdCheckDataMode                          0x7042398c   Thumb Code     6  xmodem.o(.text)
+    vdSetEchoMode                            0x70423992   Thumb Code     6  xmodem.o(.text)
+    inInitModem                              0x70423998   Thumb Code   296  xmodem.o(.text)
+    xhayes_status                            0x70423ac0   Thumb Code     8  xmodem.o(.text)
+    xhayes_control                           0x70423ac8   Thumb Code    54  xmodem.o(.text)
+    xhayes_flush                             0x70423afe   Thumb Code    36  xmodem.o(.text)
+    SVC_TICKS                                0x70423bfc   Thumb Code    44  SvcTicks.o(.text)
+    _dbltoprtf                               0x70423c28   Thumb Code   902  _dbltopr.opi(.text)
+    _sputchar                                0x70423fae   Thumb Code    20  _sputc.opi(.text)
+    __rt_errno_addr                          0x70423fc4   Thumb Code    20  rt_errno.ol(.text)
+    PRN_id                                   0x70424088   Thumb Code   174  printer.o(.text)
+    ACT_CheckOSVersion                       0x70424136   Thumb Code    98  printer.o(.text)
+    is3720                                   0x70424198   Thumb Code    64  printer.o(.text)
+    PRN_init                                 0x704241d8   Thumb Code   130  printer.o(.text)
+    PRN_close                                0x7042425a   Thumb Code    54  printer.o(.text)
+    PRN_mode                                 0x70424290   Thumb Code   230  printer.o(.text)
+    PRN_print                                0x70424376   Thumb Code   184  printer.o(.text)
+    PRN_status                               0x7042442e   Thumb Code   220  printer.o(.text)
+    PRN_select_font                          0x7042450a   Thumb Code    82  printer.o(.text)
+    PRN_dnld_char                            0x7042455c   Thumb Code   106  printer.o(.text)
+    PRN_sel_tbl_dnld_char                    0x704245c6   Thumb Code    42  printer.o(.text)
+    PRN_dnld_font_file                       0x704245f0   Thumb Code   208  printer.o(.text)
+    PRN_dnld_graphic_file                    0x704246c0   Thumb Code   160  printer.o(.text)
+    PRN_print_graphic                        0x70424760   Thumb Code   116  printer.o(.text)
+    insert_char                              0x704247f8   Thumb Code    56  Insrtch.o(.text)
+    p_int2str                                0x70424830   Thumb Code    50  Int2str.o(.text)
+    int2str                                  0x70424862   Thumb Code    24  Int2str.o(.text)
+    p_long2str                               0x7042487a   Thumb Code    50  Long2str.o(.text)
+    long2str                                 0x704248ac   Thumb Code    24  Long2str.o(.text)
+    set_itimeout                             0x704248c4   Thumb Code    38  setitim.o(.text)
+    connectDebugServer                       0x704248f0   Thumb Code    66  logsys.o(.text)
+    LOG_INIT                                 0x70424932   Thumb Code   362  logsys.o(.text)
+    vLogMessage                              0x70424a9c   Thumb Code   146  logsys.o(.text)
+    vLogMessageFilter                        0x70424b2e   Thumb Code   148  logsys.o(.text)
+    vLogComm                                 0x70424bc2   Thumb Code   386  logsys.o(.text)
+    logToPipe                                0x70424d44   Thumb Code    52  logsys.o(.text)
+    vPfrStoreErrorMessage                    0x70424d78   Thumb Code   372  logsys.o(.text)
+    vLogError                                0x70424eec   Thumb Code   454  logsys.o(.text)
+    vLogMessageBinary                        0x704250b2   Thumb Code   314  logsys.o(.text)
+    get_dock_status                          0x70425200   Thumb Code     8  power.o(.text)
+    get_powerswitch_status                   0x70425208   Thumb Code     8  power.o(.text)
+    select_comm_device                       0x70425210   Thumb Code    26  device.o(.text)
+    set_radio_power                          0x7042522a   Thumb Code    26  device.o(.text)
+    _dbltoa                                  0x70425244   Thumb Code   466  _dbltoa.opi(.text)
+    act_kbd_pending_test                     0x70425428   Thumb Code    26  actutil.o(.text)
+    GetVersion                               0x70425442   Thumb Code     4  actutil.o(.text)
+    cvt_ym                                   0x70425446   Thumb Code    78  actutil.o(.text)
+    Inline ARM to Thumb Veneer to sscanf     0x704254a0   ARM Code       0  sscanf.opi(.text)
+    sscanf                                   0x704254a8   Thumb Code    44  sscanf.opi(.text)
+    str2int                                  0x704254dc   Thumb Code    66  Str2int.o(.text)
+    _scanf_                                  0x70425520   Thumb Code  1486  _scanff.opi(.text)
+    _sgetchar                                0x70425af4   Thumb Code    24  _sgetc.opi(.text)
+    _sungetc                                 0x70425b0c   Thumb Code    16  _sgetc.opi(.text)
+    SVC_2INT                                 0x70425b1c   Thumb Code    40  cs_int.oi(.text)
+    SVC_INT2                                 0x70425b44   Thumb Code    64  cs_int.oi(.text)
+    ntocs                                    0x70425b84   Thumb Code    56  ntocs.o(.text)
+    _strtod                                  0x70425bbc   Thumb Code   164  _strtod.opi(.text)
+    _int_scan                                0x70425c84   Thumb Code   316  _intscan.opi(.text)
+    _flt_scan                                0x70425dc4   Thumb Code   408  _fltscan.opi(.text)
+    _atodbl                                  0x70426012   Thumb Code   714  _atodbl.opi(.text)
+    __call_via_r0                            0x704262f4   Thumb Code     4  callvia.o(.text)
+    __call_via_r1                            0x704262f6   Thumb Code     4  callvia.o(.text)
+    __call_via_r2                            0x704262f8   Thumb Code     4  callvia.o(.text)
+    __call_via_r3                            0x704262fa   Thumb Code     4  callvia.o(.text)
+    __call_via_r4                            0x704262fc   Thumb Code     4  callvia.o(.text)
+    __call_via_r5                            0x704262fe   Thumb Code     4  callvia.o(.text)
+    __call_via_r6                            0x70426300   Thumb Code     4  callvia.o(.text)
+    __call_via_r7                            0x70426302   Thumb Code     4  callvia.o(.text)
+    Inline Thumb to ARM Veneer to __rt_switch8 0x70426304   Thumb Code     0  switch8.o(.text)
+    __rt_switch8                             0x70426308   ARM Code      24  switch8.o(.text)
+    Short Thumb to ARM Veneer to strlen      0x70426320   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to strcpy      0x70426328   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to __rt_memclr_w 0x70426330   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to memcmp      0x70426338   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to __rt_memcpy 0x70426340   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to strcat      0x70426348   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to _uprint     0x70426350   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to rename      0x70426358   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to remove      0x70426360   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to atoi        0x70426368   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to __rt_memclr 0x70426370   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to __rt_memset 0x70426378   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to strncat     0x70426380   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to strncpy     0x70426388   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to strcmp      0x70426390   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to ltoa        0x70426398   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to strncmp     0x704263a0   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to strstr      0x704263a8   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to __rt_sdiv10 0x704263b0   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to __rt_udiv10 0x704263b8   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to toupper     0x704263c0   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to strchr      0x704263c8   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to strspn      0x704263d0   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to strrchr     0x704263d8   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to _strtoul    0x704263e0   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to _strtol     0x704263e8   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Short Thumb to ARM Veneer to _sltoa      0x704263f0   Thumb Code     0  anon$$obj.o(Veneer$$Code)
+    Inline Thumb to ARM Veneer to _dneg      0x704263f8   Thumb Code     0  basic.o(x$fpl$basic)
+    _dneg                                    0x704263fc   ARM Code       8  basic.o(x$fpl$basic)
+    _fneg                                    0x70426404   ARM Code       8  basic.o(x$fpl$basic)
+    _dabs                                    0x7042640c   ARM Code       8  basic.o(x$fpl$basic)
+    _fabs                                    0x70426414   ARM Code       8  basic.o(x$fpl$basic)
+    Inline Thumb to ARM Veneer to _d2f       0x7042641c   Thumb Code     0  d2f.o(x$fpl$d2f)
+    _d2f                                     0x70426420   ARM Code     180  d2f.o(x$fpl$d2f)
+    __fpl_inf_d2f                            0x704264cc   ARM Code       0  d2f.o(x$fpl$d2f)
+    Inline Thumb to ARM Veneer to _dadd      0x704264d8   Thumb Code     0  daddsub.o(x$fpl$dadd)
+    _dadd                                    0x704264dc   ARM Code     504  daddsub.o(x$fpl$dadd)
+    __fpl_inf_dadd                           0x7042668c   ARM Code       0  daddsub.o(x$fpl$dadd)
+    __fpl_dcheck_NaN2                        0x704266e4   ARM Code      12  dcheck.o(x$fpl$dcheck)
+    __fpl_dcheck_NaN1                        0x704266f4   ARM Code      12  dcheck1.o(x$fpl$dcheck1)
+    __fpl_dcmp_InfNaN                        0x70426704   ARM Code     116  dcmpin.o(x$fpl$dcmpinfnan)
+    __fpl_inf_dcmp                           0x70426728   ARM Code       0  dcmpin.o(x$fpl$dcmpinfnan)
+    Inline Thumb to ARM Veneer to _ddiv      0x70426778   Thumb Code     0  ddiv.o(x$fpl$ddiv)
+    _ddiv                                    0x7042677c   ARM Code     564  ddiv.o(x$fpl$ddiv)
+    __fpl_inf_ddiv                           0x7042694c   ARM Code       0  ddiv.o(x$fpl$ddiv)
+    _ddiv_mantissas                          0x704269b0   ARM Code     608  ddiv.o(x$fpl$ddiv)
+    Inline Thumb to ARM Veneer to _dcmpeq    0x70426ca4   Thumb Code     0  deqf.o(x$fpl$deqf)
+    _dcmpeq                                  0x70426ca8   ARM Code     132  deqf.o(x$fpl$deqf)
+    Inline Thumb to ARM Veneer to _dfix      0x70426d30   Thumb Code     0  dfix.o(x$fpl$dfix)
+    _dfix                                    0x70426d34   ARM Code       0  dfix.o(x$fpl$dfix)
+    __fpl_inf_dfix                           0x70426dcc   ARM Code       0  dfix.o(x$fpl$dfix)
+    Inline Thumb to ARM Veneer to _dcmpge    0x70426ddc   Thumb Code     0  dgeqf.o(x$fpl$dgeqf)
+    _dcmpge                                  0x70426de0   ARM Code     132  dgeqf.o(x$fpl$dgeqf)
+    Inline Thumb to ARM Veneer to _dcmple    0x70426e68   Thumb Code     0  dleqf.o(x$fpl$dleqf)
+    _dcmple                                  0x70426e6c   ARM Code     132  dleqf.o(x$fpl$dleqf)
+    Inline Thumb to ARM Veneer to _dmul      0x70426ef4   Thumb Code     0  dmul_mull.o(x$fpl$dmul)
+    _dmul                                    0x70426ef8   ARM Code     504  dmul_mull.o(x$fpl$dmul)
+    __fpl_inf_dmul                           0x704270bc   ARM Code       0  dmul_mull.o(x$fpl$dmul)
+    Inline Thumb to ARM Veneer to _dsub      0x70427104   Thumb Code     0  daddsub.o(x$fpl$dsub)
+    _dsub                                    0x70427108   ARM Code     624  daddsub.o(x$fpl$dsub)
+    __fpl_inf_dsub                           0x70427330   ARM Code       0  daddsub.o(x$fpl$dsub)
+    __dunder                                 0x70427384   ARM Code     272  dunder.o(x$fpl$dunder)
+    __dunder_d                               0x70427494   ARM Code       4  dunder.o(x$fpl$dunder)
+    Inline Thumb to ARM Veneer to _fp_init   0x70427498   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    _fp_init                                 0x7042749c   ARM Code      24  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x704274ac   ARM Code       0  fpinit.o(x$fpl$fpinit)
+    __funder                                 0x704274b4   ARM Code     140  funder.o(x$fpl$funder)
+    __funder_d                               0x70427540   ARM Code       4  funder.o(x$fpl$funder)
+    __fpl_return_NaN                         0x70427544   ARM Code      64  retnan.o(x$fpl$retnan)
+    __fpl_cmpreturn                          0x7042758c   ARM Code      60  trapv.o(x$fpl$trapveneer)
+    DEV_CONSOLE                              0x704276f4   Data          13  sysrodat.oi(.constdata)
+    DEV_COM3                                 0x70427701   Data          10  sysrodat.oi(.constdata)
+    DEV_COM4                                 0x7042770b   Data          10  sysrodat.oi(.constdata)
+    DEV_COM6                                 0x70427715   Data          10  sysrodat.oi(.constdata)
+    _uctype                                  0x7042771f   Data         257  _uctype.opi(.constdata)
+    PRN200EsqSeq                             0x70427820   Data         628  printer.o(.constdata)
+    PRN250EsqSeq                             0x70427a94   Data         628  printer.o(.constdata)
+    PRN300EsqSeq                             0x70427d08   Data         628  printer.o(.constdata)
+    PRN350EsqSeq                             0x70427f7c   Data         628  printer.o(.constdata)
+    PRN500EsqSeq                             0x704281f0   Data         628  printer.o(.constdata)
+    PRN600EsqSeq                             0x70428464   Data         628  printer.o(.constdata)
+    PRN700EsqSeq                             0x704286d8   Data         628  printer.o(.constdata)
+    PRN900EsqSeq                             0x7042894c   Data         628  printer.o(.constdata)
+    PRN950EsqSeq                             0x70428bc0   Data         628  printer.o(.constdata)
+    PRN3300EsqSeq                            0x70428e34   Data         628  printer.o(.constdata)
+    PRN3600EsqSeq                            0x704290a8   Data         628  printer.o(.constdata)
+    PRN3700EsqSeq                            0x7042931c   Data         628  printer.o(.constdata)
+    __dInf                                   0x70429794   Data           0  fpconst.o(c$$constdata)
+    __huge_val                               0x70429794   Data           0  fpconst.o(c$$constdata)
+    __dNaN                                   0x7042979c   Data           0  fpconst.o(c$$constdata)
+    __fInf                                   0x704297a4   Data           0  fpconst.o(c$$constdata)
+    __fNaN                                   0x704297a8   Data           0  fpconst.o(c$$constdata)
+    Load$$DATA$$Base                         0x704297ac   Number         0  anon$$obj.o ABSOLUTE
+    Image$$DATA$$Base                        0x70429c00   Number         0  anon$$obj.o ABSOLUTE
+    _stop_link_warning_                      0x70429c00   Data           4  vrxcrt_t.o(.data)
+    SDLC_T                                   0x70429c10   Data           8  porting.o(.data)
+    SDLC_CMD                                 0x70429c18   Data         272  porting.o(.data)
+    SDLC_R                                   0x70429d28   Data          96  porting.o(.data)
+    SDLC_E                                   0x70429d88   Data          72  porting.o(.data)
+    giDockStatus                             0x70429dd0   Data           4  beetle.o(.data)
+    giBatteryValue                           0x70429dd4   Data           4  beetle.o(.data)
+    giCom3OpenStatus                         0x70429dd8   Data           4  beetle.o(.data)
+    giCom6OpenStatus                         0x70429ddc   Data           4  beetle.o(.data)
+    _stop_link_ZIwarning_                    0x70429dec   Data           4  vrxcrt_t.o(.bss)
+    retCom                                   0x70429df8   Data          24  app_sys.o(.bss)
+    parm                                     0x70429e10   Data          36  app_sys.o(.bss)
+    gKBDEvent                                0x7042a65e   Data           1  beetle.o(.bss)
+    gMagEvent                                0x7042a65f   Data           1  beetle.o(.bss)
+    xstatus_info                             0x7042a900   Data           5  xmodem.o(.bss)
+    LOGPORT                                  0x7042a910   Data           2  logsys.o(.bss)
+    sPortStat                                0x7042a912   Data           2  logsys.o(.bss)
+    initsem                                  0x7042a914   Data           2  logsys.o(.bss)
+    LOG_TYPE                                 0x7042a916   Data           2  logsys.o(.bss)
+    logFileSize                              0x7042a918   Data           4  logsys.o(.bss)
+    FILTER                                   0x7042a91c   Data           4  logsys.o(.bss)
+    PRINTF_FILTER                            0x7042a920   Data           4  logsys.o(.bss)
+    PRINTF_LOCK_semaphore                    0x7042a924   Data           4  logsys.o(.bss)
+    APPNAME                                  0x7042a928   Data          10  logsys.o(.bss)
+    pchFormatMessageBuf                      0x7042a932   Data        1100  logsys.o(.bss)
+

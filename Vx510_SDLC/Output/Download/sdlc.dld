@@ -1,0 +1,15 @@
+-isetgroup.1
+
+-isetdrive.f
+-i..\files\debug\sdlc.out
+
+-isetdrive.i
+-i..\files\debug\signfile\flash\sdlc.out.p7s
+
+#PABX=
+#TELEFONE=08007020357
+
+-isetgroup.15
+#LOGPORT=
+UCLLOG=
+TCPIPLOG=
