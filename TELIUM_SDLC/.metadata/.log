@@ -1,0 +1,44 @@
+!SESSION 2013-07-16 22:48:01.437 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_17
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.equinox.ds 4 0 2013-07-16 22:48:04.468
+!MESSAGE 
+!STACK 0
+org.osgi.framework.BundleException: The bundle could not be resolved. Reason: Missing Constraint: Import-Package: org.eclipse.equinox.internal.util.event; version="1.0.0"
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.getResolverError(AbstractBundle.java:1313)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.getResolutionFailureException(AbstractBundle.java:1297)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.startWorker(BundleHost.java:309)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.resume(AbstractBundle.java:370)
+	at org.eclipse.osgi.framework.internal.core.Framework.resumeBundle(Framework.java:1068)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.resumeBundles(StartLevelManager.java:557)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.incFWSL(StartLevelManager.java:464)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:248)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.dispatchEvent(StartLevelManager.java:445)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:227)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:337)
+!SESSION 2013-07-17 21:09:59.687 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_17
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.cdt.core 1 0 2013-07-17 21:12:23.016
+!MESSAGE Indexed 'SDLC_SAMPLE' (2 sources, 103 headers) in 7,06 sec: 7.074 declarations; 3.331 references; 3 unresolved inclusions; 2 syntax errors; 9 unresolved names (0,09%)
+!SESSION 2013-07-18 20:19:59.781 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_17
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.ingenico.ingedev.telium.download.ui 4 0 2013-07-18 20:49:01.183
+!MESSAGE IngeDev Telium Download. Download ended with errors!
+!SUBENTRY 1 com.ingenico.ingedev.telium.download.ui 4 0 2013-07-18 20:49:01.183
+!MESSAGE Error downloading project SDLC_SAMPLE. PPP connection problem (RAS error + error number). (Connection: RAS error number 721)
+!SUBENTRY 1 com.ingenico.ingedev.telium.download.ui 4 0 2013-07-18 20:49:01.183
+!MESSAGE For more details about download error that occurred after a successful connection with the terminal, please re-connect the terminal using LLT and edit the file 'TRACEFILE.LST'

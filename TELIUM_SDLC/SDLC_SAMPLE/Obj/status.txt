@@ -1,0 +1,3 @@
+-8
+Connection: RAS error number 721
+O computador remoto não respondeu. Para obter ajuda, clique em 'Mais informações' ou procure esse número de erro no 'Centro de ajuda e suporte'.

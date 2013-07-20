@@ -1,0 +1,14 @@
+#Wed Jul 17 21:12:16 BRT 2013
+indexer/indexerId=org.eclipse.cdt.core.fastIndexer
+indexer/indexUnusedHeadersWithDefaultLang=false
+indexer/skipImplicitReferences=false
+indexer/indexImportLocation=.settings/cdt-index.zip
+indexer/filesToParseUpFront=cstdarg, cstdio, sys/resource.h, ctime, stdarg.h, stddef.h, sys/types.h
+indexer/skipTypeReferences=false
+indexer/indexUnusedHeadersWithAlternateLang=false
+indexer/skipReferences=false
+indexer/skipMacroReferences=false
+indexer/indexAllFiles=true
+eclipse.preferences.version=1
+indexer/useHeuristicIncludeResolution=true
+indexer/preferenceScope=1

@@ -1,0 +1,173 @@
+Archive member included because of file (symbol)
+
+C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/trap.lib(trap_133C_memcpy.o)
+                              Obj/GNU_ARM_DEBUG/Entry.o (memcpy)
+C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/trap.lib(trap_133E_strcpy.o)
+                              Obj/GNU_ARM_DEBUG/Entry.o (strcpy)
+C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/trap.lib(trap_1348_ObjectGetInfo.o)
+                              Obj/GNU_ARM_DEBUG/Entry.o (ObjectGetInfo)
+C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/trap.lib(trap_134D_ServiceRegister.o)
+                              Obj/GNU_ARM_DEBUG/Entry.o (ServiceRegister)
+C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/trap.lib(trap_13B2_ApplicationGetCurrent.o)
+                              Obj/GNU_ARM_DEBUG/Main.o (ApplicationGetCurrent)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x00000000                . = 0x0
+                0x00000000                __text_start = .
+
+.text           0x00000000      0x8b0
+ *(.first)
+ .first         0x00000000       0xa0 Obj/GNU_ARM_DEBUG/cstartup.o
+                0x00000000                _start
+ *(.text .text.*)
+ .text          0x000000a0      0x2e0 Obj/GNU_ARM_DEBUG/Main.o
+                0x000000a0                Main
+ .text          0x00000380      0x4d8 Obj/GNU_ARM_DEBUG/Entry.o
+                0x00000818                entry
+                0x00000380                give_your_domain
+                0x000003f4                is_name
+                0x000006cc                file_received
+                0x000005c8                is_change_init
+                0x000004d0                more_function
+                0x0000063c                modif_param
+                0x00000508                state
+                0x000004b4                idle_message
+                0x00000704                is_card_specific
+                0x000006a8                is_delete
+                0x0000055c                is_time_function
+                0x000004ec                keyboard_event
+                0x0000045c                is_state
+                0x00000754                card_inside
+                0x000007a8                give_interface
+                0x000006e8                message_received
+                0x0000078c                debit_non_emv
+                0x000005ac                time_function
+                0x00000770                is_for_you_after
+                0x00000658                is_evol_pg
+                0x00000524                consult
+                0x000003d8                after_reset
+                0x00000540                mcall
+ .text          0x00000858       0x10 C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/trap.lib(trap_133C_memcpy.o)
+                0x00000858                memcpy
+ .text          0x00000868       0x10 C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/trap.lib(trap_133E_strcpy.o)
+                0x00000868                strcpy
+ .text          0x00000878       0x10 C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/trap.lib(trap_1348_ObjectGetInfo.o)
+                0x00000878                ObjectGetInfo
+ .text          0x00000888       0x10 C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/trap.lib(trap_134D_ServiceRegister.o)
+                0x00000888                ServiceRegister
+ .text          0x00000898       0x10 C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/trap.lib(trap_13B2_ApplicationGetCurrent.o)
+                0x00000898                ApplicationGetCurrent
+ *(.gnu.linkonce.t.*)
+ *(.strings .strings.*)
+ *(.glue_7)
+ *(.glue_7t)
+ .glue_7t       0x000008a8        0x8 C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/trap.lib(trap_13B2_ApplicationGetCurrent.o)
+                0x000008a8                __main_telium_from_thumb
+                0x000008ac                __main_telium_change_to_arm
+ *(.gcc_except_table)
+
+.eh_frame
+ *(.eh_frame)
+
+.jcr
+ *(.jcr)
+
+.ctors          0x000008b0        0x0
+                0x000008b0                __ctors_start = .
+ *(SORT(.ctors.*))
+ *(.ctors)
+                0x000008b0                __ctors_end = .
+
+.dtors          0x000008b0        0x0
+                0x000008b0                __dtors_start = .
+ *(SORT(.dtors.*))
+ *(.dtors)
+                0x000008b0                __dtors_end = .
+
+.rodata         0x000008b0       0xb0
+ *(.rodata .rodata.*)
+ .rodata        0x000008b0       0xb0 Obj/GNU_ARM_DEBUG/Main.o
+ *(.gnu.linkonce.r.*)
+                0x00000960                __text_end = .
+                0x00200000                . = 0x200000
+
+.data           0x00200000       0x30 load address 0x00000960
+                0x00200000                __data_start = .
+ *(.data .data.*)
+ .data          0x00200000       0x30 Obj/GNU_ARM_DEBUG/Entry.o
+ *(.gnu.linkonce.d.*)
+                0x00200030                __data_end = .
+
+.bss            0x00200030       0x15
+                0x00200030                __bss_start = .
+ *(.bss .bss.*)
+ .bss           0x00200030       0x15 Obj/GNU_ARM_DEBUG/Entry.o
+ *(.gnu.linkonce.b.*)
+ *(COMMON)
+                0x00200045                __bss_end = .
+                0x00200045                PROVIDE (end, .)
+LOAD Obj/GNU_ARM_DEBUG/Main.o
+LOAD Obj/GNU_ARM_DEBUG/Entry.o
+LOAD Obj/GNU_ARM_DEBUG/cstartup.o
+START GROUP
+LOAD C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/eft30.lib
+LOAD C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/trap.lib
+LOAD C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/PinLib.lib
+LOAD C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/IAPP.lib
+LOAD C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/AVL.lib
+LOAD C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/LinkLayerExeInterface.lib
+LOAD C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/SEC.lib
+LOAD C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/dll_wifi.lib
+LOAD C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/FTP_.lib
+LOAD C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/SSL_.lib
+LOAD C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/IP_.lib
+LOAD C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/SNMP_.lib
+LOAD C:/Arquivos de programas/SDK30/SDK 7.5.1/SDK/lib_gnu/IMG_.lib
+END GROUP
+LOAD C:/Arquivos de programas/Ingenico/IngeDev_7/plugins/com.ingenico.ingedev.telium.bin.win32.gnuarm.v343_7.5.0.0/os/win32/GNUARM/3.4.3/arm-elf/lib/thumb/soft/interwork/libsupc++.a
+LOAD C:/Arquivos de programas/Ingenico/IngeDev_7/plugins/com.ingenico.ingedev.telium.bin.win32.gnuarm.v343_7.5.0.0/os/win32/GNUARM/3.4.3/arm-elf/lib/thumb/soft/interwork/libc.a
+LOAD C:/Arquivos de programas/Ingenico/IngeDev_7/plugins/com.ingenico.ingedev.telium.bin.win32.gnuarm.v343_7.5.0.0/os/win32/GNUARM/3.4.3/lib/gcc/arm-elf/3.4.3/thumb/soft/interwork/libgcc.a
+OUTPUT(Obj/GNU_ARM_DEBUG/SDLC_SAMPLE.axf elf32-littlearm)
+
+.debug_abbrev   0x00000000      0x2ee
+ .debug_abbrev  0x00000000      0x11b Obj/GNU_ARM_DEBUG/Main.o
+ .debug_abbrev  0x0000011b      0x1d3 Obj/GNU_ARM_DEBUG/Entry.o
+
+.debug_info     0x00000000     0x44ea
+ .debug_info    0x00000000     0x2e0c Obj/GNU_ARM_DEBUG/Main.o
+ .debug_info    0x00002e0c     0x16de Obj/GNU_ARM_DEBUG/Entry.o
+
+.debug_line     0x00000000      0x216
+ .debug_line    0x00000000       0xc8 Obj/GNU_ARM_DEBUG/Main.o
+ .debug_line    0x000000c8      0x14e Obj/GNU_ARM_DEBUG/Entry.o
+
+.debug_frame    0x00000000      0x240
+ .debug_frame   0x00000000       0x2c Obj/GNU_ARM_DEBUG/Main.o
+ .debug_frame   0x0000002c      0x214 Obj/GNU_ARM_DEBUG/Entry.o
+
+.debug_pubnames
+                0x00000000      0x1b8
+ .debug_pubnames
+                0x00000000       0x1b Obj/GNU_ARM_DEBUG/Main.o
+ .debug_pubnames
+                0x0000001b      0x19d Obj/GNU_ARM_DEBUG/Entry.o
+
+.debug_aranges  0x00000000       0x40
+ .debug_aranges
+                0x00000000       0x20 Obj/GNU_ARM_DEBUG/Main.o
+ .debug_aranges
+                0x00000020       0x20 Obj/GNU_ARM_DEBUG/Entry.o
+
+.debug_str      0x00000000      0x17a
+ .debug_str     0x00000000       0xf3 Obj/GNU_ARM_DEBUG/Main.o
+ .debug_str     0x000000f3       0x87 Obj/GNU_ARM_DEBUG/Entry.o
+
+.comment        0x00000000       0x24
+ .comment       0x00000000       0x12 Obj/GNU_ARM_DEBUG/Main.o
+ .comment       0x00000012       0x12 Obj/GNU_ARM_DEBUG/Entry.o
