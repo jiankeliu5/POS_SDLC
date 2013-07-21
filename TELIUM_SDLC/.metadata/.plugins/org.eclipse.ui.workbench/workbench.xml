@@ -15,7 +15,7 @@
 <coolItem id="com.ingenico.ingedev.telium.ui.teliumBuildActionSet" itemType="typeToolBarContribution" x="98" y="22"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="124" y="22"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="75" y="22"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="85" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="39" y="22"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="183" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
@@ -23,7 +23,7 @@
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
-<page aggregateWorkingSetId="Aggregate for window 1374191245527" focus="true" label="Workspace - Telium Development">
+<page aggregateWorkingSetId="Aggregate for window 1374191245527" focus="true" label="Workspace - Debug">
 <editors>
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
@@ -32,39 +32,78 @@
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Main.c" partName="Main.c" path="C:/HSpace/SDLC_SAMPLE/TELIUM_SDLC/SDLC_SAMPLE/Src/Main.c" title="Main.c" tooltip="SDLC_SAMPLE/Src/Main.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SDLC_SAMPLE/Src/Main.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7145" selectionTopPixel="1051"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="aplic.c" partName="aplic.c" path="C:/Projetos/SDLC_SAMPLE/Vx510_SDLC/SOURCE/app/aplic.c" title="aplic.c" tooltip="SDLC_SAMPLE/.links/filesLinks/aplic.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SDLC_SAMPLE/.links/filesLinks/aplic.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2608" selectionTopPixel="2027"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="Entry.c" partName="Entry.c" path="C:/HSpace/SDLC_SAMPLE/TELIUM_SDLC/SDLC_SAMPLE/Src/Entry.c" title="Entry.c" tooltip="SDLC_SAMPLE/Src/Entry.c" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SDLC_SAMPLE/Src/Entry.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="25677" selectionTopPixel="12461"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="app_sys.c" partName="app_sys.c" path="C:/Projetos/SDLC_SAMPLE/Vx510_SDLC/SOURCE/lib/app_sys.c" title="app_sys.c" tooltip="SDLC_SAMPLE/.links/filesLinks/app_sys.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SDLC_SAMPLE/.links/filesLinks/app_sys.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5270" selectionTopPixel="1326"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="porting.c" partName="porting.c" path="C:/HSpace/SDLC_SAMPLE/TELIUM_SDLC/SDLC_SAMPLE/Src/porting/porting.c" title="porting.c" tooltip="SDLC_SAMPLE/Src/porting/porting.c" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="LinkLayer.h" partName="LinkLayer.h" title="LinkLayer.h" tooltip="C:\Arquivos de programas\SDK30\SDK 7.5.1\SDK\inc\LinkLayer.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" path="C:\Arquivos de programas\SDK30\SDK 7.5.1\SDK\inc\LinkLayer.h" project="SDLC_SAMPLE"/>
+<editorState selectionHorizontalPixel="0" selectionLength="21" selectionOffset="78768" selectionTopPixel="34799"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="porting.c" partName="porting.c" path="C:/Projetos/SDLC_SAMPLE/TELIUM_SDLC/SDLC_SAMPLE/Src/porting/porting.c" title="porting.c" tooltip="SDLC_SAMPLE/Src/porting/porting.c" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/SDLC_SAMPLE/Src/porting/porting.c"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1090" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="36925" selectionTopPixel="17956"/>
 </editor>
 </editors>
 <views>
-<view id="org.eclipse.ui.views.PropertySheet" partName="Properties">
+<view id="org.eclipse.debug.ui.ModuleView" partName="Modules">
 <viewState/>
 </view>
-<view id="org.eclipse.ui.views.ResourceNavigator" partName="Navigator"/>
+<view id="org.eclipse.debug.ui.MemoryView" partName="Memory">
+<viewState/>
+</view>
 <view id="org.eclipse.debug.ui.DebugView" partName="Debug">
 <viewState/>
 </view>
+<view id="org.eclipse.cdt.debug.ui.executablesView" partName="Executables"/>
+<view id="com.ingenico.ingedev.ui.telium.teliumView" partName="Telium Explorer">
+<viewState CommonNavigator.LINKING_ENABLED="0" CommonNavigator.LINKING_ENABLED.delayed="0" org.eclipse.cdt.ui.cview.groupincludes="false" org.eclipse.cdt.ui.editor.CUChildren="true" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.completionField" categoryGroup="none" markerContentGenerator="org.eclipse.ui.ide.tasksGenerator" partName="Tasks">
+<columnWidths org.eclipse.ui.ide.completionField="40" org.eclipse.ui.ide.descriptionField="254" org.eclipse.ui.ide.locationField="54" org.eclipse.ui.ide.markerType="79" org.eclipse.ui.ide.pathField="104" org.eclipse.ui.ide.priorityField="20" org.eclipse.ui.ide.resourceField="79"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.completionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.priorityField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.descriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
+<viewState>
+<isTrackingSelection value="false"/>
+</viewState>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.PropertySheet" partName="Properties">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.RegisterView" partName="Registers">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ResourceNavigator" partName="Navigator"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Infos (1 item)"/>
 <category IMemento.internal.id="Errors"/>
-<category IMemento.internal.id="Infos"/>
 </expanded>
-<columnWidths org.eclipse.ui.ide.locationField="54" org.eclipse.ui.ide.markerType="79" org.eclipse.ui.ide.pathField="104" org.eclipse.ui.ide.resourceField="79" org.eclipse.ui.ide.severityAndDescriptionField="250"/>
+<columnWidths org.eclipse.ui.ide.locationField="54" org.eclipse.ui.ide.markerType="79" org.eclipse.ui.ide.pathField="104" org.eclipse.ui.ide.resourceField="79" org.eclipse.ui.ide.severityAndDescriptionField="390"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
@@ -75,21 +114,9 @@
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
 </view>
-<view id="org.eclipse.cdt.debug.ui.executablesView" partName="Executables"/>
-<view id="com.ingenico.ingedev.ui.telium.teliumView" partName="Telium Explorer">
-<viewState CommonNavigator.LINKING_ENABLED="0" CommonNavigator.LINKING_ENABLED.delayed="0" org.eclipse.cdt.ui.cview.groupincludes="false" org.eclipse.cdt.ui.editor.CUChildren="true" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0"/>
-</view>
-<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints"/>
-<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
-<viewState/>
-</view>
-<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
 <view id="org.eclipse.cdt.ui.includeBrowser" partName="Include Browser"/>
-<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
-<viewState/>
-</view>
 </views>
-<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="com.ingenico.ingedev.telium.ui.teliumPerspective">
+<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.eclipse.debug.ui.DebugPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="com.ingenico.ingedev.telium.ui.TeliumPerspectiveFactory" id="com.ingenico.ingedev.telium.ui.teliumPerspective" label="Telium Development"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -160,13 +187,14 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.21623616" ratioLeft="293" ratioRight="1062" relationship="2" relative="topLeft"/>
-<info folder="true" part="bottom" ratio="0.76677316" ratioLeft="480" ratioRight="146" relationship="4" relative="org.eclipse.ui.editorss">
+<info part="org.eclipse.ui.editorss" ratio="0.123247236" ratioLeft="167" ratioRight="1188" relationship="2" relative="topLeft"/>
+<info folder="true" part="bottom" ratio="0.72683704" ratioLeft="455" ratioRight="171" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.views.ProblemView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.cdt.ui.includeBrowser" label="Include Browser"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
@@ -233,9 +261,12 @@
 <view id="org.eclipse.ui.views.TaskList"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.cdt.debug.ui.executablesView"/>
+<view id="org.eclipse.debug.ui.MemoryView"/>
 <view id="org.eclipse.debug.ui.DebugView"/>
 <view id="org.eclipse.debug.ui.VariableView"/>
 <view id="org.eclipse.debug.ui.BreakpointView"/>
+<view id="org.eclipse.debug.ui.RegisterView"/>
+<view id="org.eclipse.debug.ui.ModuleView"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <fastViewBars/>
 <layout>
@@ -258,12 +289,13 @@
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.7488076" ratioLeft="471" ratioRight="158" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.95367414" ratioLeft="597" ratioRight="29" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.cdt.debug.ui.executablesView" label="Executables"/>
+<page content="org.eclipse.debug.ui.MemoryView" label="Memory"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.debug.ui.DisplayView" label="LabelNotFound"/>
@@ -273,10 +305,11 @@
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
+<part id="4"/>
 </presentation>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.44798303" ratioLeft="211" ratioRight="260" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<info part="org.eclipse.ui.editorss" ratio="0.3855219" ratioLeft="229" ratioRight="365" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
 <info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.7496318" ratioLeft="1018" ratioRight="340" relationship="2" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
@@ -292,13 +325,15 @@
 <folder activePageID="org.eclipse.debug.ui.VariableView" appearance="2" expanded="2">
 <page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
+<page content="org.eclipse.debug.ui.RegisterView" label="Registers"/>
+<page content="org.eclipse.debug.ui.ModuleView" label="Modules"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="LabelNotFound"/>
-<page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
 <page content="org.eclipse.cdt.debug.ui.SignalsView" label="LabelNotFound"/>
-<page content="org.eclipse.debug.ui.ModuleView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
+<part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
@@ -309,25 +344,160 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SDLC_SAMPLE/Src/Main.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SDLC_SAMPLE/Src/Entry.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SDLC_SAMPLE/Src/Entry.c"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SDLC_SAMPLE/Src/porting/porting.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SDLC_SAMPLE/.links/filesLinks/app_sys.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/SDLC_SAMPLE/.links/filesLinks/aplic.c"/>
+<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="C:\Arquivos de programas\SDK30\SDK 7.5.1\SDK\inc\LinkLayer.h" project="SDLC_SAMPLE"/>
 </editors>
-<item historyLabel="Main.c" index="0">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="31414" y="0"/>
 </item>
-<item historyLabel="Entry.c" index="1">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="31597" y="0"/>
 </item>
-<item historyLabel="Main.c" index="0">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="31790" y="0"/>
 </item>
-<item historyLabel="Entry.c" index="2">
-<position info="not_deleted" x="25677" y="0"/>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="31951" y="0"/>
 </item>
-<item active="true" historyLabel="porting.c" index="3">
-<position info="not_deleted" x="0" y="0"/>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="32281" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="32333" y="11"/>
+</item>
+<item historyLabel="LinkLayer.h" index="3">
+<position info="not_deleted" x="60540" y="0"/>
+</item>
+<item historyLabel="app_sys.c" index="1">
+<position info="not_deleted" x="3355" y="0"/>
+</item>
+<item historyLabel="aplic.c" index="2">
+<position info="not_deleted" x="5130" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="29155" y="0"/>
+</item>
+<item historyLabel="LinkLayer.h" index="3">
+<position info="not_deleted" x="25727" y="23"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="29155" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="29188" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="29761" y="0"/>
+</item>
+<item historyLabel="aplic.c" index="2">
+<position info="not_deleted" x="2584" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="32506" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="33210" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="33252" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="33330" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="33858" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="33991" y="0"/>
+</item>
+<item historyLabel="aplic.c" index="2">
+<position info="not_deleted" x="2608" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="33991" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="35584" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="33963" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="34069" y="0"/>
+</item>
+<item historyLabel="app_sys.c" index="1">
+<position info="not_deleted" x="10022" y="0"/>
+</item>
+<item historyLabel="app_sys.c" index="1">
+<position info="not_deleted" x="10047" y="0"/>
+</item>
+<item historyLabel="app_sys.c" index="1">
+<position info="not_deleted" x="10087" y="0"/>
+</item>
+<item historyLabel="app_sys.c" index="1">
+<position info="not_deleted" x="12506" y="0"/>
+</item>
+<item historyLabel="app_sys.c" index="1">
+<position info="not_deleted" x="12660" y="0"/>
+</item>
+<item historyLabel="app_sys.c" index="1">
+<position info="not_deleted" x="12705" y="0"/>
+</item>
+<item historyLabel="app_sys.c" index="1">
+<position info="not_deleted" x="12735" y="0"/>
+</item>
+<item historyLabel="app_sys.c" index="1">
+<position info="not_deleted" x="12705" y="0"/>
+</item>
+<item historyLabel="app_sys.c" index="1">
+<position info="not_deleted" x="5270" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="34796" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="34865" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="34944" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="35055" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="35148" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="35201" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="35252" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="35258" y="7"/>
+</item>
+<item historyLabel="LinkLayer.h" index="3">
+<position info="not_deleted" x="77199" y="7"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="34945" y="21"/>
+</item>
+<item historyLabel="LinkLayer.h" index="3">
+<position info="not_deleted" x="78768" y="21"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="34945" y="21"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="35386" y="0"/>
+</item>
+<item historyLabel="porting.c" index="0">
+<position info="not_deleted" x="35631" y="0"/>
+</item>
+<item active="true" historyLabel="porting.c" index="0">
+<position info="not_deleted" x="37031" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -349,11 +519,38 @@
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="porting.c" tooltip="SDLC_SAMPLE/Src/porting/porting.c">
 <persistable path="/SDLC_SAMPLE/Src/porting/porting.c"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Entry.c" tooltip="SDLC_SAMPLE/Src/Entry.c">
-<persistable path="/SDLC_SAMPLE/Src/Entry.c"/>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="LinkLayer.h" tooltip="C:\Arquivos de programas\SDK30\SDK 7.5.1\SDK\inc\LinkLayer.h">
+<persistable path="C:\Arquivos de programas\SDK30\SDK 7.5.1\SDK\inc\LinkLayer.h" project="SDLC_SAMPLE"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Main.c" tooltip="SDLC_SAMPLE/Src/Main.c">
 <persistable path="/SDLC_SAMPLE/Src/Main.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="aplic.c" tooltip="SDLC_SAMPLE/.links/filesLinks/aplic.c">
+<persistable path="/SDLC_SAMPLE/.links/filesLinks/aplic.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="app_sys.c" tooltip="SDLC_SAMPLE/.links/filesLinks/app_sys.c">
+<persistable path="/SDLC_SAMPLE/.links/filesLinks/app_sys.c"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="porting.h" tooltip="SDLC_SAMPLE/Src/porting/inc/porting.h">
+<persistable path="/SDLC_SAMPLE/Src/porting/inc/porting.h"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="modem.SERIAL.c" tooltip="C:\VerixVAps\Projetos\PosWT.B2\Telium\PosWT.BN.TE\Src\PORTING\modem.SERIAL.c">
+<persistable uri="file:/C:/VerixVAps/Projetos/PosWT.B2/Telium/PosWT.BN.TE/Src/PORTING/modem.SERIAL.c"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="comio.SERIAL.c" tooltip="C:\VerixVAps\Projetos\PosWT.B2\Telium\PosWT.BN.TE\Src\PORTING\comio.SERIAL.c">
+<persistable uri="file:/C:/VerixVAps/Projetos/PosWT.B2/Telium/PosWT.BN.TE/Src/PORTING/comio.SERIAL.c"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="oem_hid.h" tooltip="C:\Arquivos de programas\SDK30\SDK 7.5.1\SDK\inc\oem_hid.h">
+<persistable path="C:\Arquivos de programas\SDK30\SDK 7.5.1\SDK\inc\oem_hid.h" project="SDLC_SAMPLE"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="fontlib.h" tooltip="C:\Arquivos de programas\SDK30\SDK 7.5.1\SDK\inc\fontlib.h">
+<persistable path="C:\Arquivos de programas\SDK30\SDK 7.5.1\SDK\inc\fontlib.h" project="SDLC_SAMPLE"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="oem_public.h" tooltip="C:\Arquivos de programas\SDK30\SDK 7.5.1\SDK\inc\oem_public.h">
+<persistable path="C:\Arquivos de programas\SDK30\SDK 7.5.1\SDK\inc\oem_public.h" project="SDLC_SAMPLE"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="Entry.c" tooltip="SDLC_SAMPLE/Src/Entry.c">
+<persistable path="/SDLC_SAMPLE/Src/Entry.c"/>
 </file>
 </mruList>
 </workbench>

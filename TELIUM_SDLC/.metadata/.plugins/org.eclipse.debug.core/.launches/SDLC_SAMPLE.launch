@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="com.ingenico.ingedev.launch.remoteTeliumLaunch">
 <stringAttribute key="com.ingenico.ingedev.telium.remotedebug.core.CONNECTION_TYPE" value="RS232"/>
-<booleanAttribute key="com.ingenico.ingedev.telium.remotedebug.core.DEBUGGER_STOP_AT_MAIN" value="true"/>
+<booleanAttribute key="com.ingenico.ingedev.telium.remotedebug.core.DEBUGGER_STOP_AT_MAIN" value="false"/>
 <listAttribute key="com.ingenico.ingedev.telium.remotedebug.core.DLL_NAMES"/>
 <stringAttribute key="com.ingenico.ingedev.telium.remotedebug.core.ETH_PROTOCOL" value="TCP"/>
 <stringAttribute key="com.ingenico.ingedev.telium.remotedebug.core.GDB_INIT" value=""/>
@@ -15,7 +15,11 @@
 <booleanAttribute key="com.ingenico.ingedev.telium.remotedebug.core.USE_DEFAULT_ETH_IP_ADDRESS" value="true"/>
 <booleanAttribute key="com.ingenico.ingedev.telium.remotedebug.core.USE_DEFAULT_ETH_PORT" value="true"/>
 <booleanAttribute key="com.ingenico.ingedev.telium.remotedebug.core.VERBOSE_MODE" value="false"/>
+<stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_REGISTER_GROUPS" value=""/>
 <booleanAttribute key="org.eclipse.cdt.launch.ENABLE_VARIABLE_BOOKKEEPING" value="false"/>
+<stringAttribute key="org.eclipse.cdt.launch.FORMAT" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;contentList/&gt;"/>
+<stringAttribute key="org.eclipse.cdt.launch.GLOBAL_VARIABLES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;globalVariableList/&gt;&#13;&#10;"/>
+<stringAttribute key="org.eclipse.cdt.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;memoryBlockExpressionList/&gt;&#13;&#10;"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="SDLC_SAMPLE"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/SDLC_SAMPLE"/>

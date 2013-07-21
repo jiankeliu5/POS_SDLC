@@ -186,7 +186,7 @@ printfPOS (char * str, int col, int lin)
 	if (!str)
 		return POS_ERRO;
 
-	if (writeDisp (str, strlen (str), col, lin) <= 0)
+	if (writeDisp (str, strlen (str), lin, col) <= 0)
 		return POS_ERRO;
 
 	return POS_SUCESS;

@@ -1,3 +1,4 @@
-#Thu Jul 18 20:47:42 BRT 2013
+#Sun Jul 21 18:05:12 BRT 2013
 eclipse.preferences.version=1
 org.eclipse.debug.ui.DebugView.org.eclipse.cdt.debug.ui.cDebug.show_full_paths=true
+org.eclipse.debug.ui.BreakpointView.org.eclipse.cdt.debug.ui.cDebug.show_full_paths=true

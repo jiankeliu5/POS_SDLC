@@ -1,47 +1,49 @@
 /******************************************************************************
  * Modulo Fonte..........: porting.c                                          *
  *                                                                            *
- * Data de criacao.......: 12/07/2013                                         *
+ * Data de criacao.......: 21/07/2013                                         *
  * Desenvolvedor.........: Henrique Hornos                                    *
  *                                                                            *
  *----------------------------------------------------------------------------*
  * Descricao.............:                                                    *
- * biblioteca de funcoes responsaveis pelo tratamento de dados para aplicacao *
- * e interacao com os modulos de porting                                      *
+ * biblioteca que interage com as funcoes de bibliotecas do SO TELIUM         *
  *----------------------------------------------------------------------------*
  * Alteracoes............:                                                    *
  * Desenvolvedor.........:                                                    *
  * Data da alteracao.....:                                                    *
  *                                                                            *
- * "porting.c, v0.0.1 2013/07/12 12:53:00 id: "Henrique_H1"                   *
+ * "porting.c, v0.0.1 2013/07/21 02:44:00 id: "Henrique_H1"                   *
  *                                                                            *
  ******************************************************************************/
-#include	<stdio.h>
-#include	<stdarg.h>
-#include	<stdlib.h>
-#include	<string.h>
-#include    <aclconio.h>
-
-
-#include    <svc.h>
-#include	<printer.h>
-#include	<xmodem.h>
-#include	<errno.h>
+#include 	"SDK30.H"
+#include	"LinkLayer.h"
+#include 	"TlvTree.h"
+#include 	"oem_print.h"
 
 #include	"geral.h"
 #include	"app_sys.h"
 #include	"porting.h"
 
+/* prototipos locais */
+STAT	init_flash		( void );
+int		put_memory		( char *, char *, int );
+int		get_memory 		( char *, char *, int );
+int		get_env 		( const char *, char *, int );
+int		put_env 		( const char *, char *, int );
+int		charSearch 		( char, char *, int );
+
 /* Globais */
-static int				hConsole	= -1;					/* Handle Console */
-static int				hPrint		= -1;					/* Handle Impressora interna */
-static int				hComModem	= -1;					/* Handle porta serial Modem SDLC */
+static FILE *			hDisplay	= NULL;							/* Handle Display */
+static FILE *			hKeyboard	= NULL;							/* Handle Teclado */
+static FILE *			hPrint		= NULL;							/* Handle Impressora interna */
 
-static STAT				stsSDLC		= 0;					/* Status atual conexao SDLC */
-static long				tmoDiscSDLC = 0;					/* Time out tentativa de discagem SDLC */
-static long				tmoRespSDLC = 0;					/* Time out de resposta SDLC */
+static LL_HANDLE		hComModem	= NULL;							/* Handle porta serial Modem SDLC */
 
-static struct PARM_SDLC	parmSDLC;							/* estrutura que armazena configuração SDLC */
+static STAT				stsSDLC		= 0;							/* Status atual conexao SDLC */
+static uint				tmoDiscSDLC = 0;							/* Time out tentativa de discagem SDLC */
+static uint				tmoRespSDLC = 0;							/* Time out de resposta SDLC */
+
+static struct PARM_SDLC	parmSDLC;									/* estrutura que armazena configuracao SDLC */
 
 /******************************************************************************
  * Funcao: resetConsole	                                                      *
@@ -53,27 +55,46 @@ static struct PARM_SDLC	parmSDLC;							/* estrutura que armazena configuração S
 STAT
 resetConsole ( void )
 {
-	/* Abertura disposito */
+	/* Abertura display */
 
-	if (hConsole >= 0)								/* Console Aberto */
+	if (hDisplay != NULL)											/* Display Aberto */
 	{
-		close (hConsole);							/* fecha */
-		hConsole = -1;
+		fclose (hDisplay);											/* fecha */
+		hDisplay = NULL;
 	}
 
-	if ((hConsole = open ( DEV_CONSOLE, 0 )) < 0)
+	if ((hDisplay = fopen("DISPLAY", "w")) == NULL)					/* abre  dispositivo */
 		return POS_ERRO;
+
+	font_size (6, 8);												/* font = Small (8x21) */
+
+	putchar('\x1B'); 												/* inicializa visor */
+
+	/* Abertura Teclado */
+	if (hKeyboard != NULL)											/* Teclado Aberto */
+	{
+		fclose (hKeyboard);											/* fecha */
+		hKeyboard = NULL;
+	}
+
+	if ((hKeyboard = fopen("KEYBOARD", "r")) == NULL)				/* abre  dispositivo */
+		return POS_ERRO;
+
+	reset_buf (hKeyboard, _receive_id);								/* limpa buffer de sistema do teclado */
+	StartRetroEclairage (0, 1, 0xFFFF);								/* ilumina visor */
 
 	return POS_SUCESS;
 }
 
-/* variavel global */
-
-
+/******************************************************************************
+ * Funcao: debugH	                                                          *
+ *         Funcao que imprime conteudo de variaveis para auxilio              *
+ *         ao desenvolvedor (habilitado quando utilizado define DEBUG_H)      *
+ ******************************************************************************/
 void
 debugH ( char * acFormato, ... )
 {
-#ifdef DEBUG_H
+#if defined (DEBUG_H) && !defined (ING_TELIUM)
     char	acMostrar[1024];
     va_list vArgs;
 
@@ -84,9 +105,9 @@ debugH ( char * acFormato, ... )
     va_end (vArgs);
 
 	if (hPrint >= 0)
-		p3700_print (hPrint, (uchar *)acMostrar);
+		pprintf8859 (acMostrar , _OFF_, _pNORMAL_, _FIXED_WIDTH_);
 
-	SVC_WAIT (50);
+	ttestall (0, 5);												/* sleep 50 milisegundos */
 #endif
 }
 
@@ -100,33 +121,45 @@ debugH ( char * acFormato, ... )
 STAT
 resetPrint ( void )
 {
-	struct Opn_Blk  mblk;							/* estrutura de programacao da porta serial */
+    char	font[64];
+    char	fontNxt[64];
+	char * 	hFonte = NULL;
 
-	if (hPrint >= 0)								/* Impressora Aberta */
+	int		idx;
+
+	/* open porta impressora */
+	if (hPrint != NULL)         									/* ja aberto... */
 	{
-		close (hPrint);								/* fecha */
-		hPrint = -1;
+		fclose ( hPrint );           								/* fecha antes de programar */
+		hPrint = NULL;
 	}
 
-	/* Abertura disposito */
-	if ((hPrint = open (DEV_COM4, 0)) < 0)
-		return POS_ERRO;
+	hPrint = fopen ("PRINTER", "w-*");								/* abertura */
 
-	/* configura porta serial */
-	memset (&mblk,0,sizeof(mblk));
-    mblk.rate = Rt_19200;
-    mblk.format = Fmt_A8N1 | Fmt_RTS | Fmt_auto;
-    mblk.protocol = P_char_mode;
-	set_opn_blk( hPrint, &mblk);
+	/* 8x14 X 32 = FONTE NORMAL */
+	fioctl(PRINTER_INTENSITY, (void *)PRINTER_INTENSITY_HIGH, hPrint);
 
-	SVC_WAIT ( 100 );								/* adormece por 100 ms */
+	memset (font, 0, sizeof(font));
+	idx = FontFindFirst (font);
 
-    /* Inicializacao da impressora. */
-	p3700_init (hPrint, 6);
+	if (idx > 0 && memcmp (font, "/SYSTEM/CUSTOM_FT", 15) != 0)
+	{
+		do{
+			memset (fontNxt, 0, sizeof(fontNxt));
+			idx = FontFindNext (fontNxt);
 
-	SVC_WAIT ( 200 );								/* adormece por 200 ms */
+			if (idx > 0 && memcmp (fontNxt, "/SYSTEM/CUSTOM_FT", 15) == 0)
+			{
+				strcpy (font, fontNxt);
+				break;
+			}
+		} while (idx > 0);
+	}
 
-	p3700_select_font (hPrint, 3, 0);				/* seleciona fonte 8x14 X 32 colunas */
+	if ((hFonte = LoadFont (font)) != NULL)
+	{
+		DefCurrentFont (hFonte);
+	}
 
 	return POS_SUCESS;
 }
@@ -143,9 +176,9 @@ STAT
 beepPOS ( char soundType )
 {
 	if (soundType == BEEP_ERRO)
-		error_tone ();
+		Beep (0x00, 0x05, 20, BEEP_ON|BEEP_WAIT|BEEP_OFF);			/* Beep: note=0, octave=5, wait (200 milliseconds) and Stop */
 	else
-		normal_tone ();
+		Beep (0x02, 0x04, 10, BEEP_ON|BEEP_WAIT|BEEP_OFF);			/* Beep: note=2, octave=4, Wait (100 milliseconds) and Stop */
 
 	return POS_SUCESS;
 }
@@ -191,7 +224,7 @@ get_parm ( const char * idParm, char * outBuf, int szOutBuf )
 STAT
 waitTime ( ulong t)
 {
-	SVC_WAIT (t);
+	ttestall (0, (t/10));
 	return POS_SUCESS;
 }
 
@@ -202,7 +235,7 @@ waitTime ( ulong t)
 void
 clearDisplay ( void )
 {
-	clrscr ();
+	putchar('\x1B'); 												/* apaga visor */
 }
 
 /******************************************************************************
@@ -218,7 +251,27 @@ clearDisplay ( void )
 int
 writeDisp ( char * inBuf, int szBuf, int col, int lin )
 {
-	return write_at (inBuf, szBuf, col, lin);
+	char auxBuf[64];
+
+	if (!inBuf)
+		return (-1);
+
+	if (col > 0)
+		col--;
+
+	if (lin > 0)
+		lin--;
+
+	memset (auxBuf, 0, sizeof (auxBuf));
+
+	if (szBuf > sizeof (auxBuf)-1)
+		szBuf = sizeof (auxBuf)-1;
+
+	memcpy (auxBuf, inBuf, szBuf);
+
+	gotoxy (col,lin); printf (auxBuf);
+
+	return szBuf;
 }
 
 /******************************************************************************
@@ -233,26 +286,14 @@ readKeyPos ( void )
 {
 	uchar key = 0;
 
-	if (KBHIT())
+	if (ttestall(KEYBOARD, 1) & KEYBOARD)
 	{
-		key = get_char ();
+		key = getchar ();
 		debugH ("TECLA OBTIDA:[%c]-[%0.2X]\n", key, key);
 	}
 
 	return key;
 }
-
-/***********************************************************************\
-*                           Perifericos ESPECIAIS                       *
-\***********************************************************************/
-
-/*
- * Vetor:           MILLISEC                # de milisegundos decorridos
- *
- * Retorna o numero de "ticks" de clock decorrido.
- * Atencao ao ajuste do retorno para representar unidades
- * de 1 milisegundo.
- */
 
 /******************************************************************************
  * Funcao: get_milli_sec  	                                                  *
@@ -263,196 +304,454 @@ readKeyPos ( void )
 ulong
 get_milli_sec ( void )
 {
-        ulong       millitm;
-                
-		SVC_WAIT ( 10 );
-        SVC_TICKS ( 1, (long*)&millitm );
+	ulong       millitm;
 
-        return ((ulong)(millitm * 1));     /* milezimos */
+	ttestall ( 0, 1 );
+	millitm = (get_tick_counter() * 10);
+
+	return ((ulong)(millitm * 1));     /* milezimos */
 }
 
 /******************************************************************************
- * Funcao: ATCmdSDLC	                                                      *
- *         envia comando AT ao modem e obtem resposta                         *
+ * Funcao: init_flash                                                         *
+ *         inicia memoria flash do terminal telium para leitura de arquivos   *
  *                                                                            *
- * ind     : indice do comando conforme tabela abaixo ou -1 somente para resp *
- * timeOpt : 0 para todos os ind != -1, timeout para ind == -1	              *
- * Retornos: SDLC_DIALLING                                                    *
- *           SDLC_CONNECTED                                                   *
- *           SDLC_ERRO_MDM                                                    *
- *           SDLC_NO_CARRIER                                                  *
- *           SDLC_NO_DIALTONE                                                 *
- *           SDLC_BUSY_DETECT                                                 *
- *           SDLC_NO_ANSWER                                                   *
+ * Retornos: POS_ERRO                                                         *
+ *           POS_SUCESS                                                       *
  ******************************************************************************/
-#define		MAX_CMD_SDLC	8
+#define	MAXFILESYS	32
 
-char	SDLC_CMD[MAX_CMD_SDLC][34]={				/* lista de comandos ATs para SDLC */
-				"AT&F",								/* 0 - PRG. MODEM SDLC */
-				"ATE0V1",							/* 1 - PRG. MODEM SDLC*/
-				"ATW2X4S25=1&D2%C0\\N0+A8E=,,,0",	/* 2 - PRG. MODEM SDLC */
-				"AT+MS=v22",						/* 3 - PRG. MODEM SDLC*/
-				"AT$F2S17=15",						/* 4 - PRG. MODEM SDLC*/
-				"AT+ES=6,,8",						/* 5 - PRG. MODEM SDLC*/
-				"AT+ESA=,,,,1",						/* 6 - PRG. MODEM SDLC*/
-				"ATDT.....................", 		/* 7 - Comando de discagem */
-};
+BOOL 	startedFlash 	= FALSE;
+char	HD_flash[] 		= {"/HOST"};
 
-char	SDLC_T[MAX_CMD_SDLC]={				/* time-out comandos */
-				3,							/* 0 - PRG. MODEM SDLC*/
-				5,							/* 1 - PRG. MODEM SDLC*/
-				5,							/* 2 - PRG. MODEM SDLC*/
-				5,							/* 3 - PRG. MODEM SDLC*/
-				5,							/* 4 - PRG. MODEM SDLC*/
-				5,							/* 5 - PRG. MODEM SDLC*/
-				5,							/* 6 - PRG. MODEM SDLC*/
-				0,							/* 7 - Comando de discagem */
-};
-
-char	SDLC_R[MAX_CMD_SDLC][12]={			/* Respostas esperada */
-				"OK", 						/* 0 - PRG. MODEM SDLC*/
-				"OK",						/* 1 - PRG. MODEM SDLC*/
-				"OK",						/* 2 - PRG. MODEM SDLC*/
-				"OK",						/* 3 - PRG. MODEM SDLC*/
-				"OK",						/* 4 - PRG. MODEM SDLC*/
-				"OK",						/* 5 - PRG. MODEM SDLC*/
-				"OK",						/* 6 - PRG. MODEM SDLC */
-				"CONNECT",					/* 7 - CONNECTADO */
-};
-
-char	SDLC_E[6][12]={						/* Respostas de ERROS possiveis */
-				"ERROR",					/* 0 */
-				"NO CARRIER",				/* 1 */
-				"NO DIALTONE",				/* 2 */
-				"BUSY",						/* 3 */
-				"NO ANSWER",				/* 4 */
-				0,							/* fim lista */
-};
+struct {
+	S_FS_FILE	* ptArq;											/* file stream		*/
+} filesys[MAXFILESYS];
 
 STAT
-ATCmdSDLC ( int ind , int timeOpt )
+init_flash ( void )
 {
-	char	cmdBuf[64];
-	char	respBuf[64];
-	char	aux[2];
-	int		ct;
-	int		nv = 0, idx = 0;
-	ulong	timeOut;
+	int 				ret;
 
-	if (ind < -1 && ind >= MAX_CMD_SDLC)
-		return SDLC_ERRO_MDM;
+	S_FS_PARAM_CREATE	ParamCreat;
 
-	if ( ind != -1 )
+	ParamCreat.Mode = FS_WRITEONCE;
+	if ((ret = FS_mount (HD_flash, &ParamCreat.Mode)) != FS_OK)
+		return POS_ERRO;											/* falha mount (HOST) */
+
+	 /* Inicia filesys */
+	for (ret = 0; ret < MAXFILESYS; ret++)
 	{
-		/* envia comando AT para o modem */
-		flushMDM ();
-		sprintf (cmdBuf, "%s\r", &SDLC_CMD[ind][0]);
-		write (hComModem, cmdBuf, strlen (cmdBuf));
-
-		debugH ("cmdEnvMDM:%s\n", cmdBuf);
-
-		if (ind == AT_DISCA_SDLC)
-			return POS_SUCESS;
+		filesys[ret].ptArq = NULL;
 	}
 
-	/* prepara time-out de resposta */
-	if (ind == -1)
-	{
-		if (timeOpt)
-			timeOut = (read_ticks ()) + ((ulong)timeOpt * 1000);
-		else
-			return SDLC_ERRO_MDM;
-	}
-	else
-	{
-		timeOut = (read_ticks ()) + ((ulong)SDLC_T[ind] * 1000);
-	}
+	startedFlash = TRUE;
 
-	/* aguarda resposta pelo tempo especificado */
+	return POS_SUCESS;												/* disk/mount ok! */
+}
 
-	while (TRUE)
-	{
-		if ((ct = read (hComModem, aux, 1)) > 0)
-		{
-			if (*aux == '\n' && nv == 0)
-				nv = 1;													/* indica inicio da resposta */
+/******************************************************************************
+ * Funcao: put_memory                                                         *
+ *         Cria/Substitui e grava conteudo em arquivos na memoria flash       *
+ *                                                                            *
+ * Retornos: -1 --> Nao abriu arquivo                                         *
+ *            0 --> Nao gravou no arqivo                                      *
+ *            n --> n bytes gravados                                          *
+ ******************************************************************************/
+int
+put_memory ( char * nome_arq, char * grava, int cnt )
+{
+	int				ret;
+	int     		idx;
+	int     		nbytes;
+	int				flgDireto = 0;
 
-			if (*aux == '\r' && nv == 1)									/* final resposta */
-				break;
+	long			dfree;
 
-			if (nv == 1 && idx < (sizeof (respBuf)))						/* cabe no buffer */
-			{
-				/* verifica se é um caracter valido imprimivel */
-				if (*aux < 0x20 || *aux > 0x7E )
-					continue;												/* descarta caracter */
+	char			nmArq_tmp[256];
 
-				respBuf[idx] = *aux; idx++;									/* copia caracter para buffer de resp*/
-			} 
-		}
-		
-		if ((ct < 0))							/* erro recepcao ou timeout... bye bye... */
-		{
-			debugH ("ERRO RECPCAO AT MDM\n");
-			return SDLC_ERRO_MDM;
-		}
-		
-		if (read_ticks () > timeOut)
-		{
-			debugH ("ERRO RECPCAO timeout\n");
-			return SDLC_ATCMD_TMO;
+	S_FS_FILE * 	ptArq = NULL;
+
+	if (startedFlash == FALSE)
+	{																/* flash nao iniciada */
+		if ((ret = init_flash()) == POS_ERRO)
+		{															/* falha flash */
+			return (-1);
 		}
 	}
 
+	FS_unlink (nome_arq);											/* sempre elimina possivel arquivo temporario */
+	dfree = FreeSpace();
 
-	respBuf[idx] = 0;
+	if (cnt > dfree &&
+		FS_exist (nome_arq))
+	{																/* sem espaco livre. eliminar arquivo original + criar novamente */
+		flgDireto = 1;
+		FS_unlink (nome_arq);										/* elimina arquivo original */
+		FS_GarbageCollection (1);
 
-	if (ind == -1)
-	{
-		debugH ("comandoAT->[%s]\n", &SDLC_CMD[AT_DISCA_SDLC][0]);
-		debugH ("msgEsp[%s],tam[%d]\n", &SDLC_R[AT_DISCA_SDLC][0], strlen (&SDLC_R[AT_DISCA_SDLC][0]));
-	}
-	else
-	{
-		debugH ("comandoAT->[%s]\n", &SDLC_CMD[ind][0]);
-		debugH ("msgEsp[%s], ind[%d], tam[%d]\n", &SDLC_R[ind][0], ind, strlen (&SDLC_R[ind][0]));
-	}
-	debugH ("respCMDAT<-[%s]\n", respBuf);
-
-	/* verifica se eh uma resposta positiva */
-	if (ind == -1)								/* discagem */
-	{
-		if  (memcmp (&SDLC_R[AT_DISCA_SDLC][0], respBuf, strlen (&SDLC_R[AT_DISCA_SDLC][0])) == 0)
-		{
-			debugH ("RESP OK\n");
-			return SDLC_CONNECTED;
+		if ((ptArq = FS_open (nome_arq, "a")) == NULL)
+		{															/* falha na abertura do arquivo original (FLASH) */
+			return (-1);
 		}
 	}
 	else
 	{
-		if  (memcmp (&SDLC_R[ind][0], respBuf, strlen (&SDLC_R[ind][0])) == 0)
-		{
-			debugH ("RESP OK\n");
-			return POS_SUCESS;
-		}
-	}
+		if ((ptArq = FS_open (nome_arq, "a")) == NULL)
+		{															/* falha na abertura do arquivo temporario (FLASH) */
+			flgDireto = 1;
+			FS_unlink (nome_arq);									/* elimina arquivo original + criar novamente */
 
-	/* procura resposta negativa na tabela, se nao encontrar, generico nele */
-	for (ct = 0; SDLC_E[ct][0] != 0; ct++)
-	{
-		if (memcmp (&SDLC_E[ct][0], respBuf, strlen (&SDLC_E[ct][0])) == 0)
-		{
-			switch (ct)
-			{
-			case 1	:	return SDLC_NO_CARRIER;
-			case 2	:	return SDLC_NO_DIALTONE;
-			case 3	:	return SDLC_BUSY_DETECT;
-			case 4	:	return SDLC_NO_ANSWER;
-			case 0	:	
-			default	:	return SDLC_ERRO_MDM;
+			if ((ptArq = FS_open (nome_arq, "a")) == NULL)
+			{														/* falha na abertura do arquivo orinal (FLASH) */
+				return (-1);
 			}
 		}
 	}
-	return SDLC_ERRO_MDM;
+
+	/* grava o dado no arquivo */
+
+	for (idx = 0; idx < cnt; idx += nbytes)
+	{
+		nbytes = cnt - idx;
+
+		if (nbytes > 512)
+			nbytes = 512;											/* grava blocos de 512 bytes			*/
+
+		if ((ret = FS_write (&grava[idx], nbytes, 1, ptArq)) <= 0)
+		{
+			FS_close (ptArq);
+			ptArq = NULL;
+
+			return (0);
+		}
+		FS_flush (ptArq);
+	}
+
+	FS_close (ptArq);
+	ptArq = NULL;
+
+	if (flgDireto == 0)
+	{
+		FS_unlink (nome_arq);
+		FS_rename (nmArq_tmp, nome_arq);
+	}
+
+	return ( idx );                    								 /* # de bytes gravados */
+}
+
+/******************************************************************************
+ * Funcao: get_memory                                                         *
+ *         Obtem informacoes de um arquivo gravado na memoria flash           *
+ *                                                                            *
+ * Retornos: -1 --> Nao abriu arquivo                                         *
+ *            0 --> Nao leu arqivo                                            *
+ *            n --> n bytes lidos                                             *
+ ******************************************************************************/
+int
+charSearch ( char c, char * buff, int szBuff )
+{
+	int i;
+	for(i = 0; i < szBuff; i++)
+	{
+		if ( *(buff + i) == c)
+			return i;
+	}
+
+	return (-1);
+}
+
+int
+get_memory ( char * Nome_arq, char * leitura, int maxsz )
+{
+	int 		ret;
+
+	S_FS_FILE	* ptArq = NULL;
+
+	if (startedFlash == 0)
+	{															/* flash nao iniciada */
+		if ((ret = init_flash()) == 0)
+		{														/* falha flash */
+			return (-1);
+		}
+	}
+
+	/* le arquivo */
+
+	if (FS_exist (Nome_arq) != FS_OK ||							/* arquivo nao existe... */
+		(ptArq = FS_open (Nome_arq, "r")) == NULL)				/* falha na abertura do arquivo (FLASH) */
+		return (-1);
+
+	if ((ret = FS_length (ptArq)) < maxsz)
+		maxsz = ret;											/* limitar quantidade de bytes lidos */
+
+	ret = FS_read ((void *)leitura, maxsz, 1, ptArq);
+
+	FS_close (ptArq);
+	ptArq = NULL;
+
+	return (maxsz);												/* retorna quantidade de bytes lidos */
+}
+
+/******************************************************************************
+ * Funcao: get_env                                                            *
+ *         obtem conteudo de chave especificada no arquivo CONFIG.SYS         *
+ *                                                                            *
+ * Formato: CHAVE=CONTEUDO                                                    *
+ *                                                                            *
+ * Retornos: 0 --> Nao encontrou chave ou conteudo inexistente                *
+ *           n --> n bytes lido no conteudo na chave informada                *
+ ******************************************************************************/
+int
+get_env ( const char * key, char * outBuf, int szOutBuf )
+{
+	uchar 	fileBuf[2048];
+
+	int		lenk;
+	int	 	szFileBuf;
+
+	int  	i = 0;
+	int 	j = 0;
+
+	BOOL	flgAspas;
+
+	memset (fileBuf, 0, sizeof(fileBuf));
+
+	szFileBuf = get_memory (FILE_CONFIG, fileBuf, sizeof(fileBuf));
+
+	if ( szFileBuf <= 0 )
+		return 0;
+
+	lenk = strlen(key);
+
+	do
+	{
+		if ((j = charSearch (key[0], &fileBuf[i], szFileBuf - i)) < 0)
+			return (0);
+
+		i += j;
+
+		if ( !memcmp (&fileBuf[i], key, lenk) )
+		{														/* encontrou a chave! */
+			for (j = i+lenk; j < szFileBuf; j++)
+			{													/* ignora espacos e tabs (ate caracter "=") */
+				if (fileBuf[j] != ' ' && fileBuf[j] != '\t')
+					break;
+			}
+
+			if (fileBuf[j] != '=')
+				return 0;										/* Nao encontrou separador = erro. */
+
+			i = j;												/* posicao do caracter "=" */
+			j = 0;
+
+			flgAspas = FALSE;
+
+			do
+			{
+				i++;
+				if ( fileBuf[i] == CR || fileBuf[i] == LF || i >= szFileBuf)
+					break;										/* fim da linha (literalmente)! */
+
+				if (fileBuf[i] == '"')
+				{
+					if (flgAspas == FALSE)
+						flgAspas = TRUE;						/* inicio do registro com aspas	*/
+					else
+						break;									/* fim do registro com aspas	*/
+				}
+				else
+				{
+					if ( (fileBuf[i] != ' ' && fileBuf[i] != '\t') ||
+						 flgAspas == TRUE )						/* se registro com aspas: espacos e tabs fazem parte do registro */
+					{
+						outBuf[j] = fileBuf[i];
+						j++;
+
+						if ((j+1) >= szOutBuf)
+						{
+							outBuf[j] = 0;
+							return (j);
+						}
+					}
+				}
+			} while (TRUE);
+
+			outBuf[j] = 0;
+			return (j);
+		}
+
+		/* Procura proximo registro */
+		if ((j = charSearch (LF, &fileBuf[i], szFileBuf - i)) < 0 &&
+			(j = charSearch (CR, &fileBuf[i], szFileBuf - i)) < 0   )
+			return 0;											/* final registro */
+
+		i += j + 1;
+
+	} while (TRUE);
+
+	return 0;
+}
+
+/******************************************************************************
+ * Funcao: put_env                                                            *
+ *         obtem conteudo de chave especificada no arquivo CONFIG.SYS         *
+ *                                                                            *
+ * Formato: CHAVE=CONTEUDO                                                    *
+ *                                                                            *
+ * Retornos: 0 --> Falha na gravacao de nova chave ou conteudo                *
+ *           n --> n bytes gravados no conteudo da chave especificada         *
+ ******************************************************************************/
+int
+put_env ( const char * key, char * inBuf, int szInBuf )
+{
+	uchar 	fileBuf	   [2048+1];
+	uchar 	auxFileBuf [2048+1];
+
+	int		lenk;
+	int	 	szFileBuf;
+	int 	i = 0;
+	int		j = 0;
+	int		flgAspas;
+
+	lenk = strlen(key);
+
+	memset (fileBuf, 0, sizeof(fileBuf));
+	memset (auxFileBuf, 0, sizeof(auxFileBuf));
+
+	szFileBuf = get_memory (FILE_CONFIG, fileBuf, sizeof(fileBuf));
+
+	if (szFileBuf > 0)
+	{															/* conseguiu abrir arquivo - procurar pela chave */
+		do
+		{
+			if ((j = charSearch (key[0], &fileBuf[i], szFileBuf - i)) < 0)
+				break;
+
+			i += j;
+
+			if ( !memcmp (&fileBuf[i], key, lenk) )
+			{													/* encontrou a chave! */
+				for (j = i+lenk; j < szFileBuf; j++)
+				{												/* ignora espacos e tabs (ate caracter "=") */
+					if (fileBuf[j] != ' ' && fileBuf[j] != '\t')
+						break;
+				}
+
+				if (fileBuf[j] != '=')
+					return 0;									/* Não encontrou separador = erro. */
+
+				i = j + 1;										/* proxima posicao apos "=" */
+
+				/* Grava informação no conteudo da chave */
+				flgAspas = 0;
+				for (j = 0; j < szInBuf; j++)
+				{												/* verifica necessidade de aspas: para preservar espacos e tabs */
+					if (inBuf[j] == ' ' || inBuf[j] == '\t')
+					{
+						flgAspas = 1;
+						break;
+					}
+				}
+
+				memcpy (auxFileBuf, fileBuf, i);				/* copia primeira parte (inicio ate chave+"=") */
+
+				if ((j = charSearch (LF, &fileBuf[i], szFileBuf - i)) >= 0 ||
+					(j = charSearch (CR, &fileBuf[i], szFileBuf - i)) >= 0   )
+					lenk = i + szInBuf + (szFileBuf - i - j) + 1;	/* tem mais registros... */
+				else
+					lenk = i + szInBuf;
+
+				lenk += flgAspas + flgAspas;					/* incrementa tamanho das aspas inicial e final (se houver) */
+
+				if (lenk > sizeof(fileBuf))
+					return (0);									/* erro - não cabe arquivo */
+
+				if (flgAspas == 1)
+					auxFileBuf[i] = '"';						/* aspas inicial */
+
+				memcpy (&auxFileBuf[i+flgAspas], inBuf, szInBuf);	/* copia novo conteudo */
+
+				if (flgAspas == 1)
+				{
+					auxFileBuf[i+flgAspas+szInBuf] = '"';		/* aspas final */
+					flgAspas = 2;								/* apenas para "contar" as duas aspas */
+				}
+
+				if (j > -1)										/* copia registros restantes (se houver) */
+				{
+					szFileBuf = strlen(&fileBuf[i+j-1]);
+					memcpy (&auxFileBuf[i+flgAspas+szInBuf], &fileBuf[i+j-1], szFileBuf);
+				}
+
+				if ( (szFileBuf = put_memory(FILE_CONFIG, auxFileBuf, lenk)) <= 0)
+					return (0);									/* falha na gravacao do arquivo */
+				else
+					return (szInBuf);							/* parametro gravado com sucesso! */
+			}
+
+			/* Localiza proximo registro */
+
+			if ((j = charSearch (LF, &fileBuf[i], szFileBuf - i)) < 0 &&
+				(j = charSearch (CR, &fileBuf[i], szFileBuf - i)) < 0   )
+				break;					/* final do registro */
+
+			i += j + 1;
+
+		} while (TRUE);
+	}
+	else
+		szFileBuf = 0;
+
+	/* arquivo ou chave inexistente */
+
+	flgAspas = 0;
+	for (j = 0; j < szInBuf; j++)
+	{															/* verifica necessidade de aspas: para preservar espacos e tabs */
+		if (inBuf[j] == ' ' || inBuf[j] == '\t')
+		{
+			flgAspas = 1;
+			break;
+		}
+	}
+
+	/* tamanho: chave + "=" + aspas inicial(se houver) + tamanho registro + aspas final(se houver)*/
+	i = lenk + 1 + flgAspas + szInBuf + flgAspas;
+
+	if (szFileBuf)
+	{															/* ha + registro(s)		*/
+		i += szFileBuf;											/* incrementa o tamanho	*/
+
+		if (fileBuf[szFileBuf - 1] != CR && fileBuf[szFileBuf - 1] != LF)
+		{														/* adiciona separador (CR/LF) SE inexistente apos ultimo registro */
+			i += 2;
+			if (i > sizeof(fileBuf))
+				return (0);										/* erro - não cabe arquivo */
+
+			fileBuf[szFileBuf    ] = CR;
+			fileBuf[szFileBuf + 1] = LF;
+			szFileBuf += 2;
+		}
+	}
+
+	if (i > sizeof(fileBuf))
+		return (0);												/* erro - não cabe arquivo */
+
+	memcpy(&fileBuf[szFileBuf], key, lenk);						/* copia chave */
+	fileBuf[szFileBuf + lenk] = '=';							/* copia separador */
+
+	if (flgAspas == 1)
+		fileBuf[szFileBuf + lenk + flgAspas] = '"';				/* aspas inicial: para preservar espacos e tabs */
+
+	memcpy(&fileBuf[szFileBuf + lenk + 1 + flgAspas], inBuf, szInBuf);	/* copia registro */
+
+	if (flgAspas == 1)
+		fileBuf[szFileBuf + lenk + 1 + flgAspas + szInBuf] = '"';		/* aspas final */
+
+	if ( (szFileBuf = put_memory(FILE_CONFIG, fileBuf, i)) <= 0 )
+		return (0);												/* falha na gravacao do arquivo */
+	else
+		return (szInBuf);										/* parametro gravado com sucesso! */
 }
 
 /******************************************************************************
@@ -499,78 +798,89 @@ SaveConfSDLC ( struct PARM * pPARM )
  * Retornos: POS_ERRO                                                         *
  *           POS_SUCESS                                                       *
  ******************************************************************************/
+static TLV_TREE_NODE	piConfig			= NULL;
+static TLV_TREE_NODE	piPhysicalConfig	= NULL;
+static TLV_TREE_NODE	piDataLinkConfig	= NULL;
+
 STAT
 resetSDLC ( void )
 {
-	int				i;
-	char			aux[16];
-	struct Opn_Blk	mblk;
+	char			tcInitString[32];
 
-	if (stsSDLC == SDLC_RESETED) return POS_SUCESS;	/* Se dispositivo resetado apenas retorna */
+	if (stsSDLC == SDLC_RESETED) return POS_SUCESS;					/* se dispositivo resetado apenas retorna */
 
-	if (hComModem >= 0)								/* Com modem Aberta */
+	if (hComModem != NULL)											/* com modem Aberta */
 	{
-		get_port_status (hComModem, aux);			/* Obtem status do modem */
-
-		if ((aux[3] & 0x08) != 0)					/* Portadora presente! */
-		{
-			aux[0] = 0;								/* derruba DTR & RTS */
-			set_serial_lines ( hComModem, aux );
-		}
-
-		xmdm_hangup (hComModem, -1, 0);				/* fecha antes de programar */
-		xmdm_close	(hComModem,  0, 0);
-
-		hComModem = -1;
-		SVC_WAIT ( 100 );
+		LL_Disconnect (&hComModem);									/* desconnecta Modem */
+		LL_Configure (&hComModem, NULL);                             /* fecha com Modem */
 	}
-	hComModem = open (DEV_COM3, 0);					/* abertura */
-	debugH ("handle Modem:[%d]\n", hComModem);
 
-	aux[0] = 0;										/* derruba DTR & RTS */
-	set_serial_lines ( hComModem, aux );
-
-	/*
-	 * Define: Baud Rate + Paridade + protocolo
-	 */
-
- 	mblk.rate = Rt_19200;
-	mblk.format = Fmt_A7E1 | Fmt_DTR;
-	mblk.protocol = P_char_mode;
-
-	set_opn_blk ( hComModem, &mblk );
-
-	for (i = AT_INIT_SDLC; i <= AT_FIN_SDLC; i++)
+	if (piConfig)
 	{
-		if (ATCmdSDLC (i, 0) != POS_SUCESS)
-		{
-			debugH ("ERRO ATCMD\n", hComModem);
-			return POS_ERRO;
-		}
-	}
-#ifdef OBSOLETO
-	/* Abre e inicializa modem SDLC */
-	if (is37xx() != 0)
-	{
-		if (inOpenModem (&hComModem, MDM_PORT, Rt_1200, Fmt_A7E1) != 0)
-		{
-			hComModem	= -1;
-			stsSDLC		= SDLC_ERRO_PROG;
+		TlvTree_Release (piConfig);									/* destroi arvore de configuracao atual */
 
-			return POS_ERRO;
-		}
+		piConfig = NULL;
+		piPhysicalConfig = NULL;
+		piDataLinkConfig = NULL;
 	}
-	else
-	{
-		if (inOpenModem (&hComModem, MDM_PORT, Rt_19200, Fmt_A7E1) != 0)
-		{
-			hComModem	= -1;
-			stsSDLC		= SDLC_ERRO_PROG;
 
-			return POS_ERRO;
-		}
-	}
-#endif
+	/* cria raiz da arvore de parametros do LinkLayer */
+	piConfig = TlvTree_New (LL_TAG_LINK_LAYER_CONFIG);				/* Tag raiz para configuracao da arvore */
+
+	/* adiciona noh de paramteros da camada fisica do modem e configura */
+	piPhysicalConfig = TlvTree_AddChild (piConfig,
+										 LL_TAG_PHYSICAL_LAYER_CONFIG,/* TAG de paramtros da camada fisica do modem */
+										 NULL,
+										 0);
+
+	/* MODEM */
+	TlvTree_AddChildInteger (piPhysicalConfig,
+							 LL_PHYSICAL_T_LINK,					/* TAG */
+							 LL_PHYSICAL_V_MODEM,					/* VALUE */
+							 LL_PHYSICAL_L_LINK);					/* LENGTH 1 byte */
+
+	/* Baud Rate */
+	TlvTree_AddChildInteger (piPhysicalConfig,
+							 LL_PHYSICAL_T_BAUDRATE,
+							 LL_PHYSICAL_V_BAUDRATE_19200,
+							 LL_PHYSICAL_L_BAUDRATE);
+
+	/* Data Bits */
+	TlvTree_AddChildInteger (piPhysicalConfig,
+							 LL_PHYSICAL_T_BITS_PER_BYTE,
+							 LL_PHYSICAL_V_8_BITS,					/* Outros modos tratados no nivel de aplicacao apenas, conforme documentaca */
+							 LL_PHYSICAL_L_BITS_PER_BYTE);
+
+	/* Stop Bits */
+	TlvTree_AddChildInteger (piPhysicalConfig,
+							 LL_PHYSICAL_T_STOP_BITS,
+							 LL_PHYSICAL_V_1_STOP,
+							 LL_PHYSICAL_L_STOP_BITS);
+
+	/* Parity */
+	TlvTree_AddChildInteger (piPhysicalConfig,
+							 LL_PHYSICAL_T_PARITY,
+							 LL_PHYSICAL_V_NO_PARITY,
+							 LL_PHYSICAL_L_PARITY);
+
+	/* Modem Type */
+	TlvTree_AddChildInteger (piPhysicalConfig,
+							 LL_MODEM_T_TYPE,
+							 LL_MODEM_V_TYPE_STANDARD,
+							 LL_MODEM_L_TYPE);
+
+	/* Terminadores  da Linha de Comandos */
+	TlvTree_AddChildInteger (piPhysicalConfig,
+							 LL_MODEM_T_CMD_TERMINATOR,
+							 LL_MODEM_V_CMD_TERMINATOR_CR,
+							 LL_MODEM_L_CMD_TERMINATOR);
+
+	/* String de inicializacao do modem SDLC */
+	strcpy (tcInitString, "ATE0X3S6=1$M249$M251F4S144=16");
+
+	TlvTree_AddChildString (piPhysicalConfig,
+						    LL_MODEM_T_INIT_STRING,
+						    tcInitString);
 
 	stsSDLC = SDLC_RESETED;
 
@@ -587,20 +897,30 @@ resetSDLC ( void )
 STAT
 discaSDLC ( void )
 {
-	int			idx;
-	//int			iwrite = -1;
+	int			idx, ret;
 
 	char		dial_string[28];
-	char		mdm_buff[42];
 
 	memset (dial_string, 0, sizeof(dial_string));
-	memset (mdm_buff, 0, sizeof(mdm_buff));
+
+	tmoDiscSDLC = TMO_DISC_SDLC/10;
 
 	for (idx = 0; idx < sizeof(parmSDLC.fone); idx++)
 	{
 		if (parmSDLC.fone[idx] < '0' || parmSDLC.fone[idx] > '9')
 			parmSDLC.fone[idx] = 0;	
 	}
+
+	//strcat (dial_string, "ATD");									/* comando de discagem */
+	//if (parmSDLC.pulso != 0)
+	//{
+		//idx = strlen(dial_string);
+		//dial_string[idx]= parmSDLC.pulso;
+		//dial_string[idx+1] = '\0';
+	//}
+
+	//else
+		//strcat (dial_string, "T");
 
 	if (parmSDLC.pabx[0] != 0)										/* se tem pabx copia a string */
 	{
@@ -610,14 +930,50 @@ discaSDLC ( void )
 
 	strcat (dial_string, parmSDLC.fone);							/* numero do telefone	*/
 
-	strcpy (&SDLC_CMD[AT_DISCA_SDLC][4], dial_string);
-	debugH ("dial string=[%s]\n", &SDLC_CMD[AT_DISCA_SDLC][0]);
+	/* configura Phone number na camada fisica */
+	TlvTree_AddChildString(piPhysicalConfig,
+						   LL_MODEM_T_PHONE_NUMBER,
+						   dial_string);
 
-	if (ATCmdSDLC ( AT_DISCA_SDLC, 0) != POS_SUCESS)				/* envia comando de discagem */
+
+	/* adiciona noh de paramteros da camada de dados do modem e inicia parte da configuracao */
+	piDataLinkConfig = TlvTree_AddChild (piConfig,
+										 LL_TAG_DATA_LINK_LAYER_CONFIG, /* TAG Data link layer parameters */
+										 NULL,
+										 0);
+
+	/* HDLC/SDLC */
+	TlvTree_AddChildInteger (piDataLinkConfig,
+							 LL_DATA_LINK_T_PROTOCOL,
+							 LL_DATA_LINK_V_HDLC,
+							 LL_DATA_LINK_L_PROTOCOL);
+
+	/* numero minimo de re-tentativas do send */
+	TlvTree_AddChildInteger (piDataLinkConfig,
+							 LL_HDLC_T_MIN_RESEND_REQUESTS,
+							 2,
+							 LL_HDLC_L_MIN_RESEND_REQUESTS);
+
+	/* Dial Timeout */
+	TlvTree_AddChildInteger (piDataLinkConfig,
+							 LL_MODEM_T_DIAL_TIMEOUT,
+							 tmoDiscSDLC,
+							 LL_MODEM_L_DIAL_TIMEOUT);
+
+	/* conforme documentacao configura modem para protocolo V.80 */
+	//TlvTree_AddChildInteger (piDataLinkConfig,
+							 //LL_HDLC_T_V80_MODE,
+							 //1,
+							 //LL_HDLC_L_V80_MODE);
+
+	if ((ret = LL_Configure (&hComModem, piConfig)) != LL_ERROR_OK)			/* configura o modem */
+	{
+		debugH ("LL_Configure ret=[%d]\n", ret);
 		return POS_ERRO;
+	}
 
+	ret=LL_Connect(hComModem);													/* disca modem */
 	stsSDLC = SDLC_DIALLING;
-	tmoDiscSDLC = read_ticks () + TMO_DISC_SDLC;					/* inicia timeout de discagem */
 	debugH ("DISCANDO SDLC\n");
 
 	return POS_SUCESS;
@@ -633,91 +989,38 @@ discaSDLC ( void )
 STAT
 chk_sdlc ( void )
 {
-	struct Opn_Blk	Com3ob;
-	int				status;
-	int				ct;
-	char			mdm_buff[42];
-	//char			aux[64];
-	STAT			ret;
+	int respModem = 0;
 
-	get_port_status (hComModem, mdm_buff);
-	if ((mdm_buff[3] & DCD_ON) == 0)
-	{	
-		ret = ATCmdSDLC (-1, 2);							/* ainda nao conectado, obtem resposta */
+	respModem = LL_GetStatus (hComModem);
 
-		debugH ("chk_sdlc-ret[0x%0.4X]\n", ret);
-		if (ret == SDLC_ATCMD_TMO || ret == SDLC_CONNECTED)
+	if (respModem == LL_STATUS_CONNECTING)
+	{
+		return POS_SUCESS;
+	}
+	else
+	if (respModem == LL_STATUS_DISCONNECTED)
+	{
+		respModem = LL_GetLastError(hComModem);
+		switch (respModem)
 		{
-			if (read_ticks () < tmoDiscSDLC)
-				return POS_SUCESS;								/* discando... */
-			else												/* time-out discagem */
-			{
-				stsSDLC = SDLC_NO_ANSWER;
-				return POS_ERRO;
-			}
+		case 	LL_MODEM_ERROR_RESPONSE_NO_CARRIER		:	stsSDLC = SDLC_NO_CARRIER;	break;
+		case 	LL_MODEM_ERROR_RESPONSE_NO_DIALTONE		:	stsSDLC = SDLC_NO_DIALTONE;	break;
+		case 	LL_MODEM_ERROR_RESPONSE_BUSY			:	stsSDLC = SDLC_BUSY_DETECT;	break;
+		case 	LL_MODEM_ERROR_RESPONSE_NO_ANSWER		:	stsSDLC = SDLC_NO_ANSWER;	break;
+		default											:	stsSDLC = SDLC_ERRO_MDM;	break;
 		}
-
-		stsSDLC = ret;
-
-		debugH ("[chk_sdlc]ERRO_DISC:stsSDLC=0x%0.4X\n", stsSDLC);
-		return POS_ERRO;									/* falha */
+		return POS_ERRO;
+	}
+	else
+	if (respModem == LL_STATUS_CONNECTED)
+	{
+		stsSDLC = SDLC_CONNECTED;
+		debugH ("SDLC_CONECTADO\n");
+		return POS_SUCESS;
 	}
 
-	debugH ("SDLC_CONECTADO\n");
-
-	/* portadora presente, trata outros sinais */
-	ct = 5;
-	do {
-	   mdm_buff[0] = DTR_RTS_ON;
-	   status = set_serial_lines (hComModem, mdm_buff);
-	   SVC_WAIT (100);
-	} while (status != 0 && --ct > 0);
-
-	ct = 5;
-	do {
-	   status = get_port_status (hComModem, mdm_buff);
-	   SVC_WAIT (20);
-	} while ((mdm_buff[3] & CTS_ON) == 0 && --ct > 0);
-
-	Com3ob.rate							= Rt_19200;
-	Com3ob.format						= Fmt_SDLC | Fmt_DTR | Fmt_RTS;
-	Com3ob.protocol						= P_sdlc_mode;
-	Com3ob.trailer.sdlc_parms.address	= 0x30;
-	Com3ob.trailer.sdlc_parms.option	= P_sdlc_sec;
-
-	ct = 5;
-	do {
-	   status = set_opn_blk (hComModem, &Com3ob);
-	   SVC_WAIT (50);
-	} while (status != 0 && --ct > 0);
-
-	ct = 5;
-	do {
-	   mdm_buff[0] = DTR_RTS_ON;
-	   status = set_serial_lines (hComModem, mdm_buff);
-	   SVC_WAIT (100);
-	} while (status != 0 && --ct > 0);
-
-	if (status == 0) status = 5;
-
-	stsSDLC = SDLC_CONNECTED;
-	debugH ("SDLC_SINCRONIZADO\n");
-
-	return ( POS_SUCESS );							/* conexao OK */
-}
-
-/******************************************************************************
- * Funcao: flushMDM	                                                          *
- *         limpa buffer de recepcao interno do modem                          *
- *                                                                            *
- * Retornos:                                                                  *
- ******************************************************************************/
-void
-flushMDM ( void )
-{
-	char aux[2];
-
-	while (read (hComModem, aux, 1) > 0);
+	stsSDLC = SDLC_ERRO_MDM;
+	return POS_ERRO;														/* erro conexao */
 }
 
 /******************************************************************************
@@ -731,53 +1034,33 @@ flushMDM ( void )
 STAT
 sndSDLC ( char * inBuf, int sz )
 {
-	char	xbuff[32];
 	ulong	tempoCOM;
 	int		st;
 
-	tempoCOM = COM_TIMEOUT * 1000;					/* tempo em milisegundos */
-	tempoCOM += get_milli_sec ();					/* hora de vencimento do timeout */
+	tempoCOM = COM_TIMEOUT * 1000;									/* tempo em milisegundos */
+	tempoCOM += get_milli_sec ();									/* hora de vencimento do timeout */
 	
-	flushMDM ();									/* elimina buffer interno de recebimento antes do envio */
+	LL_ClearReceiveBuffer (hComModem);								/* elimina sujeira buffer interno de recebimento antes do envio */
+	LL_ClearReceiveBuffer (hComModem);								/* elimina sujeira buffer interno de envio  */
+
 	while (sz > 0 && tempoCOM >= get_milli_sec ())
 	{
-		/* 
-		 *	Faz a transferencia de dados apenas verificando o TIMEOUT e a
-		 *	verificacao da portadora
-		 *
-		 *  Parametros: 
-		 *			HdwBit : vetor da COM
-		 *			buffer : dados a serem enviados
-		 *			sz	   : tamanho dos dados	
-		 *				
-		 *  Retorno: 	
-		 *			OK			: transmissao sem erros	
-		 *			COMTMO		: Time-out da transmissao	
-		 *			MDNOCARRIER	: sem portadora (desconectado)	
-	     */
-
-		for (st = 0; get_port_status (hComModem, xbuff) != 0 && st < 50; st++)
-		{
-			SVC_WAIT ( 20 );
-		}
-
-		st = sz;									/* tamanho do fragmento */
-		
-		if (write (hComModem, inBuf, st) > 0)
-	 	{											/* OK. transferencia feita */
+		st = sz;													/* tamanho do fragmento */
+		if (LL_Send(hComModem, st, inBuf, LL_INFINITE) > 0)
+	 	{															/* OK. transferencia feita */
 	 		inBuf += st;
 			sz -= st;
 		}
-		else										/* FALHA. Houve algum problema */
+		else														/* FALHA. Houve algum problema */
 		{						
 			return POS_ERRO;
 		}
 	}
 
-	if ( sz > 0 )									/* saida por time out */
+	if ( sz > 0 )													/* saida por time out */
 		return POS_CANCEL;
 
-	tmoRespSDLC = read_ticks () + 60000l;			/* aciona time-out de P2 */
+	tmoRespSDLC = 600;												/* aciona time-out de P2 */
 
 	return POS_SUCESS;
 }
@@ -794,62 +1077,39 @@ STAT
 recvSDLC ( char * outBuf, int * sz )
 {
 	// Devido ao teste SDLC, funcao de recepcao esta em sua forma mais simples sem considerar tamanho de resposta ou protocolos...
-	char	respBuf[1024];
-	int		ct = 0;
+	int		ct = 0, iSzOutBuf = 0;
 
 	if (!outBuf && !sz)
 		return POS_ERRO;
 
-	while (TRUE)
+	iSzOutBuf = * sz;
+
+	if (LL_GetLastError(hComModem) != LL_ERROR_OK)
 	{
-		get_port_status ( hComModem, respBuf );						/* status da portadora */
-
-		if ((respBuf[3] & 0x08) == 0)								/* Portadora NAO presente! caiu conexao*/
-		{
-			debugH ("[recvSDLC]PORTADORA NAO PRESENTE\n");
-			return POS_CANCEL;
-		}
-
-		/* Verifica se ha dados no buffer fisico da COM. */
-		SVC_WAIT (20);
-
-		get_port_status (hComModem, (char *)respBuf );
-		
-		if (respBuf[0] == 0)									/* NAO ha novos dados */
-		{
-			//debugH ("[recvSDLC]NAO HA DADOS\n");
-			if (read_ticks () < tmoRespSDLC)
-			{
-				continue;
-			}
-			else
-			{
-				debugH ("[recvSDLC]OCORREU TIMEOUT P2\n");
-				return POS_ERRO;								/* excedeu time-out */
-			}
-		}
-		else
-			break;												/* chegou dados */
+		debugH ("[recvSDLC]caiu conexao\n");
+		return POS_CANCEL;
 	}
 
-		/* Ha dados. Transfere para o buffer sincrono. */
+	*sz = 0;
 
-		*sz = 0;
+	while ((ct = LL_Receive(hComModem, iSzOutBuf - *sz, &outBuf[*sz], tmoRespSDLC)) > 0)
+	{
+		tmoRespSDLC = 50;
+		*sz += ct;
+	}
 
-		while ((ct = read (hComModem, &outBuf[*sz], 1)) > 0)	/* desconsiderado tratamento de fragmentos */
-			*sz += ct;											/* desconsiderado tratamento de lixo */
+	if (*sz > 0)
+	{
+		debugH ("[recvSDLC]chegou [%d]bytes\n", *sz);
+		return POS_SUCESS;
+	}
 
-		if (*sz > 0)
-		{
-			debugH ("[recvSDLC]chegou [%d]bytes\n", *sz);
-			return POS_SUCESS;
-		}
+	if (ct != LL_ERROR_OK)
+	{
+		debugH ("[recvSDLC]falha recepcao\n", *sz);
+		return POS_CANCEL;
+	}
 
-		if (ct < 0)
-		{
-			debugH ("[recvSDLC]falha recepcao\n", *sz);
-			return POS_CANCEL;
-		}
-
-		return POS_ERRO;
+	return POS_ERRO;
 }
+

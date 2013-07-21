@@ -6,7 +6,7 @@
  *                                                                            *
  *----------------------------------------------------------------------------*
  * Descricao.............:                                                    *
- * prototipos de funcoes do modulo app_sys.h                                  *
+ * prototipos de funcoes do modulo porting.c                                  *
  *----------------------------------------------------------------------------*
  * Alteracoes............:                                                    *
  * Desenvolvedor.........:                                                    *
@@ -47,8 +47,11 @@
 #define		DCD_ON				0x08
 
 /* defines BEEP POS */
-#define		BEEP_DEFAULT	0x01
-#define		BEEP_ERRO		0x02
+#define		BEEP_DEFAULT		0x01
+#define		BEEP_ERRO			0x02
+
+/* defines de nome de arquivos */
+#define		FILE_CONFIG			"/HOST/CONFIG.SYS"
 
 /* estrutura de parametros SDLC */
 struct PARM_SDLC
@@ -85,6 +88,3 @@ STAT	getStatSDLC		( void );
 STAT	sndSDLC			( char *, int );
 STAT	recvSDLC		( char *, int * );
 
-STAT	ATCmdSDLC		( int, int );
-
-void	flushMDM		( void );

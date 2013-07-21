@@ -1,0 +1,19 @@
+Obj/GNU_ARM_DEBUG/SDLC_SAMPLE.axf  :
+section            size      addr
+.text             19740         0
+.ctors                0     19740
+.dtors                0     19740
+.rodata            2306     19740
+.data              1128   2097152
+.bss               2380   2098280
+.debug_abbrev      2845         0
+.debug_info       29024         0
+.debug_line        3494         0
+.debug_frame       1776         0
+.debug_pubnames    1331         0
+.debug_aranges      416         0
+.debug_str         2479         0
+.comment            522         0
+Total             67441
+
+
