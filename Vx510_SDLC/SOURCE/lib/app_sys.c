@@ -78,8 +78,7 @@ STAT
 makeISO ( void )
 {
 	// aqui era para incluir logica da isolib (biblioteca ISO8583)
-	// devido ao teste sdlc, apenas copiar mensagem simples, ainda falta definir protocolo junto a equipe.
-	sprintf (isoBufP1,"0100A238040120C1844800000000100000443031000712115013005060115013071202115000000000000001376361179999999016=99017001440056200100WT_PO1041000000016557390251306191200000            0760095280474310654001000890C455AB13WTNET01.26.2203600000100000000000000000000000000000002600000000000000000000000000\r");
+	sprintf (isoBufP1,"!520-501-438;main.posxml;1116;3.58012345678");
 	contIsoBufP1 = strlen (isoBufP1);
 	return POS_SUCESS;
 }
@@ -121,6 +120,7 @@ recvISO ( void )
 
 	// DEVE CONTER LOGICA PARA SELECIONAR TIPO DE COMUNICACAO e adicao protocolo quando houver(OSI por exemplo), NESTE CASO APENAS SDLC
 
+	contIsoBufP2 = sizeof (isoBufP2);
 	ret = recvSDLC (isoBufP2, &contIsoBufP2);
 	if (ret != POS_SUCESS)
 	{
@@ -141,7 +141,7 @@ procP2 ( void )
 {
 	// TESTE SDLC APENAS MOSTRA DEBUG DO QUE CHEGOU
 	isoBufP2[contIsoBufP2] = 0;
-	debugH ("recebido:[bytes=%d]\n[%c][%0.2X]\n", contIsoBufP2, isoBufP2[0], isoBufP2[0]);
+	debugH ("recebido:[bytes=%d]\n[%s]\n", contIsoBufP2, isoBufP2);
 	return POS_SUCESS;
 }
 
@@ -186,7 +186,7 @@ printfPOS (char * str, int col, int lin)
 	if (!str)
 		return POS_ERRO;
 
-	if (writeDisp (str, strlen (str), lin, col) <= 0)
+	if (writeDisp (str, strlen (str), col, lin) <= 0)
 		return POS_ERRO;
 
 	return POS_SUCESS;

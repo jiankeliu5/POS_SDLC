@@ -150,7 +150,7 @@ LD_DEF_OPTS     :=  -Map $(INTER_MAP_FILE)
 # Specific compiler, linker, assembler options
 #-------------------------------------------------------------------------------
 # Specific compiler options
-CC_SPEC_OPTS    := -DING_TELIUM -mthumb -fno-exceptions  -D_ING_GNU_ARM_DEBUG
+CC_SPEC_OPTS    := -DING_TELIUM -DDEBUG_H -mthumb -fno-exceptions  -D_ING_GNU_ARM_DEBUG
 CC_SPEC_OPTS    +=  -D_EXPORT_ -D_EFT30_
 CC_SPEC_OPTS    +=  -D_ING_APPLI_BINARY_NAME='"SDLC_SAMPLE"' -D_ING_APPLI_FAMILY='"SDLC_SAMPLE"' -D_ING_APPLI_TYPE=0x6e -D_ING_APPLI_CURRENT_CONFIG_NAME='"GNU_ARM_DEBUG"' -D_ING_APPLI_FULL_BINARY_NAME='"SDLC_SAMPLE.AGN"' -D_ING_APPLI_TELIUM1_FULL_BINARY_NAME='"SDLC_SAMPLE.SGN"' -D_ING_APPLI_TELIUM2_FULL_BINARY_NAME='"SDLC_SAMPLE.AGN"' -D_ING_APPLI_TELIUM_COMPATIBILITY='"Telium_2"' -D_ING_APPLI_SIGN_MODE='"Unsigned"' -D_ING_APPLI_CATALOG_FILE_EXTENSION='"M4X"' -D_ING_APPLI_CURRENT_CONFIG_TOOLCHAIN_ROOT_LOCATION='"C:/Arquivos\ de\ programas/Ingenico/IngeDev_7/plugins/com.ingenico.ingedev.telium.bin.win32.gnuarm.v343_7.5.0.0/os/win32/GNUARM/3.4.3"' $(INCLUDES_PATH)
 # Specific assembler options

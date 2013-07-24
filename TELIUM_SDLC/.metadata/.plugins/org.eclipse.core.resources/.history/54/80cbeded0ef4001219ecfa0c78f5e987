@@ -1,0 +1,21 @@
+[SAT]
+CertificateAppliDir=C:\Arquivos de programas\Ingenico\IngeDev_7\plugins\com.ingenico.ingedev.telium.core_7.5.1.0\defaultSystemFiles
+SignedSchemaDir=
+ApplicationDir=C:\Projetos\SDLC_SAMPLE\TELIUM_SDLC\SDLC_SAMPLE\Bin\GNU_ARM_DEBUG
+ParametersDir=C:\Projetos\SDLC_SAMPLE\TELIUM_SDLC\SDLC_SAMPLE\Bin\GNU_ARM_DEBUG
+DestinationDir=C:\Projetos\SDLC_SAMPLE\TELIUM_SDLC\SDLC_SAMPLE\Bin\GNU_ARM_DEBUG
+TempDir=C:\DOCUME~1\ADMINI~1\CONFIG~1\Temp\Telium
+
+[Schemas]
+NbSchemas=0
+
+
+[Application]
+ParameterFile=SDLC_SAMPLE_T2.TXT
+ApplicationFile=SDLC_SAMPLE.BIN
+CertificateFile=sat.C13
+CatalogFileExtension=4X
+
+[Error]
+Code=0
+msg=files correctly signed.

@@ -94,15 +94,18 @@ resetConsole ( void )
 void
 debugH ( char * acFormato, ... )
 {
-#if defined (DEBUG_H) && !defined (ING_TELIUM)
+#ifdef DEBUG_H
     char	acMostrar[1024];
     va_list vArgs;
 
-    va_start (vArgs, acFormato);
+    va_start(vArgs, acFormato);
 
-    vsprintf (acMostrar, acFormato, vArgs);
-
-    va_end (vArgs);
+#ifdef __GNUC__
+	vsprintf(acMostrar, acFormato, &vArgs);
+#else
+	vsprintf(acMostrar, acFormato, vArgs);
+#endif
+    	va_end(vArgs);
 
 	if (hPrint >= 0)
 		pprintf8859 (acMostrar , _OFF_, _pNORMAL_, _FIXED_WIDTH_);
@@ -269,7 +272,7 @@ writeDisp ( char * inBuf, int szBuf, int col, int lin )
 
 	memcpy (auxBuf, inBuf, szBuf);
 
-	gotoxy (col,lin); printf (auxBuf);
+	gotoxy (lin, col); printf (auxBuf);
 
 	return szBuf;
 }
@@ -805,7 +808,12 @@ static TLV_TREE_NODE	piDataLinkConfig	= NULL;
 STAT
 resetSDLC ( void )
 {
-	char			tcInitString[32];
+	byte 		ucDatasize			= LL_PHYSICAL_V_8_BITS;
+	byte 		ucParity			= LL_PHYSICAL_V_NO_PARITY;
+	byte 		ucStopbits			= LL_PHYSICAL_V_1_STOP;
+	doubleword 	uiBps				= LL_PHYSICAL_V_BAUDRATE_1200;
+	doubleword 	uiTimeout			= 60*100;
+	char 		tcInitString[50];
 
 	if (stsSDLC == SDLC_RESETED) return POS_SUCESS;					/* se dispositivo resetado apenas retorna */
 
@@ -842,25 +850,25 @@ resetSDLC ( void )
 	/* Baud Rate */
 	TlvTree_AddChildInteger (piPhysicalConfig,
 							 LL_PHYSICAL_T_BAUDRATE,
-							 LL_PHYSICAL_V_BAUDRATE_19200,
+							 uiBps,
 							 LL_PHYSICAL_L_BAUDRATE);
 
 	/* Data Bits */
 	TlvTree_AddChildInteger (piPhysicalConfig,
 							 LL_PHYSICAL_T_BITS_PER_BYTE,
-							 LL_PHYSICAL_V_8_BITS,					/* Outros modos tratados no nivel de aplicacao apenas, conforme documentaca */
+							 ucDatasize,							/* Outros modos tratados no nivel de aplicacao apenas, conforme documentaca */
 							 LL_PHYSICAL_L_BITS_PER_BYTE);
 
 	/* Stop Bits */
 	TlvTree_AddChildInteger (piPhysicalConfig,
 							 LL_PHYSICAL_T_STOP_BITS,
-							 LL_PHYSICAL_V_1_STOP,
+							 ucStopbits,
 							 LL_PHYSICAL_L_STOP_BITS);
 
 	/* Parity */
 	TlvTree_AddChildInteger (piPhysicalConfig,
 							 LL_PHYSICAL_T_PARITY,
-							 LL_PHYSICAL_V_NO_PARITY,
+							 ucParity,
 							 LL_PHYSICAL_L_PARITY);
 
 	/* Modem Type */
@@ -869,6 +877,13 @@ resetSDLC ( void )
 							 LL_MODEM_V_TYPE_STANDARD,
 							 LL_MODEM_L_TYPE);
 
+	tmoDiscSDLC = 600;
+
+	TlvTree_AddChildInteger(piPhysicalConfig,
+							LL_MODEM_T_DIAL_TIMEOUT,
+							uiTimeout,
+							LL_MODEM_L_DIAL_TIMEOUT);
+
 	/* Terminadores  da Linha de Comandos */
 	TlvTree_AddChildInteger (piPhysicalConfig,
 							 LL_MODEM_T_CMD_TERMINATOR,
@@ -876,7 +891,9 @@ resetSDLC ( void )
 							 LL_MODEM_L_CMD_TERMINATOR);
 
 	/* String de inicializacao do modem SDLC */
-	strcpy (tcInitString, "ATE0X3S6=1$M249$M251F4S144=16");
+	//strcpy (tcInitString, "ATW2X4S25=1&D2%C0\\N0+A8E=,,,0+MS=v22$F2S17=15+ES=6,,8+ESA=,,,,1");
+	//strcpy (tcInitString, "ATE0X3S6=1$M249$M251F4S144=16");
+	strcpy (tcInitString, "ATE0X4S144=16S145=1");
 
 	TlvTree_AddChildString (piPhysicalConfig,
 						    LL_MODEM_T_INIT_STRING,
@@ -901,9 +918,11 @@ discaSDLC ( void )
 
 	char		dial_string[28];
 
+	doubleword 	uiTimeout = 60*100;
+
 	memset (dial_string, 0, sizeof(dial_string));
 
-	tmoDiscSDLC = TMO_DISC_SDLC/10;
+	tmoDiscSDLC = 600;
 
 	for (idx = 0; idx < sizeof(parmSDLC.fone); idx++)
 	{
@@ -911,18 +930,7 @@ discaSDLC ( void )
 			parmSDLC.fone[idx] = 0;	
 	}
 
-	//strcat (dial_string, "ATD");									/* comando de discagem */
-	//if (parmSDLC.pulso != 0)
-	//{
-		//idx = strlen(dial_string);
-		//dial_string[idx]= parmSDLC.pulso;
-		//dial_string[idx+1] = '\0';
-	//}
-
-	//else
-		//strcat (dial_string, "T");
-
-	if (parmSDLC.pabx[0] != 0)										/* se tem pabx copia a string */
+	if (parmSDLC.pabx[0] != 0)										/* se tem pabx copia */
 	{
 		strcat (dial_string, parmSDLC.pabx);
 		strcat  (dial_string, ",");
@@ -948,23 +956,17 @@ discaSDLC ( void )
 							 LL_DATA_LINK_V_HDLC,
 							 LL_DATA_LINK_L_PROTOCOL);
 
+	/* Dial Timeout */
+	TlvTree_AddChildInteger (piDataLinkConfig,
+							 LL_MODEM_T_DIAL_TIMEOUT,
+							 uiTimeout,
+							 LL_MODEM_L_DIAL_TIMEOUT);
+
 	/* numero minimo de re-tentativas do send */
 	TlvTree_AddChildInteger (piDataLinkConfig,
 							 LL_HDLC_T_MIN_RESEND_REQUESTS,
 							 2,
 							 LL_HDLC_L_MIN_RESEND_REQUESTS);
-
-	/* Dial Timeout */
-	TlvTree_AddChildInteger (piDataLinkConfig,
-							 LL_MODEM_T_DIAL_TIMEOUT,
-							 tmoDiscSDLC,
-							 LL_MODEM_L_DIAL_TIMEOUT);
-
-	/* conforme documentacao configura modem para protocolo V.80 */
-	//TlvTree_AddChildInteger (piDataLinkConfig,
-							 //LL_HDLC_T_V80_MODE,
-							 //1,
-							 //LL_HDLC_L_V80_MODE);
 
 	if ((ret = LL_Configure (&hComModem, piConfig)) != LL_ERROR_OK)			/* configura o modem */
 	{
@@ -1104,7 +1106,7 @@ recvSDLC ( char * outBuf, int * sz )
 		return POS_SUCESS;
 	}
 
-	if (ct != LL_ERROR_OK)
+	if (LL_GetLastError(hComModem)!= LL_ERROR_OK)
 	{
 		debugH ("[recvSDLC]falha recepcao\n", *sz);
 		return POS_CANCEL;

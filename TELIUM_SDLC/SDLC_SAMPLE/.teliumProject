@@ -58,7 +58,7 @@
 <prebuild/>
 <postbuild/>
 </config>
-<config codeBaseAddr="0x0" compiler="gnuArm" compilerCustomOpt="-DING_TELIUM" cpuMode="thumb" dataBaseAddr="0x200000" defaultTeliumCompatibility="Telium 2" enableCPPExceptions="false" gnuOptim="-O0" linkerCustomOpt="" name="GNU_ARM_DEBUG" sign="false" teliumCompatibility="Telium 2">
+<config codeBaseAddr="0x0" compiler="gnuArm" compilerCustomOpt="-DING_TELIUM -DDEBUG_H" cpuMode="thumb" dataBaseAddr="0x200000" defaultTeliumCompatibility="Telium 2" enableCPPExceptions="false" gnuOptim="-O0" linkerCustomOpt="" name="GNU_ARM_DEBUG" sign="false" teliumCompatibility="Telium 2">
 <userIncs>
 <userInc value="Inc"/>
 <userInc value="Src\porting\inc"/>

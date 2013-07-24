@@ -783,8 +783,8 @@ recvSDLC ( char * outBuf, int * sz )
 		/* Ha dados. Transfere para o buffer sincrono. */
 
 		*sz = 0;
-
-		while ((ct = read (hComModem, &outBuf[*sz], 1)) > 0)		/* desconsiderado tratamento de fragmentos */
+		SVC_WAIT (1000);
+		while ((ct = read (hComModem, &outBuf[*sz], 1024)) > 0)		/* desconsiderado tratamento de fragmentos */
 			*sz += ct;												/* desconsiderado tratamento de lixo */
 
 		if (*sz > 0)

@@ -1,3 +1,2 @@
--8
-Connection: RAS error number 777
-Falha na tentativa de conexão porque o modem (ou outro dispositivo de conexão) no computador remoto está com defeito.
+0
+

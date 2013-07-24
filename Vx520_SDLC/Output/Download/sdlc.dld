@@ -7,7 +7,7 @@
 -i..\files\debug\signfile\flash\sdlc.out.p7s
 
 #PABX=
-#TELEFONE=08007020357
+#TELEFONE=40031273
 
 -isetgroup.15
 #LOGPORT=
